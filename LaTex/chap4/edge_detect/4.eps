@@ -1,0 +1,342 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: (ImageMagick)
+%%Title: (4.eps)
+%%CreationDate: (2013-12-07T20:17:17+06:00)
+%%BoundingBox: 0 0 292 66
+%%HiResBoundingBox: 0 0 292 66
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 1
+%%Pages: 1
+%%EndComments
+
+%%BeginDefaults
+%%EndDefaults
+
+%%BeginProlog
+%
+% Display a color image.  The image is displayed in color on
+% Postscript viewers or printers that support color, otherwise
+% it is displayed as grayscale.
+%
+/DirectClassPacket
+{
+  %
+  % Get a DirectClass packet.
+  %
+  % Parameters:
+  %   red.
+  %   green.
+  %   blue.
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile color_packet readhexstring pop pop
+  compression 0 eq
+  {
+    /number_pixels 3 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add 3 mul def
+  } ifelse
+  0 3 number_pixels 1 sub
+  {
+    pixels exch color_packet putinterval
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/DirectClassImage
+{
+  %
+  % Display a DirectClass image.
+  %
+  systemdict /colorimage known
+  {
+    columns rows 8
+    [
+      columns 0 0
+      rows neg 0 rows
+    ]
+    { DirectClassPacket } false 3 colorimage
+  }
+  {
+    %
+    % No colorimage operator;  convert to grayscale.
+    %
+    columns rows 8
+    [
+      columns 0 0
+      rows neg 0 rows
+    ]
+    { GrayDirectClassPacket } image
+  } ifelse
+} bind def
+
+/GrayDirectClassPacket
+{
+  %
+  % Get a DirectClass packet;  convert to grayscale.
+  %
+  % Parameters:
+  %   red
+  %   green
+  %   blue
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile color_packet readhexstring pop pop
+  color_packet 0 get 0.299 mul
+  color_packet 1 get 0.587 mul add
+  color_packet 2 get 0.114 mul add
+  cvi
+  /gray_packet exch def
+  compression 0 eq
+  {
+    /number_pixels 1 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add def
+  } ifelse
+  0 1 number_pixels 1 sub
+  {
+    pixels exch gray_packet put
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/GrayPseudoClassPacket
+{
+  %
+  % Get a PseudoClass packet;  convert to grayscale.
+  %
+  % Parameters:
+  %   index: index into the colormap.
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile byte readhexstring pop 0 get
+  /offset exch 3 mul def
+  /color_packet colormap offset 3 getinterval def
+  color_packet 0 get 0.299 mul
+  color_packet 1 get 0.587 mul add
+  color_packet 2 get 0.114 mul add
+  cvi
+  /gray_packet exch def
+  compression 0 eq
+  {
+    /number_pixels 1 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add def
+  } ifelse
+  0 1 number_pixels 1 sub
+  {
+    pixels exch gray_packet put
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/PseudoClassPacket
+{
+  %
+  % Get a PseudoClass packet.
+  %
+  % Parameters:
+  %   index: index into the colormap.
+  %   length: number of pixels minus one of this color (optional).
+  %
+  currentfile byte readhexstring pop 0 get
+  /offset exch 3 mul def
+  /color_packet colormap offset 3 getinterval def
+  compression 0 eq
+  {
+    /number_pixels 3 def
+  }
+  {
+    currentfile byte readhexstring pop 0 get
+    /number_pixels exch 1 add 3 mul def
+  } ifelse
+  0 3 number_pixels 1 sub
+  {
+    pixels exch color_packet putinterval
+  } for
+  pixels 0 number_pixels getinterval
+} bind def
+
+/PseudoClassImage
+{
+  %
+  % Display a PseudoClass image.
+  %
+  % Parameters:
+  %   class: 0-PseudoClass or 1-Grayscale.
+  %
+  currentfile buffer readline pop
+  token pop /class exch def pop
+  class 0 gt
+  {
+    currentfile buffer readline pop
+    token pop /depth exch def pop
+    /grays columns 8 add depth sub depth mul 8 idiv string def
+    columns rows depth
+    [
+      columns 0 0
+      rows neg 0 rows
+    ]
+    { currentfile grays readhexstring pop } image
+  }
+  {
+    %
+    % Parameters:
+    %   colors: number of colors in the colormap.
+    %   colormap: red, green, blue color packets.
+    %
+    currentfile buffer readline pop
+    token pop /colors exch def pop
+    /colors colors 3 mul def
+    /colormap colors string def
+    currentfile colormap readhexstring pop pop
+    systemdict /colorimage known
+    {
+      columns rows 8
+      [
+        columns 0 0
+        rows neg 0 rows
+      ]
+      { PseudoClassPacket } false 3 colorimage
+    }
+    {
+      %
+      % No colorimage operator;  convert to grayscale.
+      %
+      columns rows 8
+      [
+        columns 0 0
+        rows neg 0 rows
+      ]
+      { GrayPseudoClassPacket } image
+    } ifelse
+  } ifelse
+} bind def
+
+/DisplayImage
+{
+  %
+  % Display a DirectClass or PseudoClass image.
+  %
+  % Parameters:
+  %   x & y translation.
+  %   x & y scale.
+  %   label pointsize.
+  %   image label.
+  %   image columns & rows.
+  %   class: 0-DirectClass or 1-PseudoClass.
+  %   compression: 0-none or 1-RunlengthEncoded.
+  %   hex color packets.
+  %
+  gsave
+  /buffer 512 string def
+  /byte 1 string def
+  /color_packet 3 string def
+  /pixels 768 string def
+
+  currentfile buffer readline pop
+  token pop /x exch def
+  token pop /y exch def pop
+  x y translate
+  currentfile buffer readline pop
+  token pop /x exch def
+  token pop /y exch def pop
+  currentfile buffer readline pop
+  token pop /pointsize exch def pop
+  /Times-Roman findfont pointsize scalefont setfont
+  x y scale
+  currentfile buffer readline pop
+  token pop /columns exch def
+  token pop /rows exch def pop
+  currentfile buffer readline pop
+  token pop /class exch def pop
+  currentfile buffer readline pop
+  token pop /compression exch def pop
+  class 0 gt { PseudoClassImage } { DirectClassImage } ifelse
+} bind def
+%%EndProlog
+%%Page:  1 1
+%%PageBoundingBox: 0 0 292 66
+userdict begin
+DisplayImage
+0 0
+292 66
+12.000000
+292 66
+1
+1
+1
+1
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+038000000000000000000000000000000000000000000000000000000000000000000000000EC0
+0000000000000000000000000000000000000000000000000000000000000000000001F860007F
+FE000001FFFF80007FFF8000000000000000000000000000000000000000000003003000C00300
+00070000E001C000E000000000000000000000000000000000000000000002001000800180001C
+00003007000038007FFFFF80000F000000007FF800000000000000000200100080008000300000
+100C00000E00C00000E00039C0000001C00E000000000000000002001001800080006000001018
+000003008000003801E07FFE0007000380000000000000000200100100004000C0000010300000
+01810000000C03000003001C0000E0000000000000000200100100004001800078106000C00081
+0000000406000001003000003801FF8001E0000002001001000040010001CE304001F000810000
+000204000001006000000C0300C0033000000200100100006003000F03E0C0021000C100000002
+0800000100C0000006020060021800000200100100002002001800008006180041000000021800
+0003008000000204003004080000020010020000200200300000800C0800410007800210007FFE
+01801FC002040010040800000200100200001004002000010008080041000CC0021000C0000100
+306001040018040800000200100600001004006000010008040061000860021000800003002020
+010400080418000002001004000010040040000100100400210008200210010000020020100104
+000C04100000020010040000180400400001001006002100082002100080000200601001840004
+0C1000000200200400000804004000010010020021000820021000800002004010008400040810
+00000200100C0F00080C0040000300100200210008600210008000060040180084000208100000
+0200100809000808004000020010020011000CC0061000C0000400400800840003080800000200
+100819000C0800C000020010020011000780041000600004004008008400010810000002001008
+110004080080000200100200110000000810003000040040080088000188100000020010183180
+04080080000200100200110000001810001E000C00400800880000C81000000200101020800408
+008000020010020011000000101000038008004008008800005810000002001010208002080080
+0002001002001100000010080000F008004008008C000030100000040020202080020800800002
+0020020011000000100C00001C0800400800840000001000000200102020800308008000060010
+02002100000010060000060800C008008C00000010000002001020204001080080000400100200
+210000000803000003080080080088000000100000040010603080010800800004001006002100
+07800C018000018800800800880000001000000400104019800108008000040010040021000CC0
+0600E00000880080080088000000100000040010400F00010800C0000600100400210008400200
+3C000088008008008C000000100000040010800000008800400002001004002100102002000700
+00C800800800840000001000000400108000000088004000020010040021001020030001800048
+00C00800840000001000000400208000000088004000020010040021001020010000C000480040
+080084070000100000040011800000008800400002001004006300102001000060004800401800
+840D800010000004001100000000C800400002001004004200102001000030004C004010008408
+80001000000C001100FFC000480020000100080C0042001020010000100044004010018408C000
+100000180011018060004400300001000808004200102001000008004400401001040840001000
+0FF00021030030004400180001800C180082001040010000100044006010010408600010001800
+00220200180064000C000080063000810010C00100001000440020100104082000100010000062
+02000C00220007FFC08003E00182001880010000300044003020020C0830001000100000420400
+04002200000060C000000302000D8001000060004400106002080810001000100000C204000400
+23000000204000000202000600010FFFC000820018400608081800100010000182040006001180
+0000206000000602000000031800000083000D800408080C001000180007010800030020C00000
+203000000C020000000610000001810007000C0808040010000E001C0198000180607000006018
+000030030000000C20000001008000001808080600100003FFF000F00000FFC01F0003C00F8003
+E0018000001820000003006000003008080200100000000000000000000001C00E0000E00E0000
+C00000303000000600300000E0080803001000000000000000000000007FF800003FF800007FFF
+FFE01FFFFFFC001C00018004080180100000000000000000000000000000000000000000000000
+000000000007000700061800C03000000000000000000000000000000000000000000000000000
+00000001FFFC000210006060000000000000000000000000000000000000000000000000000000
+000000000001F00030C00000000000000000000000000000000000000000000000000000000000
+00000000C0001F8000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+end
+%%PageTrailer
+%%Trailer
+%%EOF

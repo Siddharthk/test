@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {2.3}3D texture VS 2D texture}{7}
 \contentsline {section}{\numberline {2.4}BRDF}{7}
 \contentsline {section}{\numberline {2.5}Polynomial Texture Maping}{7}
-\contentsline {chapter}{\numberline {3}Component Based Modeling}{8}
+\contentsline {chapter}{\numberline {3}Component Based Texture Modeling}{8}
 \contentsline {section}{\numberline {3.1}Separation into components}{8}
 \contentsline {section}{\numberline {3.2}Modelling Direct Component}{9}
 \contentsline {subsection}{\numberline {3.2.1}Shadow Modeling by Interpolation}{10}
@@ -19,15 +19,17 @@
 \contentsline {section}{\numberline {3.3}Modeling Global Component}{16}
 \contentsline {section}{\numberline {3.4}Data Acquisition}{19}
 \contentsline {section}{\numberline {3.5}Experimental Results and Analysis}{19}
-\contentsline {chapter}{\numberline {4}3D Text Extraction}{24}
-\contentsline {section}{\numberline {4.1}3D text}{24}
-\contentsline {section}{\numberline {4.2}Natural scene text}{24}
-\contentsline {section}{\numberline {4.3}Independent Component Analysis (ICA) Model}{26}
-\contentsline {section}{\numberline {4.4}Binarization process}{27}
-\contentsline {subsection}{\numberline {4.4.1}The Separation Model}{28}
-\contentsline {subsection}{\numberline {4.4.2}Thresholding}{29}
-\contentsline {section}{\numberline {4.5}Experimental Results and Analysis}{30}
-\contentsline {section}{\numberline {4.6}Conclusion}{33}
-\contentsline {chapter}{\numberline {5}Conclusion}{36}
+\contentsline {chapter}{\numberline {4}Component Based Text Segmentation}{24}
+\contentsline {section}{\numberline {4.1}Independent Component Analysis (ICA) Model}{24}
+\contentsline {section}{\numberline {4.2}Natural Scene Text Binarization}{25}
+\contentsline {section}{\numberline {4.3}Binarization process}{27}
+\contentsline {subsection}{\numberline {4.3.1}The Separation Model}{28}
+\contentsline {subsection}{\numberline {4.3.2}Thresholding}{29}
+\contentsline {section}{\numberline {4.4}Experimental Results and Analysis}{30}
+\contentsline {section}{\numberline {4.5}Applications}{31}
+\contentsline {subsection}{\numberline {4.5.1}Inscribed Text Segmentation}{31}
+\contentsline {subsection}{\numberline {4.5.2}Enhancing Edge Extraction}{31}
+\contentsline {subsection}{\numberline {4.5.3}Shadow Detection}{32}
+\contentsline {chapter}{\numberline {5}Conclusion}{41}
 {\@tempskipb 3.0ex plus 1pt\relax }
-\contentsline {chapter}{{Bibliography}}{38}
+\contentsline {chapter}{{Bibliography}}{43}

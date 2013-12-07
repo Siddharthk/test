@@ -1,3 +1,42 @@
+Separation of images into components has been a widely used technique in the field of image processing and computer vision.
+Many problems are solved by partitioning images into components. The simplest example
+is the breaking down of image into Red, Green and Blue channels/components. The aim of this thesis is to use
+the components of the image in better modeling of textures and text in scene images.
+We first introduce a framework which separates the images 
+into direct and global components is used in modeling of 3D textures.
+3D textures are often described by parametric functions for each pixel, that
+models the variation in its appearance with respect to varying lighting
+direction. However, parametric models such as Polynomial Texture Maps (PTMs)
+tend to smoothen the changes in appearance. Therefore we propose a technique to
+effectively model natural material surfaces and their interactions with changing
+light conditions. We show that the direct and global components of the image
+have different nature, and when modeled separately, leads to a more accurate and
+compact model of the 3D surface texture. Direct component is mainly affected by
+structural properties of the surface and is therefore deals with phenomena like
+shadows and specularity, which are sharply varying functions. The global
+component is used to model overall luminance and color values, a smoothly
+varying function. For a given lighting position, both components are computed
+separately and combined to render a new image. This method models sharp shadows
+and specularities, while preserving the structural relief and surface color.
+Thus rendered image have enhanced photorealism as compared to images rendered by
+existing single pixel models such as PTMs. 
 
-Abstract goes here ...
-
+Then we show that using the RGB components of the images, we can segment out the text in natural scene images.
+This is a challenging task due to the variations in color, size, and font
+of the text and the results are often affected by complex backgrounds, 
+different lighting conditions, shadows and reflections.
+A robust solution to this problem can significantly enhance
+the accuracy of scene text recognition algorithms leading to a
+variety of applications such as scene understanding, automatic
+localization and navigation, and image retrieval. 
+We propose a method to extract and binarize text from images
+that contains complex background. We use Independent
+Component Analysis (ICA) model to map out the text
+region, which is inherently uniform in nature, while removing
+shadows, specularity and reflections, which are included in
+the background. The technique identifies the text regions from
+the components extracted by ICA using a global thresholding
+method to isolate the foreground text. We show the results
+of our algorithm on some of the most complex word images
+from the ICDAR 2003 Robust Word Recognition Dataset and
+compare with previously reported methods.

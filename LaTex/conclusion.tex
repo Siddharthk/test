@@ -1,21 +1,32 @@
-The technique that we propose preserves sharpness of shadows and also models
+In this thesis, we presented component based modeling in scene images. The decomposition
+of texture image into the direct and the global components preserves sharpness of shadows and also models
 specular reflection. This causes image to appear more photorealistic and single
 point source effect is more prominent. This technique results in enhanced
 photorealism which preserves sharp shadows and specular properties from
 smoothening out. The separate model for luminance estimation provides us with
 color values which are in close agreement with the color values of the original
-image. Results obtained on re-rendering the input images show a great
-improvement over original PTM technique.
+image. The advantage of the technique is that photorealism can be achieved 
+without accurate modeling of complex real-world physical interactions. We capture
+lighting effects directly as they appear in reality. As they are captured in images, complex
+interactions like self-shadowing, inter-reflections and sub-surface scattering can be reproduced automatically. It also does not
+depend on the complexity of the scene and the surface properties of objects in the scene. 
+It depends on the number of images captured or on the representation rather than the complexity of the scene. 
+Results obtained on re-rendering the input images show a great
+improvement over original PTM technique. Applying this technique over the inscribed text also helps us to extract
+out text from degraded textured surfaces.
 
-% The principle advantage of image-based rendering techniques is that photorealism can be achieved without
-% accurate modeling of complex real-world physical interactions. You can capture and reproduce interesting
-% lighting effects directly from how they appear in reality. Since they are captured in photographs, complex
-% interactions like self-shadowing, interreflections, and sub-surface scattering can be reproduced automatically. A
-% related advantage is that the rendering cost is independent of the complexity of the scene and the surface 
-% properties of objects in the scene. The complexity of image-based methods usually depends on the number of 
-% images or on the representation rather than the complexity of the scene. Ease of acquisition is another advantage
-% of image-based rendering. Rather than requiring complex modeling or measurements, simple photographs are all 
-% that is required.
+ICA decomposition when applied on natural scene images helps us to separate the foreground(text) from the complex/textured background.
+It is an effective method to binarize text from colored scene text images containing reflective, shadowed and specular
+background. By using a blind source separation technique followed by global thresholding, we are able to clearly separate
+the text portion of the image from the background. It enables us to separate reflections, shadows and 
+specularities from natural scene texts so that the global thresholding methods can be applied afterwards to binarize the 
+text image. Experimental results on ICDAR dataset demonstrate the superiority of our method over other existing methods. 
+Possible directions for improvement of the approach includes a patch-based SVM classification for thresholding as well
+as integration of the results with a spatially aware optimization such as MRF. Working with text where the foreground and
+background have same color is also of great interest.
+ 
+
+
 % 
 % One common disadvantage of image-based rendering methods is the amount of data storage required. As a result 
 % of using a database of images as the representation rather than compact mathematical models storage sizes can be

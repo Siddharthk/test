@@ -95,38 +95,42 @@
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Niblack}}}{28}
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Sauvola}}}{28}
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {ICA + CBM}}}{28}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Some sample word images we considered in this work containing (a) reflective (b) shadowed and (c) specular background}}{29}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{29}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{29}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Foreground and Background Extracted: (a) Shadowed background and foreground text (b) Reflective background and foreground text (c) Specular background and foreground text }}{30}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{30}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{30}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{30}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Framework for the proposed method}}{30}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces (a) Original word image (b),(e),(h) R, G and B channel respectively (c),(f),(i) Independent Components, (d),(g),(j) Binarized image}}{31}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input}}}{31}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Red}}}{31}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$IC_1$}}}{31}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Binarized $IC_1$}}}{31}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Green}}}{31}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$IC_2$}}}{31}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Binarized $IC_2$}}}{31}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Blue}}}{31}
-\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$IC_3$}}}{31}
-\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {Binarized $IC_3$}}}{31}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces (a) Text containing specular highlight (b) IC (c) Otsu (d) Niblack}}{31}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{31}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{31}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{31}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{31}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Comparison of Binarization algorithms and the proposed method (From left to right Original, MRF, Kittler, Otsu, Niblack, Sauvola, Proposed) Text containing reflective background }}{32}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Comparison of Binarization algorithms and the proposed method (From left to right Original, MRF, Kittler, Otsu, Niblack, Sauvola, Proposed) Text containing shadowed background }}{33}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparison of Binarization algorithms and the proposed method (From left to right Original, MRF, Kittler, Otsu, Niblack, Sauvola, Proposed) Text containing specular background}}{34}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{35}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{34}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{34}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Foreground and Background Extracted: (a) Shadowed background and foreground text (b) Reflective background and foreground text (c) Specular background and foreground text }}{34}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{34}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{34}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{34}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Framework for the proposed method}}{35}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces (a) Original word image (b),(e),(h) R, G and B channel respectively (c),(f),(i) Independent Components, (d),(g),(j) Binarized image}}{35}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input}}}{35}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Red}}}{35}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$IC_1$}}}{35}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Binarized $IC_1$}}}{35}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Green}}}{35}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$IC_2$}}}{35}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Binarized $IC_2$}}}{35}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Blue}}}{35}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$IC_3$}}}{35}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {Binarized $IC_3$}}}{35}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces (a) Text containing specular highlight (b) IC (c) Otsu (d) Niblack}}{35}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{35}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{35}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{35}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{35}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Failure case where both the foreground and background are of same color}}{35}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Comparison of Binarization algorithms and the proposed method (From left to right Original, MRF, Kittler, Otsu, Niblack, Sauvola, Proposed) Text containing specular background}}{36}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{37}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{37}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{37}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{37}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{37}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{38}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{38}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{38}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{39}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{39}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Failure case where both the foreground and background are of same color}}{39}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{40}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces (a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d) Text extracted}}{40}
 \addvspace {1em}
