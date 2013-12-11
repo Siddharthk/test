@@ -11,7 +11,7 @@ We first separate the images into two components: one is the direct part, which 
 surface point and the structural properties of its neighborhood, while the
 second is the global part that captures overall luminance. 
 Separation of a scene into global and direct part can be done by illuminating the scene with a high
-frequency binary pattern \cite{B4}. The direct part captures the light that is
+frequency binary pattern \cite{chap3-1}. The direct part captures the light that is
 directly reflected by the surface point from the source whereas the global part
 is due to the illumination of the point from all other points of the scene (see Fig. \ref{fig:15}).
 %When a scene is lit by a source oflight, the radiance of each point in
@@ -25,17 +25,17 @@ is due to the illumination of the point from all other points of the scene (see 
 \includegraphics[height=2.5in,width=3.6in]{sep_images/sep2.eps}
 %\label{fig:subfig23} } \caption[] {Components of a sponge image: a) Original image, b) Direct c) Global
 %component.} 
-\label{fig:15} \caption[] {The luminance of scene point is due to direct illumination
+\label{fig:15} \caption{The luminance of scene point is due to direct illumination
 of the point by the source (A) and global illumination due to other
 points in the scene which is mainly due to inter-reflections (B), subsurface scattering (C), volumetric scattering (D)
-and translucency (E) 
+and translucency (E) \cite{chap3-1}
 }
 \end{figure*}
 
 \begin{figure*}[t]
 \centering
 \subfigure[$l_u=.61$,$l_v=.35$]{
-\includegraphics[scale=.46]{sep_images/sep1.eps}
+\includegraphics[height=3.3in,width=5.5in]{sep_images/sep1.eps}
 \label{fig:subfig1}
 }
 %\subfigure[Interpolated]{
@@ -128,7 +128,10 @@ primarily through shadows. On changing the lighting direction, the change in the
 luminance of the direct part is minimal as long as the surface point is directly
 illuminated. The variations are introduced, primarily by self-shadowing and
 specularity, both of which are abrupt changes as the lighting direction changes.
-The global component contains the the lighting of a surface point from other
+The local concavities in rough surfaces or textures leads to interesting 
+self shadowing effects.% \cite{chap3-1}(A Fourier Theory for Cast Shadows
+
+The global component contains the lighting of a surface point from other
 parts in a scene, and hence the captures the overall illumination as well as
 color variations of a surface with lighting direction. As the lighting direction
 changes, the luminance value of the global part varies significantly.
@@ -161,7 +164,7 @@ interpolate both specular content as well as shadows.
 \includegraphics[scale=.52]{chap3/res_2/inter.eps}
 \label{fig:subfig1}
 }
-\caption{setup}
+\caption{shadow modeling by interpolation}
 \end{figure}
 \begin{center}
 \begin{figure*}[t]
@@ -176,7 +179,7 @@ interpolate both specular content as well as shadows.
 }
 \subfigure[]{
 \includegraphics[scale=.139]{image_eps/direct+global/cloth/global_30.eps}
-\label{fig:subfig3} } \caption[] {Components of a cloth image for a specific
+\label{fig:subfig3} } \caption{Components of a cloth image for a specific
 lighting direction: a) original image, b) direct component, c) global
 component.} \label{fig:subfigureExample}
 \end{figure*}
@@ -198,9 +201,7 @@ A major difficulty in lighting interpolation is the realistic generation of
 shadows. To compute shadow masks for real scenes, our approach first infers
 shadow pixels from the illumination intrinsic image. The intensities in an
 illumination intrinsic image represent magnitudes of incident irradiance, so
-image areas with low values indicate shadowed regions. A simple thresholding can
-be done to separate out the shadow part. A suitable threshold is determined
-using Otsu's method~\cite{B9}.
+image areas with low values indicate shadowed regions. 
 
 
 %%%%%%%%%%%%%%%%%FIGURE NO 3  shadow by interpolation %%%%%%%%%%%%%%%
@@ -240,11 +241,13 @@ between the two.}  \label{fig:intExample}
 
 
 A variety of shadow detection techniques have been proposed in the past to
-capture this phenomenon in a realistic fashion \cite{B7,B10,B11,B17}. In our
+capture this phenomenon in a realistic fashion \cite{chap3-3,chap3-4,chap3-5,chap3-6}. In our
 approach, as the direct component receives only light directly from the source,
 a simple thresholding is quite effective in addition to being efficient. More
 details on various shadow algorithms and their complexities can be found in
-\cite{B16}. Once the shadow regions are detected in each of the images, we
+\cite{chap3-2}. Therefore a simple thresholding is done to separate out the shadow part. 
+A suitable threshold is determined using Otsu's method~\cite{A2}.
+Once the shadow regions are detected in each of the images, we
 proceed to capture the variations of it with lighting direction. We discuss two
 distinct approaches for this purpose, each with its own merits and
 short-comings, and show how they can be combined to derive a good shadow model.
@@ -259,7 +262,7 @@ short-comings, and show how they can be combined to derive a good shadow model.
 \includegraphics[scale=.12]{image_eps/shadow_classify/shadow.eps}
 \label{fig:subfig2} } \subfigure[]{
 \includegraphics[scale=.12]{image_eps/shadow_classify/thresh=110.eps}
-\label{fig:subfig3} } \caption[] {a) Direct component of an image computed using
+\label{fig:subfig3} } \caption{a) Direct component of an image computed using
 bilinear interpolation, b) after multiplying (a) by the shadow mask, and c)
 after adding specularity.} \label{fig:subfigureExample}
 \end{figure*}
@@ -436,7 +439,7 @@ Figure 5).
 \includegraphics[scale=.15]{image_eps/Binary_Image/cloth/45_interpol.eps}
 \label{fig:subfig3} } \subfigure[]{
 \includegraphics[scale=.15]{image_eps/Binary_Image/cloth/shadow_dist_col.eps}
-\label{fig:subfig4} }  \caption[] {a) Binarized image of cloth shadow, b) binary
+\label{fig:subfig4} }  \caption{a) Binarized image of cloth shadow, b) binary
 image as rendered by classification technique, c) binary image obtained using
 interpolation, d) distance image of pixels from classifier boundary. Blue pixels
 are closest to the hyperplane and include pixels at the edge of a shadow or
@@ -535,13 +538,13 @@ mask and adding specularity.
 %%%%%%%%%%%%%%%%%FIGURE NO 6_ global component of cloth%%%%%%%%%%%%%%%
 \begin{figure}[t]
 \centering \subfigure[]{
-\includegraphics[scale=.15]{image_eps/global/cloth/crop_theta=30_phi=105_Orig.eps}
+\includegraphics[scale=.25]{image_eps/global/cloth/crop_theta=30_phi=105_Orig.eps}
 \label{fig:subfig1} } \subfigure[]{
-\includegraphics[scale=.15]{image_eps/global/cloth/crop_theta=30_phi=105_gauss.eps}
+\includegraphics[scale=.25]{image_eps/global/cloth/crop_theta=30_phi=105_gauss.eps}
 \label{fig:subfig2} } \subfigure[]{
-\includegraphics[scale=.15]{image_eps/global/cloth/crop_theta=30_phi=105_PTM.eps}
+\includegraphics[scale=.25]{image_eps/global/cloth/crop_theta=30_phi=105_PTM.eps}
 \label{fig:subfig3} } \subfigure[]{
-\includegraphics[scale=.15]{image_eps/global/cloth/crop_theta=30_phi=105_parabola.eps}
+\includegraphics[scale=.25]{image_eps/global/cloth/crop_theta=30_phi=105_parabola.eps}
 \label{fig:subfig4} } \caption[Optional caption for list of figures] {(a)
 Original Global Image (b)Global Image modeled by Gaussian function (c)Global
 Image modeled by biquadratic (d)Global image modeled by Parabola.}
@@ -565,6 +568,7 @@ on various surfaces, the global component of illumination tends to be maximal
 when the illumination is perpendicular to the surface, and drops off in a
 symmetric fashion. We experiment with the following function for modeling the
 global component: a)Gaussian b)biquadratic polynomial, and c)paraboloid.
+
 
 
 In Gaussian function we model the luminance as a gaussian function of lighting
@@ -613,7 +617,7 @@ smoothening but they are computationally efficient with 5 coefficients per pixel
 L(l_u,l_v)= al_u^2 + bl_v^2  + cl_u + dl_v +e
 \end{equation}
 
-Figure[6 a-d]\footnote{Please view these images in soft copy for better clarity}
+Figure[6 a-d]
 shows the global component as modeled by each of the above functions. We see
 that the gaussian model provides the most accurate estimation of global
 component although all three models are similar in performance to visual
@@ -638,7 +642,7 @@ storage.
 \subfigure[]{
 \includegraphics[scale=.3]{image_eps/global/cloth/574_236_parabola.eps}
 \label{fig:subfig4} }
-\caption[] {Comparison of luminance
+\caption{Comparison of luminance
  at a pixel as modeled by different functions: a) original
 function plot at that pixel b)By Gaussian c)By Biquadratic
 d)By Parabola.}  \label{fig:subfigureExample}
@@ -667,6 +671,25 @@ the observations.
     Sand & 2.66 & 4.09 & 3.97\\ \hline
   \end{tabular}
 \end{table}
+
+
+%%%%%%%%%%%%%%%%%FIGURE NO 9%%%%%%%%%%%%%%%
+\begin{figure}[t]
+\centering
+\subfigure[]{
+\includegraphics[scale=.42]{image_eps/boxplot/plot1.eps}
+\label{fig:subfig1}
+}
+\subfigure[]{
+\includegraphics[scale=.42]{image_eps/boxplot/sponge2.eps}
+\label{fig:subfig2}
+}
+\caption{Error comparison between CBM and PTM over
+different surface textures. Red bars indicate outliers. The red line in the box
+is the mean and the blue lines are the 25th and 75th percentile.}
+\end{figure}
+
+
 
 \section{Data Acquisition}
 %\label{sec:2}
@@ -698,19 +721,18 @@ lighting direction, using component separation technique described in \cite{A9},
 we separate the image into its global and direct components. We capture 5-6 additional images which are used as 
 benchmark images for comparing results.  
 
+
 \section{Experimental Results and Analysis}
 
 The component based modeling proposed in this paper has been applied on various
 natural material textures. We present qualitative and quantitative assessment on
 texture images as obtained from our method and that obtained from the PTM over
-different natural material surfaces. Figure 9(a)-(l) \footnote{View images in
-soft copy for better clarity} shows qualitative results where we compare the
+different natural material surfaces. Figure 9(a)-(l) shows qualitative results where we compare the
 ground truth images with images obtained from our technique and with PTMs. The
 texture of sand when modeled using CBM technique, preserves prominent shadow
 regions where as these regions are significantly washed out in PTM images(Figure
 9(a)-(c)) The sponge texture (Fig 9(d)-(f)) shows a very noticeable difference
-between the two techniques \footnote{Please refer the supplementary video for a
-better comparison between CBM and PTM}.
+between the two techniques.
 
 In the PTM image, there are no sharp shadows, the specularities are washed out
 and surface relief is smoothened to some extent whereas in CBM, structural
@@ -727,22 +749,19 @@ using CBM and PTM are also plotted as a boxplot (see Figure 8).
 
 
 %%%%%%%%%%%%%%%%FIGURE NO 8%%%%%%%%%%%%%%%%
-\begin{figure}[h!p]
-\centering
-\subfigure[]{
-\includegraphics[scale=.42]{image_eps/boxplot/plot1.eps}
-\label{fig:subfig1}
-}
-\subfigure[]{
-\includegraphics[scale=.42]{image_eps/boxplot/sponge2.eps}
-\label{fig:subfig2}
-}
-\caption{Error comparison between CBM and PTM over
-different surface textures. Red bars indicate outliers. The red line in the box
-is the mean and the blue lines are the 25th and 75th percentile.}
-\end{figure}
 
-%%%%%%%%%%%%%%%%%FIGURE NO 9%%%%%%%%%%%%%%%
+
+It is clear from the the figure that the average per pixel error and the number
+of outlier points are less in the image rendered using component based modeling
+technique as compared to those rendered using PTM. However, one should note that
+the PTM based models miss the specularities completely, while CBM is possibly
+rendering some of the specularities at incorrect positions. This would result in
+a higher quantitative error for CBM, while the visual appearance is improved.
+
+In case of brown granite texture (Fig 8a-1,2), one can observe that the number
+of outliers are quite high in case of PTM. This is because the texture has
+specularities which PTM fails to captures and also the sharpness of edges in
+shadow regions are lost. The root mean square error in case of CBM is 3.5 whereas in case of PTM its 6.2. 
 \begin{figure*}[t]
 \centering
 \subfigure[Original Sand Texture]{
@@ -758,10 +777,10 @@ is the mean and the blue lines are the 25th and 75th percentile.}
 \label{fig:subfig3}
 }
 
-\end{figure*}
+%\end{figure*}
 
-\begin{figure*}[ht]
-\centering
+%\begin{figure*}[t]
+%\centering
 \subfigure[Original Sponge Texture]{
 \includegraphics[scale=.135]{image_eps/4.eps}
 \label{fig:subfig1}
@@ -774,10 +793,10 @@ is the mean and the blue lines are the 25th and 75th percentile.}
 \includegraphics[scale=.135]{image_eps/6.eps}
 \label{fig:subfig3}
 }
-\end{figure*}
-
-\begin{figure*}[ht]
-\centering
+%\end{figure*}
+%
+%\begin{figure*}[ht]
+%\centering
 \subfigure[Brown Granite]{
 \includegraphics[scale=.24]{image_eps/Data_image/granite2/crop_270_orig.eps}
 \label{fig:subfig1}
@@ -827,17 +846,35 @@ techniques. CBM images have sharp shadows and specularity and also preserve the
 appearance of surface relief.}
 \end{figure*}
 
-It is clear from the the figure that the average per pixel error and the number
-of outlier points are less in the image rendered using component based modeling
-technique as compared to those rendered using PTM. However, one should note that
-the PTM based models miss the specularities completely, while CBM is possibly
-rendering some of the specularities at incorrect positions. This would result in
-a higher quantitative error for CBM, while the visual appearance is improved.
-
-In case of brown granite texture (Fig 8a-1,2), one can observe that the number
-of outliers are quite high in case of PTM. This is because the texture has
-specularities which PTM fails to captures and also the sharpness of edges in
-shadow regions are lost. The root mean square error in case of CBM is 3.5 whereas in case of PTM its 6.2. 
+%\subfigure[CBM based Image]{
+%\includegraphics[scale=.2]{image/multiLight/crop_sand_Our_0+45.jpg}
+%\label{fig:subfig3}
+%}
+%\subfigure[PTM based Image]{
+%\includegraphics[scale=.2]{image/multiLight/crop_sand_PTM_0+45.jpg}
+%\label{fig:subfig3}
+%}
+\begin{figure}[p]
+\centering
+%\subfigure[Sponge Texture with Light source at the Bottom side]{
+%\includegraphics[scale=.1]{image/multiLight/sponge2_bottom.jpg}
+%\label{fig:subfig1}
+%}
+%\subfigure[Light source at the Top side]{
+%\includegraphics[scale=.1]{image/multiLight/sponge2_top.jpg}
+%\label{fig:subfig2}
+%}
+\subfigure[CBM based image ]{
+\includegraphics[scale=.3]{image_eps/multiLight/sponge2_bottom+top.eps}
+\label{fig:subfig3}
+}
+\subfigure[PTM based Image ]{
+\includegraphics[scale=.3]{image_eps/multiLight/sponge2_2PTM_bottom+top.eps}
+\label{fig:subfig2}
+}
+\caption{Multiple simultaneous Light Sources effect. For (a) and (c) light sources are placed at top(10$^{\circ}$) and bottom(180$^{\circ}$) side 
+of the texture. For (c) and (d) they are placed at top(10 $^{\circ}$) and top left side(45$^{\circ}$). }
+\end{figure}
 If outliers are included then rms becomes 4.9 for CBM and shoots upto 10.1 for PTM.
 In case of white granite (Fig 8a-5,6), there is not
 much difference in the average errors of the two techniques. For CBM rms error is 3.8 and 4.2 for PTM. As the texture does
@@ -863,36 +900,6 @@ But this improvement is achieved at the cost of more coefficients per pixel as c
 CBM uses a total of 19 coefficients as compared to \cite{A10} which requires the estimation of parameters- $\alpha$ (a scalar), 
 $\beta$ (3-vector) and $\gamma$ (n-vector). These parameters are estimated per pixel, separately for shadow and specularity
 modeling. Since `n' is generally 40-50, therefore total coefficients are very high as compared to ours.
-
-\begin{figure}[h]
-\centering
-%\subfigure[Sponge Texture with Light source at the Bottom side]{
-%\includegraphics[scale=.1]{image/multiLight/sponge2_bottom.jpg}
-%\label{fig:subfig1}
-%}
-%\subfigure[Light source at the Top side]{
-%\includegraphics[scale=.1]{image/multiLight/sponge2_top.jpg}
-%\label{fig:subfig2}
-%}
-\subfigure[CBM based image ]{
-\includegraphics[scale=.104]{image_eps/multiLight/sponge2_bottom+top.eps}
-\label{fig:subfig3}
-}
-\subfigure[PTM based Image ]{
-\includegraphics[scale=.104]{image_eps/multiLight/sponge2_2PTM_bottom+top.eps}
-\label{fig:subfig2}
-}
-%\subfigure[CBM based Image]{
-%\includegraphics[scale=.2]{image/multiLight/crop_sand_Our_0+45.jpg}
-%\label{fig:subfig3}
-%}
-%\subfigure[PTM based Image]{
-%\includegraphics[scale=.2]{image/multiLight/crop_sand_PTM_0+45.jpg}
-%\label{fig:subfig3}
-%}
-\caption{Multiple simultaneous Light Sources effect. For (a) and (c) light sources are placed at top(10$^{\circ}$) and bottom(180$^{\circ}$) side 
-of the texture. For (c) and (d) they are placed at top(10 $^{\circ}$) and top left side(45$^{\circ}$). }
-\end{figure}
 
 
 %\begin{figure}[h]

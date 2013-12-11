@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.6.30)  8 DEC 2013 01:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.6.30)  10 DEC 2013 09:41
 entering extended mode
  %&-line parsing enabled.
 **sampleThesis
@@ -213,10 +213,28 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \algorithmicindent=\skip56
 ) (./sampleThesis.aux
 
+LaTeX Warning: Label `fig:subfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
+
+
 LaTeX Warning: Label `fig:subfig3' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig3' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig1' multiply defined.
@@ -267,12 +285,6 @@ LaTeX Warning: Label `fig:subfig1' multiply defined.
 LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
 
 
-LaTeX Warning: Label `fig:subfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
-
-
 LaTeX Warning: Label `fig:subfig2' multiply defined.
 
 
@@ -301,48 +313,6 @@ LaTeX Warning: Label `fig:subfig3' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig3' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig3' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig3' multiply defined.
-
-
-LaTeX Warning: Label `fig:intExample' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig3' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig3' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfigureExample' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig1' multiply defined.
@@ -529,30 +499,24 @@ LaTeX Warning: Label `fig:subfig2' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `fig:11' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `fig:13' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig11' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig12' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig12' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig12' multiply defined.
@@ -570,12 +534,6 @@ LaTeX Warning: Label `fig:subfig11' multiply defined.
 LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
 
 
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
-
-
 LaTeX Warning: Label `fig:subfig12' multiply defined.
 
 
@@ -586,6 +544,12 @@ LaTeX Warning: Label `fig:subfig11' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig13' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig13' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig13' multiply defined.
@@ -618,37 +582,49 @@ LaTeX Warning: Label `fig:subfig14' multiply defined.
 LaTeX Warning: Label `sub@fig:subfig14' multiply defined.
 
 
-LaTeX Warning: Label `fig:subfig12' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig12' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
-
-
-LaTeX Warning: Label `fig:7' multiply defined.
-
-
 LaTeX Warning: Label `fig:20' multiply defined.
 
 
-LaTeX Warning: Label `fig:7' multiply defined.
-
-
-LaTeX Warning: Label `fig:7' multiply defined.
+LaTeX Warning: Label `fig:subfig11' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig11' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig11' multiply defined.
+
+
+LaTeX Warning: Label `fig:13' multiply defined.
 
 
 LaTeX Warning: Label `fig:20' multiply defined.
@@ -738,49 +714,82 @@ Missing character: There is no í in font ptmr7t!
 ]
 {\it Chapter} 1.
 (./introduction.tex
+File: texture/1.eps Graphic file (type eps)
+ <texture/1.eps>
+File: texture/2.eps Graphic file (type eps)
+ <texture/2.eps>
+File: texture/3.eps Graphic file (type eps)
+ <texture/3.eps>
+File: texture/7.eps Graphic file (type eps)
+
+<texture/7.eps>
+File: texture/8.eps Graphic file (type eps)
+ <texture/8.eps>
+File: texture/9.eps Graphic file (type eps)
+ <texture/9.eps>
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
 File: image_eps/orig_some/0.eps Graphic file (type eps)
  <image_eps/orig_some/0.eps>
 File: image_eps/orig_some/9.eps Graphic file (type eps)
- <image_eps/orig_some/9.eps>
-File: image_eps/orig_some/10.eps Graphic file (type eps)
 
-<image_eps/orig_some/10.eps>
+<image_eps/orig_some/9.eps>
+File: image_eps/orig_some/10.eps Graphic file (type eps)
+ <image_eps/orig_some/10.eps>
 File: image_eps/orig_some/26.eps Graphic file (type eps)
- <image_eps/orig_some/26.eps>
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
+
+<image_eps/orig_some/26.eps>
+File: chap3/res_2/setup.eps Graphic file (type eps)
+ <chap3/res_2/setup.eps>
+Underfull \vbox (badness 2617) has occurred while \output is active []
+
  [1
 
 ]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 255.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
+[3]
 File: sep_images/sep3.eps Graphic file (type eps)
+ <sep_images/sep3.eps>
+Underfull \vbox (badness 1189) has occurred while \output is active []
 
-<sep_images/sep3.eps>
+ [4]
+File: chap4/res_7/scene_text.eps Graphic file (type eps)
+
+<chap4/res_7/scene_text.eps>
+File: chap4/res_7/text_chall.eps Graphic file (type eps)
+ <chap4/res_7/text_chall.eps>
+Underfull \vbox (badness 1009) has occurred while \output is active []
+
+ [5]
+File: chap4/res_7/ica_model.eps Graphic file (type eps)
+
+<chap4/res_7/ica_model.eps> [6] [7]) [8]
+{\it Chapter} 2.
+(./chapter2.tex
+File: chap4/res_7/text_pipe.eps Graphic file (type eps)
+ <chap4/res_7/text_pipe.eps> [9
+
+] [10] [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
-File: chap3/res_2/setup.eps Graphic file (type eps)
-
-<chap3/res_2/setup.eps>
-Underfull \vbox (badness 4366) has occurred while \output is active []
-
- [4])
-[5]
-{\it Chapter} 2.
-(./chapter2.tex [6
-
-]) [7]
+ [12]
+Missing character: There is no Ô in font ptmr7t!
+Missing character: There is no ¨ in font ptmr7t!
+Missing character: There is no Å in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+)
+[13]
 {\it Chapter} 3.
 (./chapter3.tex
-
-LaTeX Warning: Citation `B4' on page 8 undefined on input line 14.
-
 File: sep_images/sep2.eps Graphic file (type eps)
-<sep_images/sep2.eps>
-File: sep_images/sep1.eps Graphic file (type eps)
- <sep_images/sep1.eps>
+ <sep_images/sep2.eps>
 File: images/r1.eps Graphic file (type eps)
  <images/r1.eps>
 File: images/r2.eps Graphic file (type eps)
@@ -793,24 +802,25 @@ File: images/r4.eps Graphic file (type eps)
 File: images/r5.eps Graphic file (type eps)
  <images/r5.eps>
 File: images/r6.eps Graphic file (type eps)
- <images/r6.eps> [8
+ <images/r6.eps>
+File: sep_images/sep1.eps Graphic file (type eps)
+
+<sep_images/sep1.eps> [14
 
 ]
 File: chap3/res_2/inter.eps Graphic file (type eps)
-
-<chap3/res_2/inter.eps>
+ <chap3/res_2/inter.eps>
 File: image_eps/direct+global/cloth/orig_30.eps Graphic file (type eps)
- <image_eps/direct+global/cloth/orig_30.eps>
+
+<image_eps/direct+global/cloth/orig_30.eps>
 File: image_eps/direct+global/cloth/direct_30.eps Graphic file (type eps)
 
 <image_eps/direct+global/cloth/direct_30.eps>
 File: image_eps/direct+global/cloth/global_30.eps Graphic file (type eps)
 
 <image_eps/direct+global/cloth/global_30.eps>
-
-LaTeX Warning: Citation `B9' on page 9 undefined on input line 203.
-
 File: image_eps/interpolated/phi=45.eps Graphic file (type eps)
+
 <image_eps/interpolated/phi=45.eps>
 File: image_eps/interpolated/direct_90_interpol.eps Graphic file (type eps)
 
@@ -825,38 +835,25 @@ File: image_eps/interpolated/theta=42.eps Graphic file (type eps)
 <image_eps/interpolated/theta=42.eps>
 File: image_eps/interpolated/theta=54.eps Graphic file (type eps)
  <image_eps/interpolated/theta=54.eps>
-[9]
-
-LaTeX Warning: Citation `B7' on page 10 undefined on input line 243.
-
-
-LaTeX Warning: Citation `B10' on page 10 undefined on input line 243.
-
-
-LaTeX Warning: Citation `B11' on page 10 undefined on input line 243.
-
-
-LaTeX Warning: Citation `B17' on page 10 undefined on input line 243.
-
-
-LaTeX Warning: Citation `B16' on page 10 undefined on input line 247.
-
+[15]
 File: image_eps/shadow_classify/linear.eps Graphic file (type eps)
-<image_eps/shadow_classify/linear.eps>
+ <image_eps/shadow_classify/linear.eps>
 File: image_eps/shadow_classify/shadow.eps Graphic file (type eps)
- <image_eps/shadow_classify/shadow.eps>
+
+<image_eps/shadow_classify/shadow.eps>
 File: image_eps/shadow_classify/thresh=110.eps Graphic file (type eps)
 
-<image_eps/shadow_classify/thresh=110.eps>
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 273.
- [10] [11]
-Underfull \vbox (badness 1552) has occurred while \output is active []
+<image_eps/shadow_classify/thresh=110.eps> [16] [17] [18]
 
- [12]
-[13]
+LaTeX Warning: Reference `fig:figure3' on page 19 undefined on input line 374.
+
+
+Underfull \vbox (badness 3009) has occurred while \output is active []
+
+ [19]
 File: image_eps/Binary_Image/cloth/45_orig.eps Graphic file (type eps)
- <image_eps/Binary_Image/cloth/45_orig.eps>
+
+<image_eps/Binary_Image/cloth/45_orig.eps>
 File: image_eps/Binary_Image/cloth/45_hyp.eps Graphic file (type eps)
 
 <image_eps/Binary_Image/cloth/45_hyp.eps>
@@ -865,14 +862,7 @@ File: image_eps/Binary_Image/cloth/45_interpol.eps Graphic file (type eps)
 <image_eps/Binary_Image/cloth/45_interpol.eps>
 File: image_eps/Binary_Image/cloth/shadow_dist_col.eps Graphic file (type eps)
 
-<image_eps/Binary_Image/cloth/shadow_dist_col.eps>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
+<image_eps/Binary_Image/cloth/shadow_dist_col.eps> [20] [21]
 File: image_eps/global/cloth/crop_theta=30_phi=105_Orig.eps Graphic file (type 
 eps)
 
@@ -888,13 +878,16 @@ ps)
 File: image_eps/global/cloth/crop_theta=30_phi=105_parabola.eps Graphic file (t
 ype eps)
 
-<image_eps/global/cloth/crop_theta=30_phi=105_parabola.eps> [16]
+<image_eps/global/cloth/crop_theta=30_phi=105_parabola.eps>
+Underfull \vbox (badness 4608) has occurred while \output is active []
 
-LaTeX Warning: Citation `B6' on page 17 undefined on input line 604.
+ [22]
+[23]
 
-[17]
+LaTeX Warning: Citation `B6' on page 24 undefined on input line 607.
+
 File: image_eps/global/cloth/574_236_orig.eps Graphic file (type eps)
- <image_eps/global/cloth/574_236_orig.eps>
+<image_eps/global/cloth/574_236_orig.eps>
 File: image_eps/global/cloth/574_236_gauss.eps Graphic file (type eps)
 
 <image_eps/global/cloth/574_236_gauss.eps>
@@ -904,20 +897,20 @@ File: image_eps/global/cloth/574_236_PTM.eps Graphic file (type eps)
 File: image_eps/global/cloth/574_236_parabola.eps Graphic file (type eps)
 
 <image_eps/global/cloth/574_236_parabola.eps>
-
-LaTeX Warning: Reference `fig:17' on page 18 undefined on input line 675.
-
-
-LaTeX Warning: Citation `B4' on page 18 undefined on input line 682.
-
-[18]
 File: image_eps/boxplot/plot1.eps Graphic file (type eps)
  <image_eps/boxplot/plot1.eps>
 File: image_eps/boxplot/sponge2.eps Graphic file (type eps)
- <image_eps/boxplot/sponge2.eps> [19]
-File: image_eps/Data_image/sand/crop_30_orig.eps Graphic file (type eps)
 
-<image_eps/Data_image/sand/crop_30_orig.eps>
+<image_eps/boxplot/sponge2.eps>
+
+LaTeX Warning: Reference `fig:17' on page 24 undefined on input line 697.
+
+
+LaTeX Warning: Citation `B4' on page 24 undefined on input line 704.
+
+[24] [25] [26]
+File: image_eps/Data_image/sand/crop_30_orig.eps Graphic file (type eps)
+ <image_eps/Data_image/sand/crop_30_orig.eps>
 File: image_eps/Data_image/sand/crop_30_inter2.eps Graphic file (type eps)
 
 <image_eps/Data_image/sand/crop_30_inter2.eps>
@@ -958,73 +951,51 @@ File: image_eps/Data_image/granite1/crop_286_inter.eps Graphic file (type eps)
 <image_eps/Data_image/granite1/crop_286_inter.eps>
 File: image_eps/Data_image/granite1/crop_286_PTM.eps Graphic file (type eps)
 
-<image_eps/Data_image/granite1/crop_286_PTM.eps> [20]
-File: image_eps/multiLight/sponge2_bottom+top.eps Graphic file (type eps)
+<image_eps/Data_image/granite1/crop_286_PTM.eps>
 
+LaTeX Warning: Float too large for page by 9.69351pt on input line 846.
+
+File: image_eps/multiLight/sponge2_bottom+top.eps Graphic file (type eps)
 <image_eps/multiLight/sponge2_bottom+top.eps>
 File: image_eps/multiLight/sponge2_2PTM_bottom+top.eps Graphic file (type eps)
 
-<image_eps/multiLight/sponge2_2PTM_bottom+top.eps>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [21] [22] [23]
+<image_eps/multiLight/sponge2_2PTM_bottom+top.eps>) [27] [28] [29]
 {\it Chapter} 4.
 (./chapter4.tex
-File: chap4/res_4/try.eps Graphic file (type eps)
- <chap4/res_4/try.eps>
-File: chap4/res_3/orig.eps Graphic file (type eps)
- <chap4/res_3/orig.eps>
-File: chap4/res_2/orig.eps Graphic file (type eps)
+File: chap4/res_7/framework.eps Graphic file (type eps)
+ <chap4/res_7/framework.eps>
+Underfull \vbox (badness 1762) has occurred while \output is active []
 
-<chap4/res_2/orig.eps>
-File: chap4/res_2/direct.eps Graphic file (type eps)
- <chap4/res_2/direct.eps>
-File: chap4/res_2/global.eps Graphic file (type eps)
- <chap4/res_2/global.eps>
-File: chap4/res_1/orig.eps Graphic file (type eps)
-
-<chap4/res_1/orig.eps>
-File: chap4/res_1/ica_1.eps Graphic file (type eps)
- <chap4/res_1/ica_1.eps>
-File: chap4/res_1/ica_2.eps Graphic file (type eps)
- <chap4/res_1/ica_2.eps>
-File: chap4/res_3/orig.eps Graphic file (type eps)
-
-<chap4/res_3/orig.eps>
-File: chap4/res_3/kit.eps Graphic file (type eps)
- <chap4/res_3/kit.eps>
-File: chap4/res_3/otsu.eps Graphic file (type eps)
- <chap4/res_3/otsu.eps>
-File: chap4/res_3/nib.eps Graphic file (type eps)
-
-<chap4/res_3/nib.eps>
-File: chap4/res_3/sau.eps Graphic file (type eps)
- <chap4/res_3/sau.eps>
-File: chap4/res_3/proposed.eps Graphic file (type eps)
- <chap4/res_3/proposed.eps>
-File: chap4/res_6/orig.eps Graphic file (type eps)
-
-<chap4/res_6/orig.eps>
-File: chap4/res_6/kit.eps Graphic file (type eps)
- <chap4/res_6/kit.eps>
-File: chap4/res_6/otsu.eps Graphic file (type eps)
- <chap4/res_6/otsu.eps>
-File: chap4/res_6/nib.eps Graphic file (type eps)
-
-<chap4/res_6/nib.eps>
-File: chap4/res_6/sau.eps Graphic file (type eps)
- <chap4/res_6/sau.eps>
-File: chap4/res_6/proposed.eps Graphic file (type eps)
- <chap4/res_6/proposed.eps>
-Underfull \vbox (badness 3919) has occurred while \output is active []
-
- [24
+ [30
 
 ]
-[25]
-File: chap4/res_7/scene_text.eps Graphic file (type eps)
- <chap4/res_7/scene_text.eps>
+File: results/res_3/1.eps Graphic file (type eps)
+
+<results/res_3/1.eps>
+File: results/res_3/2.eps Graphic file (type eps)
+ <results/res_3/2.eps>
+File: results/res_3/6.eps Graphic file (type eps)
+ <results/res_3/6.eps>
+File: results/res_3/3.eps Graphic file (type eps)
+
+<results/res_3/3.eps>
+File: results/res_3/4.eps Graphic file (type eps)
+ <results/res_3/4.eps>
+File: results/res_3/8.eps Graphic file (type eps)
+ <results/res_3/8.eps>
+File: results/res_3/5.eps Graphic file (type eps)
+
+<results/res_3/5.eps>
+File: results/res_3/7.eps Graphic file (type eps)
+ <results/res_3/7.eps>
+File: results/res_3/10.eps Graphic file (type eps)
+ <results/res_3/10.eps>
+Underfull \vbox (badness 7064) has occurred while \output is active []
+
+ [31]
+File: results/framework.eps Graphic file (type eps)
+
+<results/framework.eps>
 File: results/res_5/1.eps Graphic file (type eps)
  <results/res_5/1.eps>
 File: results/res_5/2.eps Graphic file (type eps)
@@ -1046,14 +1017,6 @@ File: results/res_5/8.eps Graphic file (type eps)
 File: results/res_5/9.eps Graphic file (type eps)
 
 <results/res_5/9.eps>
-Underfull \vbox (badness 5403) has occurred while \output is active []
-
- [26]
-
-LaTeX Warning: Reference `fig:1' on page 27 undefined on input line 268.
-
-File: results/framework.eps Graphic file (type eps)
-<results/framework.eps>
 File: results/IC/orig.eps Graphic file (type eps)
  <results/IC/orig.eps>
 File: results/IC/R.eps Graphic file (type eps)
@@ -1077,21 +1040,146 @@ File: results/IC/14.eps Graphic file (type eps)
 <results/IC/14.eps>
 File: results/IC/binary.eps Graphic file (type eps)
  <results/IC/binary.eps>
-Underfull \vbox (badness 1946) has occurred while \output is active []
+Underfull \vbox (badness 7451) has occurred while \output is active []
 
- [27]
-[28]
-File: results/res_4/orig.eps Graphic file (type eps)
- <results/res_4/orig.eps>
-File: results/res_4/ic.eps Graphic file (type eps)
- <results/res_4/ic.eps>
-File: results/res_4/otsu.eps Graphic file (type eps)
- <results/res_4/otsu.eps>
-File: results/res_4/nib.eps Graphic file (type eps)
+ [32]
+Underfull \vbox (badness 2809) has occurred while \output is active []
 
-<results/res_4/nib.eps>
+ [33]
+File: chap4/threshold/res1/orig.eps Graphic file (type eps)
+
+<chap4/threshold/res1/orig.eps>
+File: chap4/threshold/res1/kit.eps Graphic file (type eps)
+ <chap4/threshold/res1/kit.eps>
+File: chap4/threshold/res1/nib.eps Graphic file (type eps)
+
+<chap4/threshold/res1/nib.eps>
+File: chap4/threshold/res1/otsu.eps Graphic file (type eps)
+ <chap4/threshold/res1/otsu.eps>
+File: chap4/threshold/res1/sau.eps Graphic file (type eps)
+
+<chap4/threshold/res1/sau.eps>
+File: chap4/threshold/res2/orig.eps Graphic file (type eps)
+ <chap4/threshold/res2/orig.eps>
+File: chap4/threshold/res2/kit.eps Graphic file (type eps)
+
+<chap4/threshold/res2/kit.eps>
+File: chap4/threshold/res2/nib.eps Graphic file (type eps)
+ <chap4/threshold/res2/nib.eps>
+File: chap4/threshold/res2/otsu.eps Graphic file (type eps)
+
+<chap4/threshold/res2/otsu.eps>
+File: chap4/threshold/res2/sau.eps Graphic file (type eps)
+ <chap4/threshold/res2/sau.eps>
+File: chap4/threshold/res3/orig.eps Graphic file (type eps)
+
+<chap4/threshold/res3/orig.eps>
+File: chap4/threshold/res3/kit.eps Graphic file (type eps)
+ <chap4/threshold/res3/kit.eps>
+File: chap4/threshold/res3/nib.eps Graphic file (type eps)
+
+<chap4/threshold/res3/nib.eps>
+File: chap4/threshold/res3/otsu.eps Graphic file (type eps)
+ <chap4/threshold/res3/otsu.eps>
+File: chap4/threshold/res3/sau.eps Graphic file (type eps)
+
+<chap4/threshold/res3/sau.eps>
+File: chap4/threshold/res4/orig.eps Graphic file (type eps)
+ <chap4/threshold/res4/orig.eps>
+File: chap4/threshold/res4/kit.eps Graphic file (type eps)
+
+<chap4/threshold/res4/kit.eps>
+File: chap4/threshold/res4/nib.eps Graphic file (type eps)
+ <chap4/threshold/res4/nib.eps>
+File: chap4/threshold/res4/otsu.eps Graphic file (type eps)
+
+<chap4/threshold/res4/otsu.eps>
+File: chap4/threshold/res4/sau.eps Graphic file (type eps)
+ <chap4/threshold/res4/sau.eps>
+File: chap4/threshold/res5/orig.eps Graphic file (type eps)
+
+<chap4/threshold/res5/orig.eps>
+File: chap4/threshold/res5/kit.eps Graphic file (type eps)
+ <chap4/threshold/res5/kit.eps>
+File: chap4/threshold/res5/nib.eps Graphic file (type eps)
+
+<chap4/threshold/res5/nib.eps>
+File: chap4/threshold/res5/otsu.eps Graphic file (type eps)
+ <chap4/threshold/res5/otsu.eps>
+File: chap4/threshold/res5/sau.eps Graphic file (type eps)
+
+<chap4/threshold/res5/sau.eps>
+File: chap4/threshold/res6/orig.eps Graphic file (type eps)
+ <chap4/threshold/res6/orig.eps>
+File: chap4/threshold/res6/kit.eps Graphic file (type eps)
+
+<chap4/threshold/res6/kit.eps>
+File: chap4/threshold/res6/nib.eps Graphic file (type eps)
+ <chap4/threshold/res6/nib.eps>
+File: chap4/threshold/res6/otsu.eps Graphic file (type eps)
+
+<chap4/threshold/res6/otsu.eps>
+File: chap4/threshold/res6/sau.eps Graphic file (type eps)
+ <chap4/threshold/res6/sau.eps>
+File: chap4/threshold/res7/orig.eps Graphic file (type eps)
+
+<chap4/threshold/res7/orig.eps>
+File: chap4/threshold/res7/kit.eps Graphic file (type eps)
+ <chap4/threshold/res7/kit.eps>
+File: chap4/threshold/res7/nib.eps Graphic file (type eps)
+
+<chap4/threshold/res7/nib.eps>
+File: chap4/threshold/res7/otsu.eps Graphic file (type eps)
+ <chap4/threshold/res7/otsu.eps>
+File: chap4/threshold/res7/sau.eps Graphic file (type eps)
+
+<chap4/threshold/res7/sau.eps>
+File: chap4/threshold/res8/orig.eps Graphic file (type eps)
+ <chap4/threshold/res8/orig.eps>
+File: chap4/threshold/res8/kit.eps Graphic file (type eps)
+
+<chap4/threshold/res8/kit.eps>
+File: chap4/threshold/res8/nib.eps Graphic file (type eps)
+ <chap4/threshold/res8/nib.eps>
+File: chap4/threshold/res8/otsu.eps Graphic file (type eps)
+
+<chap4/threshold/res8/otsu.eps>
+File: chap4/threshold/res8/sau.eps Graphic file (type eps)
+ <chap4/threshold/res8/sau.eps>
+File: chap4/ground/7.eps Graphic file (type eps)
+
+<chap4/ground/7.eps>
+File: chap4/ground/8.eps Graphic file (type eps)
+ <chap4/ground/8.eps>
+File: chap4/ground/9.eps Graphic file (type eps)
+ <chap4/ground/9.eps>
+File: chap4/ground/10.eps Graphic file (type eps)
+
+<chap4/ground/10.eps>
+File: chap4/ground/11.eps Graphic file (type eps)
+ <chap4/ground/11.eps>
+File: chap4/ground/1.eps Graphic file (type eps)
+ <chap4/ground/1.eps>
+File: chap4/ground/2.eps Graphic file (type eps)
+
+<chap4/ground/2.eps>
+File: chap4/ground/3.eps Graphic file (type eps)
+ <chap4/ground/3.eps>
+File: chap4/ground/4.eps Graphic file (type eps)
+ <chap4/ground/4.eps>
+File: chap4/ground/5.eps Graphic file (type eps)
+
+<chap4/ground/5.eps>
+File: chap4/res_7/pixel_grid.eps Graphic file (type eps)
+ <chap4/res_7/pixel_grid.eps>
+File: chap4/res_7/ocr_recog.eps Graphic file (type eps)
+ <chap4/res_7/ocr_recog.eps>
+[34] [35] [36]
+
+LaTeX Warning: Reference `fig:5' on page 37 undefined on input line 633.
+
 File: results/res_2/1/orig.eps Graphic file (type eps)
- <results/res_2/1/orig.eps>
+<results/res_2/1/orig.eps>
 File: results/res_2/1/mrf.eps Graphic file (type eps)
  <results/res_2/1/mrf.eps>
 File: results/res_2/1/graph.eps Graphic file (type eps)
@@ -1194,154 +1282,81 @@ File: results/res_2/11/orig.eps Graphic file (type eps)
 <results/res_2/11/orig.eps>
 File: results/res_2/11/mrf.eps Graphic file (type eps)
  <results/res_2/11/mrf.eps>
-File: results/res_2/11/res.eps Graphic file (type eps)
+File: results/res_2/11/graph.eps Graphic file (type eps)
 
-<results/res_2/11/res.eps>
+<results/res_2/11/graph.eps>
+File: results/res_2/11/res.eps Graphic file (type eps)
+ <results/res_2/11/res.eps> [37] [38]
 File: results/res_7/1.eps Graphic file (type eps)
- <results/res_7/1.eps>
+
+<results/res_7/1.eps>
 File: results/res_7/2.eps Graphic file (type eps)
  <results/res_7/2.eps>
 File: results/res_7/3.eps Graphic file (type eps)
-
-<results/res_7/3.eps>
+ <results/res_7/3.eps>
 File: results/res_7/4.eps Graphic file (type eps)
- <results/res_7/4.eps>
-File: chap4/threshold/res1/orig.eps Graphic file (type eps)
- <chap4/threshold/res1/orig.eps>
-File: chap4/threshold/res1/kit.eps Graphic file (type eps)
 
-<chap4/threshold/res1/kit.eps>
-File: chap4/threshold/res1/nib.eps Graphic file (type eps)
- <chap4/threshold/res1/nib.eps>
-File: chap4/threshold/res1/otsu.eps Graphic file (type eps)
-
-<chap4/threshold/res1/otsu.eps>
-File: chap4/threshold/res1/sau.eps Graphic file (type eps)
- <chap4/threshold/res1/sau.eps>
-File: chap4/threshold/res2/orig.eps Graphic file (type eps)
-
-<chap4/threshold/res2/orig.eps>
-File: chap4/threshold/res2/kit.eps Graphic file (type eps)
- <chap4/threshold/res2/kit.eps>
-File: chap4/threshold/res2/nib.eps Graphic file (type eps)
-
-<chap4/threshold/res2/nib.eps>
-File: chap4/threshold/res2/otsu.eps Graphic file (type eps)
- <chap4/threshold/res2/otsu.eps>
-File: chap4/threshold/res2/sau.eps Graphic file (type eps)
-
-<chap4/threshold/res2/sau.eps>
-File: chap4/threshold/res3/orig.eps Graphic file (type eps)
- <chap4/threshold/res3/orig.eps>
-File: chap4/threshold/res3/kit.eps Graphic file (type eps)
-
-<chap4/threshold/res3/kit.eps>
-File: chap4/threshold/res3/nib.eps Graphic file (type eps)
- <chap4/threshold/res3/nib.eps>
-File: chap4/threshold/res3/otsu.eps Graphic file (type eps)
-
-<chap4/threshold/res3/otsu.eps>
-File: chap4/threshold/res3/sau.eps Graphic file (type eps)
- <chap4/threshold/res3/sau.eps>
-File: chap4/threshold/res4/orig.eps Graphic file (type eps)
-
-<chap4/threshold/res4/orig.eps>
-File: chap4/threshold/res4/kit.eps Graphic file (type eps)
- <chap4/threshold/res4/kit.eps>
-File: chap4/threshold/res4/nib.eps Graphic file (type eps)
-
-<chap4/threshold/res4/nib.eps>
-File: chap4/threshold/res4/otsu.eps Graphic file (type eps)
- <chap4/threshold/res4/otsu.eps>
-File: chap4/threshold/res4/sau.eps Graphic file (type eps)
-
-<chap4/threshold/res4/sau.eps>
-File: chap4/threshold/res5/orig.eps Graphic file (type eps)
- <chap4/threshold/res5/orig.eps>
-File: chap4/threshold/res5/kit.eps Graphic file (type eps)
-
-<chap4/threshold/res5/kit.eps>
-File: chap4/threshold/res5/nib.eps Graphic file (type eps)
- <chap4/threshold/res5/nib.eps>
-File: chap4/threshold/res5/otsu.eps Graphic file (type eps)
-
-<chap4/threshold/res5/otsu.eps>
-File: chap4/threshold/res5/sau.eps Graphic file (type eps)
- <chap4/threshold/res5/sau.eps>
-File: chap4/threshold/res6/orig.eps Graphic file (type eps)
-
-<chap4/threshold/res6/orig.eps>
-File: chap4/threshold/res6/kit.eps Graphic file (type eps)
- <chap4/threshold/res6/kit.eps>
-File: chap4/threshold/res6/nib.eps Graphic file (type eps)
-
-<chap4/threshold/res6/nib.eps>
-File: chap4/threshold/res6/otsu.eps Graphic file (type eps)
- <chap4/threshold/res6/otsu.eps>
-File: chap4/threshold/res6/sau.eps Graphic file (type eps)
-
-<chap4/threshold/res6/sau.eps>
-File: chap4/threshold/res7/orig.eps Graphic file (type eps)
- <chap4/threshold/res7/orig.eps>
-File: chap4/threshold/res7/kit.eps Graphic file (type eps)
-
-<chap4/threshold/res7/kit.eps>
-File: chap4/threshold/res7/nib.eps Graphic file (type eps)
- <chap4/threshold/res7/nib.eps>
-File: chap4/threshold/res7/otsu.eps Graphic file (type eps)
-
-<chap4/threshold/res7/otsu.eps>
-File: chap4/threshold/res7/sau.eps Graphic file (type eps)
- <chap4/threshold/res7/sau.eps>
-File: chap4/threshold/res8/orig.eps Graphic file (type eps)
-
-<chap4/threshold/res8/orig.eps>
-File: chap4/threshold/res8/kit.eps Graphic file (type eps)
- <chap4/threshold/res8/kit.eps>
-File: chap4/threshold/res8/nib.eps Graphic file (type eps)
-
-<chap4/threshold/res8/nib.eps>
-File: chap4/threshold/res8/otsu.eps Graphic file (type eps)
- <chap4/threshold/res8/otsu.eps>
-File: chap4/threshold/res8/sau.eps Graphic file (type eps)
-
-<chap4/threshold/res8/sau.eps>
-File: chap4/ground/7.eps Graphic file (type eps)
- <chap4/ground/7.eps>
-File: chap4/ground/8.eps Graphic file (type eps)
- <chap4/ground/8.eps>
-File: chap4/ground/9.eps Graphic file (type eps)
-
-<chap4/ground/9.eps>
-File: chap4/ground/10.eps Graphic file (type eps)
- <chap4/ground/10.eps>
-File: chap4/ground/11.eps Graphic file (type eps)
- <chap4/ground/11.eps>
-File: chap4/ground/1.eps Graphic file (type eps)
-
-<chap4/ground/1.eps>
-File: chap4/ground/2.eps Graphic file (type eps)
- <chap4/ground/2.eps>
-File: chap4/ground/3.eps Graphic file (type eps)
- <chap4/ground/3.eps>
-File: chap4/ground/4.eps Graphic file (type eps)
-
-<chap4/ground/4.eps>
-File: chap4/ground/5.eps Graphic file (type eps)
- <chap4/ground/5.eps>
-File: chap4/res_7/pixel_grid.eps Graphic file (type eps)
- <chap4/res_7/pixel_grid.eps>
-File: chap4/res_7/ocr_recog.eps Graphic file (type eps)
-
-<chap4/res_7/ocr_recog.eps>
-Underfull \vbox (badness 6927) has occurred while \output is active []
-
- [29]
-[30]
+<results/res_7/4.eps>
 File: results/res_6/1.eps Graphic file (type eps)
  <results/res_6/1.eps>
 File: results/res_6/2.eps Graphic file (type eps)
- <results/res_6/2.eps> [31]
+ <results/res_6/2.eps>
+
+LaTeX Warning: Reference `fig:8' on page 39 undefined on input line 951.
+
+File: chap4/res_4/try.eps Graphic file (type eps)
+<chap4/res_4/try.eps>
+File: chap4/res_3/orig.eps Graphic file (type eps)
+ <chap4/res_3/orig.eps>
+File: chap4/res_2/orig.eps Graphic file (type eps)
+ <chap4/res_2/orig.eps>
+File: chap4/res_2/direct.eps Graphic file (type eps)
+
+<chap4/res_2/direct.eps>
+File: chap4/res_2/global.eps Graphic file (type eps)
+ <chap4/res_2/global.eps>
+File: chap4/res_1/orig.eps Graphic file (type eps)
+ <chap4/res_1/orig.eps>
+File: chap4/res_1/ica_1.eps Graphic file (type eps)
+
+<chap4/res_1/ica_1.eps>
+File: chap4/res_1/ica_2.eps Graphic file (type eps)
+ <chap4/res_1/ica_2.eps>
+File: chap4/res_3/orig.eps Graphic file (type eps)
+ <chap4/res_3/orig.eps>
+File: chap4/res_3/kit.eps Graphic file (type eps)
+
+<chap4/res_3/kit.eps>
+File: chap4/res_3/otsu.eps Graphic file (type eps)
+ <chap4/res_3/otsu.eps>
+File: chap4/res_3/nib.eps Graphic file (type eps)
+ <chap4/res_3/nib.eps>
+File: chap4/res_3/sau.eps Graphic file (type eps)
+
+<chap4/res_3/sau.eps>
+File: chap4/res_3/proposed.eps Graphic file (type eps)
+ <chap4/res_3/proposed.eps>
+File: chap4/res_6/orig.eps Graphic file (type eps)
+ <chap4/res_6/orig.eps>
+File: chap4/res_6/kit.eps Graphic file (type eps)
+
+<chap4/res_6/kit.eps>
+File: chap4/res_6/otsu.eps Graphic file (type eps)
+ <chap4/res_6/otsu.eps>
+File: chap4/res_6/nib.eps Graphic file (type eps)
+ <chap4/res_6/nib.eps>
+File: chap4/res_6/sau.eps Graphic file (type eps)
+
+<chap4/res_6/sau.eps>
+File: chap4/res_6/proposed.eps Graphic file (type eps)
+ <chap4/res_6/proposed.eps>
+
+LaTeX Warning: Reference `fig:11' on page 39 undefined on input line 1138.
+
+[39]
+Underfull \vbox (badness 2495) has occurred while \output is active []
+
+ [40]
 File: chap4/edge_detect/15.eps Graphic file (type eps)
 
 <chap4/edge_detect/15.eps>
@@ -1361,27 +1376,28 @@ File: chap4/edge_detect/17.eps Graphic file (type eps)
 <chap4/edge_detect/17.eps>
 File: chap4/edge_detect/10.eps Graphic file (type eps)
  <chap4/edge_detect/10.eps>
-File: chap4/edge_detect/3.eps Graphic file (type eps)
+File: chap4/edge_detect/4.eps Graphic file (type eps)
 
-<chap4/edge_detect/3.eps>
+<chap4/edge_detect/4.eps>
 File: chap4/edge_detect/18.eps Graphic file (type eps)
  <chap4/edge_detect/18.eps>
 File: chap4/edge_detect/11.eps Graphic file (type eps)
 
 <chap4/edge_detect/11.eps>
-File: chap4/edge_detect/4.eps Graphic file (type eps)
- <chap4/edge_detect/4.eps>
-File: chap4/edge_detect/19.eps Graphic file (type eps)
-
-<chap4/edge_detect/19.eps>
-File: chap4/edge_detect/12.eps Graphic file (type eps)
- <chap4/edge_detect/12.eps>
 File: chap4/edge_detect/5.eps Graphic file (type eps)
+ <chap4/edge_detect/5.eps>
+File: chap4/edge_detect/21.eps Graphic file (type eps)
 
-<chap4/edge_detect/5.eps>
+<chap4/edge_detect/21.eps>
+File: chap4/edge_detect/14.eps Graphic file (type eps)
+ <chap4/edge_detect/14.eps>
+File: chap4/edge_detect/7.eps Graphic file (type eps)
+
+<chap4/edge_detect/7.eps>
 Missing character: There is no Ô in font ptmr7t!
 Missing character: There is no ¨ in font ptmr7t!
 Missing character: There is no Å in font ptmr7t!
+ [41]
 File: chap4/shadow/1.eps Graphic file (type eps)
  <chap4/shadow/1.eps>
 File: chap4/shadow/2.eps Graphic file (type eps)
@@ -1409,9 +1425,9 @@ File: chap4/shadow/11.eps Graphic file (type eps)
  <chap4/shadow/11.eps>
 File: chap4/shadow/12.eps Graphic file (type eps)
 
-<chap4/shadow/12.eps>) [32] [33] [34] [35] [36] [37] [38] [39] [40]
+<chap4/shadow/12.eps>) [42] [43] [44]
 {\it Chapter} 5.
-(./conclusion.tex) [41
+(./conclusion.tex) [45
 
 ] (./relatedPapers.tex
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
@@ -1421,15 +1437,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-) (./sampleThesis.bbl [42
+) (./sampleThesis.bbl [46
 
-] [43
+]
+Missing character: There is no √ in font ptmr7t!
+Missing character: There is no ° in font ptmr7t!
+ [47
 
 ]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
-) [44] (./sampleThesis.aux)
+ [48]) [49] (./sampleThesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1439,16 +1458,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 1111 ({)
-### simple group (level 1) entered at line 1109 ({)
+### simple group (level 2) entered at line 1152 ({)
+### simple group (level 1) entered at line 1150 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 2718 strings out of 493849
- 36759 string characters out of 1152846
- 107452 words of memory out of 3000000
- 5764 multiletter control sequences out of 15000+50000
+ 2748 strings out of 493849
+ 37309 string characters out of 1152846
+ 88484 words of memory out of 3000000
+ 5791 multiletter control sequences out of 15000+50000
  18294 words of font info for 61 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 32i,18n,25p,550b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,18n,24p,550b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on sampleThesis.dvi (55 pages, 160696 bytes).
+Output written on sampleThesis.dvi (60 pages, 180644 bytes).

@@ -4,10 +4,20 @@
 Robust word recognition dataset.
 \newblock {\em http://algoval.essex.ac.uk/icdar/RobustWord.html}.
 
+\bibitem{chap4-3}
+J.~Artur and A.~Mário.
+\newblock On the use of independent component analysis for image compression.
+\newblock {\em Signal Processing: Image Communication}, pages 378--389.
+
 \bibitem{C5}
 M.~Ashikhmin and P.~Shirley.
 \newblock Steerable illumination textures.
 \newblock {\em ACM Transactions on Graphics}, 21:1--19, 2002.
+
+\bibitem{chap4-1}
+M.~Bartlett, J.~Movellan, and T.~Sejnowski.
+\newblock Face recognition by independent component analysis.
+\newblock {\em IEEE Transactions on Neural Networks}, pages 1450--1464.
 
 \bibitem{C8}
 A.~Baumberg.
@@ -38,6 +48,11 @@ R.~M. Haralick and L.~G. Shapiro.
 \newblock {\em Computer Vision, Graphics and Image Processing}, 29:100--132,
   1985.
 
+\bibitem{chap4-2}
+J.~Hurri, A.~Hyvarinen, J.~Karhunen, and E.~Oja.
+\newblock Image feature extraction using independent component analysis.
+\newblock {\em IEEE Nordic Signal Processing Symposium}, 1996.
+
 \bibitem{A11}
 A.~Hyvarinen, J.~Karhunen, and E.~Oja.
 \newblock Independent component analysis.
@@ -48,11 +63,28 @@ A.~Hyvarinen and E.~Oja.
 \newblock Independent component analysis: Algorithms and applications.
 \newblock {\em Neural Networks}, 13:411--430, 2001.
 
+\bibitem{chap3-5}
+C.~Jiang and M.~Ward.
+\newblock Shadow identification.
+\newblock {\em IEEE Conf. on Computer Vision and Pattern Recognition}, pages
+  606--612, 1992.
+
+\bibitem{chap3-4}
+C.~Jiang and M.~Ward.
+\newblock Shadow segmentation and classification in a constrained environment.
+\newblock {\em In CVGIP: Image Understanding}, pages 213--225, 1994.
+
 \bibitem{A5}
 J.~Kittler, J.~Illingworth, and J.~Foglein.
 \newblock Threshold selection based on a simple image statistic.
 \newblock {\em Computer Vision, Graphics, and Image Processing}, 30:125--147,
   1985.
+
+\bibitem{chap3-6}
+A.~Leone, C.~Distante, and F.~Buccolieri.
+\newblock A texture based approach for shadow detection.
+\newblock {\em IEEE Conference on Advanced Video and Signal Based
+  Surveillance}, pages 371--376, 2005.
 
 \bibitem{C1}
 T.~Leung and J.~Malik.
@@ -77,6 +109,12 @@ A.~Mishra, K.~Alahari, and C.~Jawahar.
 \newblock An mrf model for binarization of natural scene text.
 \newblock {\em Proceedings of International Conference on Document Analysis and
   Recognition}, 2011.
+
+\bibitem{chap3-1}
+S.~Nayar, G.~Krishnan, M.~D. Grossberg, and R.~Raskar.
+\newblock Fast separation of direct and global components of a scene using high
+  frequency illumination.
+\newblock {\em ACM Trans. on Graphics (also Proc. of ACM SIGGRAPH)}, July 2006.
 
 \bibitem{A9}
 W.~Niblack.
@@ -115,6 +153,13 @@ P.~K. Sahoo, S.~Soltani, A.~K.~C. Wong, and Y.~C. Chen.
 \newblock {\em Computer Vision, Graphics and Image Processing}, 41:233--260,
   1988.
 
+\bibitem{chap3-3}
+E.~Salvador, A.~Cavallaro, and T.~Ebrahimi.
+\newblock Shadow identification and classification using invariant colour
+  models.
+\newblock {\em In IEEE International Conference on Acoustic, Speech and Signal
+  Processing}, pages 1545--1548, 2001.
+
 \bibitem{A6}
 J.~J. Sauvola and M.~Pietikainen.
 \newblock Adaptive document image binarization.
@@ -130,5 +175,10 @@ M.~Soucy, G.~Godin, R.~Baribeau, F.~Blais, and M.~Rioux.
 R.~Szupiluk and A.~Cichocki.
 \newblock Blind signal separation using second order statistics.
 \newblock {\em Proc. of SPETO}, pages 485--488, 2001.
+
+\bibitem{chap3-2}
+A.~Woo, P.~Poulin, and A.~Fournier.
+\newblock A survey of shadow algorithms.
+\newblock {\em IEEE Computer Graphics and Applications}, November 1990.
 
 \end{thebibliography}

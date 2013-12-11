@@ -1,8 +1,15 @@
 
-a)texture in scene images
-texture 
-In computer graphics,  
-texture mapping is a powerful tool which adds the surface detail to an object by wrapping
+\section{Texture in Scene Images}
+\begin{figure}[p]
+\centering
+\subfigure[]{
+\includegraphics[height=4.3in,width=5.5in]{chap4/res_7/text_pipe.eps}
+}
+\caption
+{(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
+Text extracted}
+\end{figure}
+In computer graphics, texture mapping is a powerful tool which adds the surface detail to an object by wrapping
 the color information from a digitized image. 
 Texture is applied on top of a
 polygon or 3D model to obtain a realistic rendering of it.
@@ -211,8 +218,8 @@ of incident light and view directions.
 % point as a function of lighting direction. We present an approach to printing
 % the reflectance functions of an object or scene so that its appearance is
 % modified correctly as a function of the lighting conditions when viewing the
-% print. For example, such a “photograph�? of a statue printed with our approach
-% appears to cast shadows to the right when the “photograph�? is illuminated
+% print. For example, such a “photograph��? of a statue printed with our approach
+% appears to cast shadows to the right when the “photograph��? is illuminated
 % from the left. Viewing the same print with lighting from the right will cause
 % the statue’s shadows to be cast to the left. Beyond shadows, all effects
 % due to the lighting variation, such as Lambertian shading, specularity, and
@@ -256,7 +263,7 @@ of incident light and view directions.
 % dent lighting direction returns a specular highlight, and to what
 % degree. Because both the paper and ink are designed to minimize
 % diffuse reflections, the specular return fully controls the appearance
-% of this “reflectance paper�? and is used to control its appearance as a
+% of this “reflectance paper��? and is used to control its appearance as a
 % function of lighting direction. Note that this scheme gives sufficient
 % expressive power to specify two dimensions of the 4D BRDF. We
 % choose to specify, for a single fixed viewing direction, how much
@@ -463,3 +470,124 @@ To be written.
 % these components is then further separated to obtain different physical
 % phenomena such as shadows, specularity and luminance. A final image is obtained
 % by combining the the individual models together.
+\section{Text in Scene Images}
+
+\subsection{Text Detection and Recognition}
+Detecting and reading text in scene images (also known
+as scene text localization and recognition or photo OCR)
+is an open problem of computer vision with many inter-
+esting applications, ranging from helping visually impaired
+people, translating language with an automatic input of text
+written in an unknown script, to indexing large image/video
+databases by their textual content (e.g. Google Street View,
+Flickr, etc.). Unlike traditional document OCR, none of the
+scene text recognition methods has yet achieved sufficient
+accuracy for practical applications (the winner of the most
+recent competition achieved a localization recall of only
+62% [14]), which is why the problem has been recently re-
+ceiving significant attention.
+Text localization can be computationally very expensive
+because in an image of N pixels generally any of the 2N
+subsets can correspond to text. Text localization methods
+can be divided into two groups based on how they deal with
+this issue.
+The methods in the first group exploit a sliding-window
+
+approach to localize individual characters [17] or whole
+words [6], drawing inspiration from other object detection
+methods where this approach has been has been success-
+fully applied [2, 16]. Strengths of such methods include ro-
+bustness to noise and blur, because they exploit features ag-
+gregated over the whole region of interest. The main draw-
+back is that the number of rectangles that needs to be evalu-
+ated grows rapidly when text with different scale, aspect, ro-
+tation and other distortions has to be found - an effect which
+does not occur in general object detection tasks where the
+variance of sliding window parameters is lower.
+The second, recently more popular approach [4, 13, 11,
+19, 12, 15] is based on localizing individual characters as
+connected components using local properties of an image
+(color, intensity, stroke-width, etc.). The complexity of the
+methods does not depend on the parameters of the text as
+characters of all scales and orientations can be detected in
+one pass and the connected component representation also
+provides character segmentation which can be exploited in
+an OCR stage. The biggest disadvantage of such methods
+is a dependence on the assumption that a character is a con-
+nected component, which is very brittle - a change in a sin-
+
+gle image pixel introduced by noise can cause an unpro-
+portional change in the connected component size, shape or
+other properties, which subsequently affects its classifica-
+tion. The assumption also prevents the methods from de-
+tecting characters which consist of several connected com-
+ponents or where multiple characters are joint into a single
+connected component.
+
+Several methods which focus only on a particular sub-
+problem (text localization [6, 13, 19, 4] or character respec-
+tively word cut-out recognition [3, 9]) have been published.
+Most relevantly, the method of Epstein et al. [4] converts an
+input image to a greyscale and uses the Canny detector [1]
+to find edges. Pairs of parallel edges are then used to cal-
+culate stroke width for each pixel and pixels with a similar
+stroke width are grouped together into characters. Along-
+side the aforementioned limitation of the connected compo-
+nents methods, the method also relies on a successful edge
+detection which might be problematic in noisy images and
+moreover it cannot handle ambiguities because each image
+pixel can belong to only one stroke. The proposed method
+differs radically from [4] in that it does not rely on hard de-
+cisions made by an edge detector, and in that it does not
+aim to estimate the stroke width (it actually assumes a unit
+stroke width - see Section 3.1), but rather it estimates the
+possible positions of strokes and detects characters based
+on known patterns of stroke orientations and their relative
+positions. The method of Epstein et al. provides character
+segmentation but does not perform text recognition.
+The method of Wang and Belongie [17] finds individ-
+ual characters as visual words using the sliding-window
+approach and then uses a lexicon to group characters into
+words. The method is able to cope with noisy data, but its
+generality is limited as a lexicon of words (which contains
+at most 500 words in their experiments) has to be supplied
+for each individual image and the sliding-window is limited
+to horizontal rectangles with a limited number of scales and
+aspects.
+An end-to-end text localization and recognition
+method [12] introduced by Neumann and Matas detects
+characters as a subset of Extremal Regions and then
+recognizes candidate regions in a separate OCR stage.
+The method performs well even on low contrast images
+and its computational complexity is close to real time.
+The text recognition however performs poorly on noisy
+images, because of the sensitivity induced by the connected
+component assumption. Moreover, the character represen-
+tation exploited in the method [11] is based on a direction
+of the boundary pixels chain-code, whose robustness is
+limited. For an exhaustive survey of text localization and
+recognition methods refer to the ICDAR Robust Reading
+competition results [8, 7, 14].
+
+\subsection{Text Segmentation}
+Several methods for text binarization in natural images have
+been proposed more recently. For instance, Zhu et al. [7] suggested using the ordered 
+statistics ﬁlter for estimating thresholds in the non-linear Nilblack decomposition. Howe [12]
+proposed to use the Laplacian of the image intensity for
+scanned document binarization within a Markov Random Field
+model (which is an algorithmic setup most similar to the one
+we propose below). Gatos et al. [13] used two binarized images by Sauvola’s method for original gray-scale and inverted
+images for rough estimation of background and thresholded
+the difference between original and binarized images. Ezaki
+et al. [14] proposed generating connected components by
+combination of mathematical morphology operations, edge
+extraction and Otsu thresholding of image color channels.
+Epshtein [15] suggested using a new image operator (Stroke
+Width Transform) to segment letters. Minetto et al. [16]
+proposed using toggle mapping for character segmentation in
+a multiresolutional way since natural scene images have large
+character size variations and strong background clutter.
+
+Mishra {\em et al}~\cite{A16} has recently formulated the problem of binarization as an MRF optimization problem. 
+The method shows superior performance over traditional binarization methods on many images, and we use it as the
+basis for our comparisons. However, their method is sensitive to the initial auto seeding process.

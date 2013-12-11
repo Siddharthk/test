@@ -187,6 +187,13 @@ year = 2003
   journal =    "New York: Prentice Hall",
   year = 	 "1986"
 }
+@Article{A10,
+  author = 	 "R. Szupiluk and A. Cichocki",
+  title =       "Blind signal separation using second order statistics",
+  journal =     "Proc. of SPETO",
+  year = 	 "2001",
+  pages =       "485-488"
+}
 @Article{A11,
   author = 	 "A. Hyvarinen and J. Karhunen and E. Oja",
   title =        "Independent Component Analysis",
@@ -221,4 +228,46 @@ year = 2003
  
   title =        "Robust  word recognition dataset",
   journal =      "http://algoval.essex.ac.uk/icdar/RobustWord.html"
+}
+@Article{A16,
+  author = 	 "A. Mishra and K. Alahari and C.V Jawahar",
+  title =        "An MRF Model for Binarization of Natural Scene Text",
+  journal =      "Proceedings of International Conference on Document Analysis and Recognition",
+  year = 	 "2011"
+}
+@Article{chap4-1,
+  author = 	 "M.S. Bartlett and J.R. Movellan and T.J. Sejnowski",
+  title =        "Face Recognition by Independent Component Analysis",
+  journal =      "IEEE Transactions on Neural Networks",
+  pages =        "1450-1464"
+  year = 	 "2002"
+}
+
+@Article{chap4-2,
+  author = 	 "J. Hurri and A. Hyvarinen and J. Karhunen and E. Oja",
+  title =        "Image Feature Extraction Using Independent Component Analysis",
+  journal =      "IEEE Nordic Signal Processing Symposium",
+  year = 	 "1996"
+}
+@Article{chap4-3,
+  author = 	 "J.F. Artur and A.T.F. Mário",
+  title =        "On the Use of Independent Component Analysis for Image Compression",
+  journal =      "Signal Processing: Image Communication",
+  pages =        "378-389"
+  year = 	 "2006"
+}
+@Article{chap3-1, 
+author =	"S.K. Nayar and G. Krishnan and M. D. Grossberg and R. Raskar",
+title =  	"Fast Separation of Direct and Global Components of a Scene using High Frequency Illumination",
+journal = 	"ACM Trans. on Graphics (also Proc. of ACM SIGGRAPH)",
+month = 	"July",
+year = 		"2006"
+}
+
+@Article{chap3-2, 
+author =	"A. Woo and P. Poulin and A. Fournier",
+title =  	"A Survey of Shadow Algorithms",
+journal = 	"IEEE Computer Graphics and Applications",
+month = 	"November",
+year = 		"1990"
 }

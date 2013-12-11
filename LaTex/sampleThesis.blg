@@ -2,56 +2,63 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: sampleThesis.aux
 The style file: latex8.bst
 Database file #1: sampleBib.bib
-Warning--I didn't find a database entry for "B4"
+I was expecting a `,' or a `}'---line 485 of file sampleBib.bib
+ :   
+ :   year =   "2002"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 513 of file sampleBib.bib
+ :   
+ :   year =   "2006"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "B9"
-Warning--I didn't find a database entry for "B7"
-Warning--I didn't find a database entry for "B10"
-Warning--I didn't find a database entry for "B11"
-Warning--I didn't find a database entry for "B17"
-Warning--I didn't find a database entry for "B16"
 Warning--I didn't find a database entry for "B6"
+Warning--I didn't find a database entry for "B4"
 Warning--to sort, need author or key in A15
 Warning--empty author in A15
 Warning--empty year in A15
-You've used 24 entries,
+Warning--empty year in chap4-3
+Warning--empty year in chap4-1
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            674 strings with 6896 characters,
-and the built_in function-call counts, 8320 in all, are:
-= -- 849
-> -- 351
-< -- 7
-+ -- 144
-- -- 114
-* -- 549
-:= -- 1356
-add.period$ -- 71
-call.type$ -- 24
-change.case$ -- 129
+            711 strings with 8279 characters,
+and the built_in function-call counts, 11858 in all, are:
+= -- 1206
+> -- 508
+< -- 13
++ -- 207
+- -- 166
+* -- 767
+:= -- 1903
+add.period$ -- 98
+call.type$ -- 33
+change.case$ -- 182
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 326
-empty$ -- 625
-format.name$ -- 114
-if$ -- 1769
+cite$ -- 38
+duplicate$ -- 480
+empty$ -- 874
+format.name$ -- 166
+if$ -- 2553
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 24
-newline$ -- 122
-num.names$ -- 46
-pop$ -- 106
+int.to.str$ -- 33
+missing$ -- 33
+newline$ -- 167
+num.names$ -- 64
+pop$ -- 163
 preamble$ -- 1
-purify$ -- 105
+purify$ -- 149
 quote$ -- 0
-skip$ -- 266
+skip$ -- 408
 stack$ -- 0
-substring$ -- 608
-swap$ -- 91
-text.length$ -- 7
+substring$ -- 839
+swap$ -- 158
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
-warning$ -- 3
-while$ -- 81
-width$ -- 26
-write$ -- 259
-(There were 11 warnings)
+type$ -- 132
+warning$ -- 5
+while$ -- 111
+width$ -- 35
+write$ -- 353
+(There were 2 error messages)
