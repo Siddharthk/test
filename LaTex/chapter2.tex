@@ -55,8 +55,31 @@ of natural material surfaces. The characterization of surface reflectance proper
 achieving enhanced realism of the scene. The appearance of a surface in different lighting and viewing direction/
 conditions is affected by its reflectance properties.
 3D textures are a way to model the relation between surface reflectance
-properties and illumination/viewing conditions. Fig \ref{} shows the
-3D texture mapped onto a 3D teapot model. Reflectance texture maps are one of
+properties and illumination/viewing conditions. Fig \ref{fig:model} shows the
+3D texture mapped onto a 3D teapot model. 
+Bump mapping:
+Bump mapping [Blinn 78] is one proposed solution to this
+problem where the surface normals of underlying geometry are
+allowed to vary per texture element (texel). Introducing variations
+in the surface normals causes the lighting method to render the
+surface as though it had local surface variations instead of just a
+smooth surface. As a result, when the light is moved around the
+object, highlights appear due to the bump map and the surface
+appears to be rough, grooved or similarly modified as desired.
+Bump maps can be either hand modeled or, more typically,
+calculated procedurally. Creating a bump map to be used with real
+world textures from photographs is generally difficult. Methods
+have been developed that attempt to automatically generate bump
+maps from a set of input images under known light directions
+[Rushmeier 97]. These methods have difficulty with generating
+bump maps for objects with large surface variations that cause
+self-shadowing and intra-object interreflections. In addition,
+current bump map rendering techniques do not render shadows
+due to surface variation or brightened regions due to
+interreflections.
+
+Another technique is below (brdf and ptm)
+Reflectance texture maps are one of
 the techniques that can be used to compactly represent the 3D textures. These
 maps are generated using image re-lighting techniques in which
 multiple images are captured under different lighting/viewing conditions.
@@ -70,6 +93,7 @@ multiple images are captured under different lighting/viewing conditions.
 \caption
 {(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
 Text extracted}
+\label{fig:model}
 \end{figure}
 
 
@@ -337,6 +361,7 @@ The function used in PTMs is:
 L(l_u,l_v) = al_u^2 + bl_v^2 + cl_ul_v + dl_u + el_v +f
 \end{equation}
 
+change this:
 Polynomial Texture Mapping enables greatly improved realism
 over conventional methods. Traditional texture mapping is used to
 give the impression of geometric detail in a model using an image.
@@ -806,7 +831,7 @@ has to be supplied for each individual image.
 % recognition methods refer to the ICDAR Robust Reading
 % competition results [8, 7, 14].
 % 
-% \subsection{Text Segmentation}
+\subsection{Text Segmentation}
 % 
 % When the background is uneven as a result of poor or non-uniform lighting conditions, the image will not be 
 % segmented correctly by a fixed gray-level threshold. These complex background vary dramatically depending on
