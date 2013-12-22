@@ -12,53 +12,69 @@ I was expecting a `,' or a `}'---line 513 of file sampleBib.bib
  :   year =   "2006"
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "B9"
+You're missing a field name---line 661 of file sampleBib.bib
+ : journal =  "ICPR",
+ :                   ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "B1"
+Warning--I didn't find a database entry for "B5"
+Warning--I didn't find a database entry for "B8"
+Warning--I didn't find a database entry for "B12"
+Warning--I didn't find a database entry for "B14"
+Warning--I didn't find a database entry for "B15"
+Warning--I didn't find a database entry for "B2"
+Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "B6"
 Warning--I didn't find a database entry for "B4"
+Name 2 in "Y.F. Pan and X. Hou, and C.L. Liu" has a comma at the end for entry chap2-2
+while executing---line 2137 of file latex8.bst
 Warning--to sort, need author or key in A15
 Warning--empty author in A15
 Warning--empty year in A15
 Warning--empty year in chap4-3
 Warning--empty year in chap4-1
-You've used 33 entries,
+Warning--empty year in chap4-7
+Name 2 in "Y.F. Pan and X. Hou, and C.L. Liu" has a comma at the end for entry chap2-2
+while executing---line 2221 of file latex8.bst
+You've used 49 entries,
             2118 wiz_defined-function locations,
-            711 strings with 8279 characters,
-and the built_in function-call counts, 11858 in all, are:
-= -- 1206
-> -- 508
-< -- 13
-+ -- 207
-- -- 166
-* -- 767
-:= -- 1903
-add.period$ -- 98
-call.type$ -- 33
-change.case$ -- 182
+            803 strings with 10598 characters,
+and the built_in function-call counts, 18456 in all, are:
+= -- 1862
+> -- 830
+< -- 26
++ -- 336
+- -- 276
+* -- 1184
+:= -- 2938
+add.period$ -- 146
+call.type$ -- 49
+change.case$ -- 285
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 480
-empty$ -- 874
-format.name$ -- 166
-if$ -- 2553
+cite$ -- 55
+duplicate$ -- 758
+empty$ -- 1324
+format.name$ -- 276
+if$ -- 4012
 int.to.chr$ -- 0
-int.to.str$ -- 33
-missing$ -- 33
-newline$ -- 167
-num.names$ -- 64
-pop$ -- 163
+int.to.str$ -- 49
+missing$ -- 49
+newline$ -- 247
+num.names$ -- 96
+pop$ -- 268
 preamble$ -- 1
-purify$ -- 149
+purify$ -- 236
 quote$ -- 0
-skip$ -- 408
+skip$ -- 660
 stack$ -- 0
-substring$ -- 839
-swap$ -- 158
-text.length$ -- 13
+substring$ -- 1241
+swap$ -- 279
+text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 132
-warning$ -- 5
-while$ -- 111
-width$ -- 35
-write$ -- 353
-(There were 2 error messages)
+type$ -- 196
+warning$ -- 6
+while$ -- 169
+width$ -- 51
+write$ -- 525
+(There were 5 error messages)

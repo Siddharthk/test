@@ -13,8 +13,8 @@ scene. Some of the natural scene textures are shown in Fig \ref{fig:texture}
 
 3D Texture modelling is an important area in computer graphics as it results in realistic rendering
 of natural material surfaces. The characterization of surface reflectance properties is important in
-achieving photorealism. The appearance of a surface in different lighting and viewing direction/
-conditions is affected by its reflectance properties. 3D texture actually models the relation
+achieving photorealism. The appearance of a surface in different lighting and viewing direction/conditions 
+is affected by its reflectance properties. 3D texture actually models the relation
 between surface reflectance properties and illumination direction.
 
 \begin{figure}[t]
@@ -56,24 +56,24 @@ between surface reflectance properties and illumination direction.
 \begin{figure}[hp]
 \centering
 \subfigure[]{
-\includegraphics[scale=.16]{image_eps/orig_some/0.eps}
+\includegraphics[scale=.18]{image_eps/orig_some/0.eps}
 }
 \subfigure[]{
-\includegraphics[scale=.16]{image_eps/orig_some/9.eps}
+\includegraphics[scale=.18]{image_eps/orig_some/9.eps}
 }
 \subfigure[]{
-\includegraphics[scale=.16]{image_eps/orig_some/10.eps}
+\includegraphics[scale=.18]{image_eps/orig_some/10.eps}
 }
 \subfigure[]{
-\includegraphics[scale=.16]{image_eps/orig_some/26.eps}
+\includegraphics[scale=.18]{image_eps/orig_some/26.eps}
 }
 \label{fig:3dtexture} 
 \caption{Variation in appearance of the same surface
 patch, when illuminated from different lighting directions}
 \subfigure{
 \includegraphics[scale=.58]{chap3/res_2/setup.eps}
-\label{fig:setup}
 }
+\label{fig:setup}
 \caption{Experimental setup}
 \end{figure}
 %\begin{figure}[t]
@@ -95,7 +95,7 @@ In practice, the real world surfaces are
 characterized by phenomena such as inter-reflection, self-shadowing, subsurface
 scattering, specularity, etc. These properties interact with different lighting
 directions and therefore the same surface appears different under
-different lighting condition Fig.\ref{fig:3dtexture}. 2D texture fails to capture these complex reflectance properties of a 
+different lighting condition Fig 1.2. 2D texture fails to capture these complex reflectance properties of a 
 surface and therefore a rendered surface looks highly unrealistic in case the lighting
 conditions are changed. In order to produce a realistic rendering it is necessary to capture
 and model the interaction of the material surface with different lighting
@@ -182,15 +182,14 @@ an effective approach for realistic rendering of 3D objects,
 where multi-view geometry is utilized in directly synthesizing 
 an unseen view of an object from nearby views without
 explicit surface reconstruction. The traditional object models capture the shape information in the meshes,
-while the reflectance and the surface properties are relegated in the textures. 3D models such as PTM capture the 
+while the reflectance and the surface properties are relegated in the textures. 3D models such as 
+Polynomial Texture Maps (PTM) capture the 
 surface properties more faithfully, including the effect of small scale height variation on the surface.
 
 Polynomial Texture Maps \cite{C4} belong to the class of UTFs (Uni-directional Texture Function). It is a pixel
 based technique that concisely models the surface reflectance properties using a
 polynomial model for the reflectance, dependent on two angular parameters of the
-lighting direction ($l_u$ and $l_v$). It uses a
-biquadratic polynomial function with 6 coefficients per pixel for modeling the
-reflectance. PTMs reconstruct the color of the surface under varying
+lighting direction ($l_u$ and $l_v$). PTMs reconstruct the color of the surface under varying
 lighting conditions and models real world phenomenon such as
 self-shadowing, inter-reflection and sub-surface scattering. They thus introduce
 enhanced photorealism in texture mapping.
@@ -202,8 +201,15 @@ documenting the surface texture and
 shape of paintings \cite{C13}.
 Recently, PTMs have been used in cultural heritage field to document and virtually inspect 
 several sets of small objects, such as cuneiform tablets and coins.
-In this thesis, 
-we propose an approach to image-based lighting interpolation that is
+
+But the PTM technique causes overall smoothening of light which dampens the effect
+of specularity and softens sharp shadows. The effect of point light source is
+reduced and the appearance is always similar to a diffused light source. Towards
+this end, Drew {\em et al.} \cite{chap1-1} proposed modeling of shadows and
+highlights in addition the the basic matt texture. The goal of this approach is
+specifically to interpolate between two given images, and not a 3D texture model
+of the surface.
+In this thesis, we improve upon the PTM model and propose an approach to image-based lighting interpolation that is
 based on estimates of geometry and shading from a set of input images.
 %In the following section we
 %summarize the results of our recent applications in conservation
@@ -285,11 +291,12 @@ pixels.
 \begin{figure*}[t]
 \centering
 %\subfigure[]{
-\includegraphics[height=3.4in,width=6.0in]{sep_images/sep3.eps}
+\includegraphics[height=3.7in,width=6.2in]{sep_images/sep3.eps}
 %\label{fig:subfig23} } \caption[] {Components of a sponge image: a) Original image, b) Direct c) Global
 %component.} 
-\label{fig:2}
+
 \caption{Component Based Modeling (CBM)}
+\label{fig:CBM}
 \end{figure*}
 
 \subsection{Approach}
@@ -331,6 +338,7 @@ achieve real-time rendering of enhanced 3D textures on GPU.
 % by combining the individual models together.
 The method is shown to indeed
 generate better results for non-observed lighting directions.
+A complete flowchart of our model is shown in Fig \ref{fig:CBM}
 
 
 \section{Analysis of Text in Scene Images}
@@ -345,22 +353,36 @@ generate better results for non-observed lighting directions.
 \end{figure*}
 \begin{figure*}[t]
 \centering
-\subfigure[]{
-\includegraphics[height=3.9in,width=5.3in]{chap4/res_7/text_chall.eps}
+\subfigure{
+\includegraphics[height=4.1in,width=5.5in]{chap4/res_7/text_chall.eps}
 }
 \caption
 {Scene text images containing complex background}
 \label{fig:textchallenge}
 \end{figure*}
 
-In the recent years, content-based image analysis techniques have received more attention with the advent of various digital image capture devices.
-The images captured by these devices can vary dramatically depending on lighting conditions, reflections, shadows and specularities.
-These images contain numerous degradations such as uneven lighting, complex background, multiple colours, blur etc.
-We propose a method for removing reflections, shadows and specularities in natural scene text images and extracting out the text from a single image. 
-Some natural scene text images are shown in Fig \ref{fig:scenetext}.	
+Scene text is textual content that is captured by a camera in an image.
+Reading text captured in images provides valuable information and is
+used in many content-based image
+applications such as content based web image search,
+information retrieval and mobile based text analysis
+and recognition.
 
+In the recent years, content-based image analysis techniques have received more attention with the 
+advent of various digital image capture devices.
+Applications of text localization
+and recognition in real-world images ranges widely. It is used for indexing large image/video
+databases by their textual content, sign recognition
+for foreigners, automatic license plate recognition, assisting the elderly and visually
+impaired in reading labels.
+
+The images captured by these devices can vary dramatically depending on lighting conditions, reflections, 
+shadows and specularities. Some natural scene text images are shown in Fig \ref{fig:scenetext}.
+These images contain numerous degradations such as uneven lighting, complex background, multiple colours, blur etc.
+We propose a method which removes reflections, shadows and specularities from natural scene text images and 
+binarizes the text from a single image.
 Binarization method is one of the important pre-processing steps in document image analysis system. 
-It directly affects the performance of the subsequent steps like text segmentation and recognition.
+It directly affects the performance of the subsequent step which is text recognition.
 Binarization of text can be defined as classifying individual pixels as foreground (text) or background. 
 
 There are many algorithms that aim at extracting foreground text from background in images but thresholding remains one of
@@ -368,7 +390,7 @@ the oldest form that is used in many image processing applications. Many sophist
 It is often used to segment images consisting of bright objects against dark backgrounds or vice versa \cite{A1,A3,A4}.
 It typically works well for images where the foreground and background are clearly defined.
 For color thresholding images, most algorithms convert the 
-RGB image into grayscale but here we will make use of the RGB channel as three different sources. 
+RGB image into grayscale but here we will make use of the RGB channels as three different sources/components. 
 
 Traditional thresholding based binarization can be grouped into two categories: the one which uses global
 threshold for the given images like Otsu \cite{A2}, Kittler {\em et al}. 
@@ -401,10 +423,23 @@ binary images even for the images with complex background.
 \end{figure*}
 \subsection{Problem}
 The primary issue related to segmenting text from scene images is the presence of complex/textured background. 
-When the background is uneven as a result of poor or non-uniform lighting conditions, the image will not be 
-segmented correctly by a fixed gray-level threshold. These complex background vary dramatically depending on
-lighting, specularities, reflections and shadows. The above methods applied directly to such images
-give poor results and cannot be used in OCR systems. 
+Some of the challenges are described below:
+\begin{itemize}
+\item \textbf{Noise:} Sensor noise in handheld camera devices is usually high.
+\item \textbf{Viewing Angle:} While capturing images, the text and the camera device may not be parallel.
+\item \textbf{Blur:} Some motion blur can
+appear or be created by a moving object. Camera shake with hand-held shots can result in blurry images.
+Camera not equipped with auto-focus also blurs the image.
+\item \textbf{Resolution:}Depending on the capture device, resolutions of the images can vary from low to high.
+\item \textbf{Non-planar surfaces:} Text written on non-planar objects like bottles can suffer from deformation.
+\item \textbf{Low contrast:} It is difficult
+to extract text when there is not much color difference between the foreground text and the background.
+ \item \textbf{Lighting:}
+Images containing uneven lighting, reflections, shadowing, highights make colors of the text vary drastically and thus 
+decreases analysis performance.
+Both the physical environment and uneven response/artificial lighting from the camera devices are responsible for 
+complexing the task of text extraction.
+\end{itemize}
 Some of the challenges that we encounter while segmenting natural scene text are shown in 
 Fig \ref{fig:textchallenge}.
 
@@ -419,7 +454,7 @@ ICA method obtains features that present the data through a set of
 components that are statistically independent and characterizes the data 
 in a natural way. 
 ICA based decomposition enables us to separate text from complex backgrounds containing, reflections,
-shadows and specularities. Fig \ref{fig:ICAmodel}shows the basic ICA model applied on images.
+shadows and specularities. Fig \ref{fig:ICAmodel} shows the basic ICA model applied on images.
 For binarization, we apply a global thresholding method on the independent components of the image
 and that with maximum textual properties is used for extracting the foreground text. Binarization results show 
 significant improvement in the extraction of text over other reported methods. 
