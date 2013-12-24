@@ -931,7 +931,7 @@ natural scene images. The method embeds local binarization into
 a global optimization framework. No information about the position and size of the text in an
 image is required. It can also be used for text localization and for
 recognition of the cropped text.
-Mishra {\em et al}~\cite{A16} has formulated the problem of binarization of text as an MRF optimization problem. 
+Mishra {\em et al.}~\cite{A16} has formulated the problem of binarization of text as an MRF optimization problem. 
 The method shows superior performance over traditional binarization methods on many images and we use it as the
 basis for our comparisons.
 

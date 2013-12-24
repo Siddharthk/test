@@ -355,7 +355,7 @@ year = 		"2010"
 @Article{chap4-11, 
 author =	"S. G. Narasimhan and V. Ramesh and S. K. Nayar",
 title =  	"A class of photometric invariants: Separating material from shape and illumination",
-journal = 	"ICCV",
+journal = 	"IEEE International Conference on Computer Vision (ICCV)",
 year = 		"2003"
 }
 

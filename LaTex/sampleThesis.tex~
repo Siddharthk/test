@@ -82,7 +82,7 @@
 
 %--------------------------------------------------------
 
-\chapter{Component Based Text Extraction}
+\chapter{Component Based Text Segmentation}
 \label{ch:chap4}
 \input{chapter4.tex}
 

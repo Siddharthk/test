@@ -1109,18 +1109,6 @@ Hence we propose an efficient technique which can solve this problem.
 {(a) Image containing text (b),(c) Independent components}
 \label{fig:ictext}
 \end{figure}
-
-First we capture multiple images of the inscribed text and apply our model to extract the text with the help of shadows.
-For separating the global and the direct component, we used high frequency checkerboard pattern. 
-This takes too much time as we have to capture many images.(Figure \ref{fig:IC} shows
-the independent component of the sponge texture)
-But for this, we apply an Independent Component Analysis (ICA) based method to the images captured containing text.
-This method helps in extracting out the shadows (Figure \ref{fig:ictext}). 
-Then we apply our component based model to efficiently binarize the text
-embedded (Figure 4.17, 4.18).
-
-\subsection{Enhancing Edge Detection}
-
 \begin{figure}[p]
 \centering
 \subfigure[Original text ]{
@@ -1171,6 +1159,18 @@ embedded (Figure 4.17, 4.18).
 \caption
 {Binarized text}
 \end{figure}
+First we capture multiple images of the inscribed text and apply our model to extract the text with the help of shadows.
+For separating the global and the direct component, we used high frequency checkerboard pattern. 
+This takes too much time as we have to capture many images.(Figure \ref{fig:IC} shows
+the independent component of the sponge texture)
+But for this, we apply an Independent Component Analysis (ICA) based method to the images captured containing text.
+This method helps in extracting out the shadows (Figure \ref{fig:ictext}). 
+Then we apply our component based model to efficiently binarize the text
+embedded (Figure 4.17, 4.18).
+
+\subsection{Enhancing Edge Detection}
+
+
 
 Edge/Boundary detection is a fundamental task in computer vision with its applications 
 in areas such as image segmentation, object recognition, object description, feature detection and extraction. 

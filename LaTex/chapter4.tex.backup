@@ -1061,7 +1061,7 @@ color.
 The inscriptions are generally found engraved/carved into stones, marble, metal or wood.
 Extracted of the text is important as we want to preserve our historical writings which are currently being decayed.
 However, due to effects of uncontrolled lighting condition and degradation of the material of the inscribed text,
-extracting text from these images has become challenging problem.
+extracting text from these images has become challenging problem. Fig \ref{fig:inscribe} shows the inscribed text images.
 Hence we propose an efficient technique which can solve this problem.
 \begin{figure}[t]
 \centering
@@ -1074,7 +1074,7 @@ Hence we propose an efficient technique which can solve this problem.
 \label{fig:subfig11}
 \caption
 {Inscribed Text image where both background and foreground are of same color}
-\label{fig:fail}
+\label{fig:inscribe}
 %\end{figure}
 %\begin{figure}[htbp]
 %\vspace{10mm}
@@ -1091,17 +1091,8 @@ Hence we propose an efficient technique which can solve this problem.
 \label{fig:subfig11}
 \caption
 {(a) Sponge Texture (b),(c) Independent components}
-\label{fig:2}
+\label{fig:IC}
 \end{figure}
-
-First we capture multiple images of the inscribed text and apply our model to extract the text with the help of shadows.
-For separating the global and the direct component, we used high frequency checkerboard pattern. 
-This takes too much time as we have to capture many images.(Figure \ref{fig:11} shows
-the independent component of the sponge texture)
-But for this, we apply an Independent Component Analysis (ICA) based method to the images captured containing text.
-This method helps in extracting out the shadows (Figure \ref{fig:12}). 
-Then we apply our component based model to efficiently binarize the text
-embedded (Figure \ref{fig:13}).
 \begin{figure}[h]
 \centering
 \subfigure[]{
@@ -1116,9 +1107,8 @@ embedded (Figure \ref{fig:13}).
 }
 \caption
 {(a) Image containing text (b),(c) Independent components}
-\label{fig:12}
+\label{fig:ictext}
 \end{figure}
-
 \begin{figure}[p]
 \centering
 \subfigure[Original text ]{
@@ -1140,10 +1130,9 @@ embedded (Figure \ref{fig:13}).
 \includegraphics[height=1.5in,width=1.6in]{chap4/res_3/proposed.eps}
 }
 %\includegraphics[height=.5in,width=1.6in]{chap4/res_1/ica_2.eps}
-\label{fig:subfig11}
+\label{fig:res1}
 \caption
 {Binarized text}
-\label{fig:13}
 %\end{figure}
 %\begin{figure}[t]
 \centering
@@ -1166,12 +1155,38 @@ embedded (Figure \ref{fig:13}).
 \includegraphics[height=1.5in,width=1.6in]{chap4/res_6/proposed.eps}
 }
 %\includegraphics[height=.5in,width=1.6in]{chap4/res_1/ica_2.eps}
-\label{fig:subfig11}
+\label{fig:res2}
 \caption
 {Binarized text}
-\label{fig:13}
 \end{figure}
+First we capture multiple images of the inscribed text and apply our model to extract the text with the help of shadows.
+For separating the global and the direct component, we used high frequency checkerboard pattern. 
+This takes too much time as we have to capture many images.(Figure \ref{fig:IC} shows
+the independent component of the sponge texture)
+But for this, we apply an Independent Component Analysis (ICA) based method to the images captured containing text.
+This method helps in extracting out the shadows (Figure \ref{fig:ictext}). 
+Then we apply our component based model to efficiently binarize the text
+embedded (Figure 4.17, 4.18).
 
+\subsection{Enhancing Edge Detection}
+
+
+
+Edge/Boundary detection is a fundamental task in computer vision with its applications 
+in areas such as image segmentation, object recognition, object description, feature detection and extraction. 
+It refers to the process of identifying points in an image where there are sharp discontinuities or
+the image brightness changes sharply.
+These points are ordered into a set of curved line segments known as edges.
+The abrupt changes in pixel intensity values characterizes boundaries of objects in a scene.
+The amount of data to be processed significantly reduces when we apply an edge detection algorithm.
+This helps in filtering out data which is less important and still preserving the structural
+properties of the image.
+The task of interpreting the important information content in the original 
+image may be simplified if the edge detection step is successful. However,
+due to complexities in real scene images, it is not always possible to obtain 
+clear edges which define the boundary of the object. Edge detection process is particularly sensitive to
+noise and uneven illumination conditions. There are many edge detection algorithms available.
+Each are sensitive to certain types of edges.
 \begin{figure*}[t]
 \centering
 \subfigure{
@@ -1224,24 +1239,6 @@ embedded (Figure \ref{fig:13}).
 {From left to right: Text image, Applying canny edge detector, Applying ICA model + canny edge detector}
 \label{fig:edge}
 \end{figure*}
-
-\subsection{Enhancing Edge Detection}
-Edge/Boundary detection is a fundamental task in computer vision with its applications 
-in areas such as image segmentation, object recognition, object description, feature detection and extraction. 
-It refers to the process of identifying points in an image where there are sharp discontinuities or
-the image brightness changes sharply.
-These points are ordered into a set of curved line segments known as edges.
-The abrupt changes in pixel intensity values characterizes boundaries of objects in a scene.
-The amount of data to be processed significantly reduces when we apply an edge detection algorithm.
-This helps in filtering out data which is less important and still preserving the structural
-properties of the image.
-The task of interpreting the important information content in the original 
-image may be simplified if the edge detection step is successful. However,
-due to complexities in real scene images, it is not always possible to obtain 
-clear edges which define the boundary of the object. Edge detection process is particularly sensitive to
-noise and uneven illumination conditions. There are many edge detection algorithms available.
-Each are sensitive to certain types of edges.
-
 Many models \cite{chap4-6, chap4-7} use edge detection as the first step 
 to extract text from scene images. But the performance of this step decreases when 
 complex background is present in the image.  
@@ -1344,7 +1341,7 @@ Various pixel-based and region-based methods are
 proposed to detect the shadows in an image \cite{chap4-8, chap4-9, chap4-10, chap4-11}.
 Here we show that our ICA model can be used to detect shadows and create shadow masks from the scene images.
 Fig \ref{fig:shadow} shows the shadow detected results. We first apply our ICA model followed by
-global binarization method. Although our method does not give good results if some dark objects are present in the scene
+global binarization method. Our method does not give good results if some dark objects are present in the scene
 images which are mistaken as shadows.
 %our goal is to create a system that can automatically detect shadow regions and then remove from simple images. 
 %While detecting all shadows is expected to remain hard, we make some constraints related to the structure of the images. 
