@@ -7,11 +7,11 @@ Texture refers to a surface characteristic and appearance of an object given by
 its geometry, density and surface reflectance, and the stochastic variation of
 these parameters.
 It is a detailed pattern that is mapped into a multidimensional space.
-It is an important cue in trying to achieve photorealistic
+It is an important cue in trying to achieve photo realistic
 rendering of 3D models by adding surface details or color to an object or a
-scene. Some of the natural scene textures are shown in Fig \ref{fig:texture}
+scene. Some of the natural scene textures are shown in Fig \ref{fig:natural}
 
-3D Texture modelling is an important area in computer graphics as it results in realistic rendering
+3D Texture modeling is an important area in computer graphics as it results in realistic rendering
 of natural material surfaces. The characterization of surface reflectance properties is important in
 achieving photorealism. The appearance of a surface in different lighting and viewing direction/conditions 
 is affected by its reflectance properties. 3D texture actually models the relation
@@ -38,7 +38,7 @@ between surface reflectance properties and illumination direction.
 \includegraphics[height=1.5in,width=1.8in]{texture/9.eps}
 }
 \caption{Natural Scene Textures}
-\label{fig:texture}
+\label{fig:natural}
 \end{figure}
 %2D texture modelling fails to capture the surface variation and reflectance properties under
 %varying lighting and viewing direction.They appear good only when viewed from similar lighting
@@ -95,7 +95,7 @@ In practice, the real world surfaces are
 characterized by phenomena such as inter-reflection, self-shadowing, subsurface
 scattering, specularity, etc. These properties interact with different lighting
 directions and therefore the same surface appears different under
-different lighting condition Fig 1.2. 2D texture fails to capture these complex reflectance properties of a 
+different lighting condition Fig \ref{fig:3dtexture}1.2. 2D texture fails to capture these complex reflectance properties of a 
 surface and therefore a rendered surface looks highly unrealistic in case the lighting
 conditions are changed. In order to produce a realistic rendering it is necessary to capture
 and model the interaction of the material surface with different lighting
@@ -202,15 +202,7 @@ shape of paintings \cite{C13}.
 Recently, PTMs have been used in cultural heritage field to document and virtually inspect 
 several sets of small objects, such as cuneiform tablets and coins.
 
-But the PTM technique causes overall smoothening of light which dampens the effect
-of specularity and softens sharp shadows. The effect of point light source is
-reduced and the appearance is always similar to a diffused light source. Towards
-this end, Drew {\em et al.} \cite{chap1-1} proposed modeling of shadows and
-highlights in addition the the basic matt texture. The goal of this approach is
-specifically to interpolate between two given images, and not a 3D texture model
-of the surface.
-In this thesis, we improve upon the PTM model and propose an approach to image-based lighting interpolation that is
-based on estimates of geometry and shading from a set of input images.
+
 %In the following section we
 %summarize the results of our recent applications in conservation
 %recording and comparison, analysis of archaeological materials,
@@ -259,21 +251,22 @@ based on estimates of geometry and shading from a set of input images.
 
 
 \subsection{Problem}
-Texture mapping is an important area in computer graphics which adds realism to three dimensional models.
-2D texture mapping fails to capture the surface variation and reflectance properties under
+Texture mapping is an important area in computer graphics which adds realism to three dimensional 
+models. 2D texture mapping fails to capture the surface variation and reflectance properties under
 varying lighting and viewing direction. They appear good only when viewed from similar lighting
 direction in which they were captured and fails to provide the information required for rendering other than the original
 illumination condition. But 3D textures correctly models the relation between surface reflectance
-properties and illumination conditions.The use of 3D texture modeling
+properties and illumination conditions. The use of 3D texture modeling
 results in enhanced realism of the scene.
 
-PTM technique causes overall smoothening of light which dampens the effect
+But PTM technique causes overall smoothening of light which dampens the effect
 of specularity and softens sharp shadows. The effect of point light source is
 reduced and the appearance is always similar to a diffused light source.
 Therefore we improve upon the PTM model 
 to overcome the above limitations
 and generate a complete 3D Texture model that can be evaluated at individual
-pixels.  
+pixels. We propose an approach to image-based lighting interpolation that is
+based on estimates of geometry and shading from a set of input images.
 %The current state-of-the art
 %in the field of PTM involves robust method for interpolation of shadow and specularity,Drew {\em et al.}\cite{A10} 
 %But they do not model natural material surfaces and their interactions
@@ -308,7 +301,7 @@ projector is moved to different lighting positions for the purpose of obtaining
 images with different lighting directions. Experimental setup is shown in Figure \ref{fig:setup}
 
 When we separate the image of the texture into direct and the global part, we find
-that the shadows and the specularities appear very strongly in the direct part,
+that the shadows and the specularity appear very strongly in the direct part,
 as these are phenomena that involve light that reaches the surface point
 directly from the light source. The fine details and the structure of the
 material are very prominently visible in the direct part as they are observed
@@ -328,7 +321,7 @@ to get the final image. Then for a new lighting direction, we can readily
 interpolate both specular content as well as shadows.
 The main contributions of this work are (1) Direct and Global modeling characterized by
 shadows, specularity and luminance, 
-(2) separate modeling and hence better capturing of shadows and specularities 
+(2) separate modeling and hence better capturing of shadows and specularity
 and (3) per pixel function model to
 achieve real-time rendering of enhanced 3D textures on GPU.
 % We decompose images captured at different lighting conditions into intrinsic image
@@ -371,16 +364,16 @@ and recognition.
 In the recent years, content-based image analysis techniques have received more attention with the 
 advent of various digital image capture devices.
 Applications of text localization
-and recognition in real-world images ranges widely. It is used for indexing large image/video
+and recognition in real-world images ranges widely. It is used for indexing large image
 databases by their textual content, sign recognition
 for foreigners, automatic license plate recognition, assisting the elderly and visually
 impaired in reading labels.
 
 The images captured by these devices can vary dramatically depending on lighting conditions, reflections, 
-shadows and specularities. Some natural scene text images are shown in Fig \ref{fig:scenetext}.
-These images contain numerous degradations such as uneven lighting, complex background, multiple colours, blur etc.
-We propose a method which removes reflections, shadows and specularities from natural scene text images and 
-binarizes the text from a single image.
+shadows and specularity. Some natural scene text images are shown in Fig \ref{fig:scenetext}.
+These images contain numerous degradations such as uneven lighting, complex background, multiple colors, blur etc.
+We propose a method which removes reflections, shadows and specularity from natural scene text images and 
+binarize the text from a single image.
 Binarization method is one of the important pre-processing steps in document image analysis system. 
 It directly affects the performance of the subsequent step which is text recognition.
 Binarization of text can be defined as classifying individual pixels as foreground (text) or background. 
@@ -425,17 +418,17 @@ binary images even for the images with complex background.
 The primary issue related to segmenting text from scene images is the presence of complex/textured background. 
 Some of the challenges are described below:
 \begin{itemize}
-\item \textbf{Noise:} Sensor noise in handheld camera devices is usually high.
+\item \textbf{Noise:} Sensor noise in hand held camera devices is usually high.
 \item \textbf{Viewing Angle:} While capturing images, the text and the camera device may not be parallel.
 \item \textbf{Blur:} Some motion blur can
 appear or be created by a moving object. Camera shake with hand-held shots can result in blurry images.
 Camera not equipped with auto-focus also blurs the image.
-\item \textbf{Resolution:}Depending on the capture device, resolutions of the images can vary from low to high.
+\item \textbf{Resolution:} Depending on the capture device, resolutions of the images can vary from low to high.
 \item \textbf{Non-planar surfaces:} Text written on non-planar objects like bottles can suffer from deformation.
 \item \textbf{Low contrast:} It is difficult
 to extract text when there is not much color difference between the foreground text and the background.
  \item \textbf{Lighting:}
-Images containing uneven lighting, reflections, shadowing, highights make colors of the text vary drastically and thus 
+Images containing uneven lighting, reflections, shadowing, highlights make colors of the text vary drastically and thus 
 decreases analysis performance.
 Both the physical environment and uneven response/artificial lighting from the camera devices are responsible for 
 complexing the task of text extraction.
@@ -465,7 +458,7 @@ significant improvement in the extraction of text over other reported methods.
 \section{Outline}
 
 
-In this chapter, we briefly analysed textures and text in scene images. 
+In this chapter, we briefly analyzed textures and text in scene images. 
 The rest of this thesis is organized as follows: 
 We will survey techniques related to texture mapping and scene text understanding in Chapter 2. In Chapter 3
 component based texture modeling will be discussed where we will show how each component is

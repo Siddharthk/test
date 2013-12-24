@@ -383,3 +383,186 @@ pages = 	"429-434",
 year = 		"2011"
 }
 
+@Article{chap2-4, 
+author =	"R. Lienhart and A. Wernicke",
+title =  	"Localizing and segmenting text in images and videos",
+journal = 	"Circuits and Systems for Video Technology",
+pages = 	"256-268",
+year = 		"2002"
+}
+
+@Article{chap2-5, 
+author =	"A. Coates and B. Carpenter and C. Case and S. Satheesh and B. Suresh and T. Wang and D. Wu and A. Ng",
+title =  	"Text detection and character recognition in scene images with unsupervised feature learning",
+journal = 	"International Conference on Document Analysis and Recognition (ICDAR)",
+pages = 	"440-445",
+year = 		"2011"
+}
+
+@Article{chap2-6, 
+author =	"J. Ohya and A. Shio and S. Akamatsu.",
+title =  	"Recognizing characters in scene images",
+journal = 	"IEEE Transactions on Pattern Analysis and Machine Intelligence",
+pages = 	"214-220",
+year = 		"1994"
+}
+@Article{chap2-7, 
+author =	"Y.F. Pan and X. Hou and C.L. Liu",
+title =  	"Text localization in natural scene images based on conditional random field",
+journal = 	"International Conference on Document Analysis and Recognition (ICDAR)",
+pages = 	"6-10",
+year = 		"2009"
+}
+
+@Article{chap2-8, 
+author =	"C. Yao and X. Bai and W. Liu and Y. Ma and Z. Tu",
+title =  	"Detecting texts of arbitrary orientations in natural images",
+journal = 	"In Computer Vision and Pattern Recognition (CVPR)",
+pages = 	"1083-1090",
+year = 		"2012"
+}
+
+@Article{chap2-9, 
+author =	"M. Drew and N. Hajari and Y. Hel-Or and T. Malzbender",
+title =  	"Specularity and shadow interpolation via robust polynomial texture maps",
+journal = 	"In Proceedings of the British Machine Vision Conference",
+year = 		"2009"
+}
+
+@Article{chap2-10, 
+author =	"L. Neumann and J. Matas",
+title =  	"A method for text localization and recognition in real-world images",
+journal = 	"ACCV",
+pages = 	"2067-2078",
+year = 		"2010"
+}
+
+@Article{chap2-11, 
+author =	"B. Epshtein and E. Ofek and Y. Wexler",
+title =  	"Detecting text in natural scenes with stroke width transform",
+journal = 	"CVPR",
+pages = 	"2963-2970",
+year = 		"2010"
+}
+@Article{chap2-12, 
+author =	"A. Mishra and K. Alahari and C. V. Jawahar",
+title =  	"Top-down and bottom-up cues for scene text recognition",
+journal = 	"In Computer Vision and Pattern Recognition (CVPR)",
+pages = 	"2687-2694",
+year = 		"2012"
+}
+
+@Article{chap2-13, 
+author =	"C. Li and X. Ding and Y. Wu",
+title =  	"Automatic text location in natural scene images",
+journal = 	"International Conference on Document Analysis and Recognition",
+pages = 	"1069-1073",
+year = 		"2001"
+}
+
+@Article{chap2-14, 
+author =	"K. Kim and H. Byun and Y. Song and Y. Choi and S. Chi and K. Kim and Y. Chung",
+title =  	"Scene text extraction in natural scene images using hierarchical feature combining and verification",
+journal = 	"ICPR",
+pages = 	"679-682",
+year = 		"2004"
+}
+
+@Article{chap2-15, 
+author =	"L. Neumann and J. Matas",
+title =  	"Real-time scene text localization and recognition",
+journal = 	"CVPR",
+pages = 	"3538-3545",
+year = 		"2012"
+}
+
+@Article{chap2-16, 
+author =	"L. Neumann and J. Matas",
+title =  	"Scene Text Localization and Recognition with Oriented Stroke Detection",
+journal = 	"IEEE International Conference on Computer Vision (ICCV)",
+pages = 	"97-104",
+year = 		"2013"
+}
+
+@Article{chap2-17, 
+author =	"J.F. Blinn",
+title =  	"Computer Display of Curved Surfacesn",
+journal = 	"Ph.D. Thesis",
+year = 		"1978"
+}
+
+@Article{chap2-18, 
+author =	"F. Sillion and J. Arvo and S. Westin and D. Greenberg",
+title =  	"A Global Illumination Solution for General Reflectance Distributions",
+journal = 	"Computer Graphics (SIGGRAPH 91 Proceedings)",
+pages = 	"187-196",
+year = 		"1991"
+}
+
+@Article{chap2-19, 
+author =	"E. Lafortune and S.C. Foo and K. Torrance and D. Greenberg",
+title =  	"Non-Linear Approximation of Reflectance Functions",
+journal = 	"Computer Graphics (SIGGRAPH 97 Proceedings)",
+pages = 	"117-126",
+year = 		"1997"
+}
+
+@Article{chap2-20, 
+author =	"T.B. Phong",
+title =  	"Illumination for Computer Generated Images",
+journal = 	"Communications of the ACM ",
+pages = 	"311-317",
+year = 		"1975"
+}
+
+@Article{chap2-21, 
+author =	"X. He and K. Torrance and F. Sillion and D. Greenberg",
+title =  	"Comprehensive Physical Model for Light Reflection",
+journal = 	" Computer Graphics (SIGGRAPH 91 Proceedings)",
+pages = 	"175-186",
+year = 		"1991"
+}
+
+@Article{chap2-22, 
+author =	"F.E. Nicodemus and J.C. Richmond and J.J. Hsai",
+title =  	"Geometrical Considerations and Nomenclature for Reflectance",
+journal = 	" U.S. Dept. of Commerce, National Bureau of Standards",
+year = 		"1977"
+}
+
+@Article{chap2-23, 
+author =	"P. Stathis and E. Kavallieratou and N. Papamarkos",
+title =  	"An evaluation technique for binarization algorithms",
+journal = 	"J. UCS",
+pages = 	"3011-3030",
+year = 		"2008"
+}
+
+@Article{chap2-24, 
+author =	"T. Wakahara and K. Kita",
+title =  	"Binarization of color characters in scene images using k-means clustering and support vector machines",
+journal = 	"ICPR",
+pages = 	"3183-3186",
+year = 		"2010"
+}
+
+@Article{chap2-25, 
+author =	"C. Thillou and B. Gosselin",
+title =  	"Color binarization for complex camera-based images",
+journal = 	"Electronic Imaging Conference of the International Society for Optical Imaging",
+year = 		"2005"
+}
+
+@Article{chap2-26, 
+author =	"Y. Zhou and J. Feild and E Miller and R Wang",
+title =  	"Scene Text Segmentation via Inverse Rendering",
+journal = 	"In Proceedings of the International Conference on Document Analysis and Recognition",
+year = 		"2013"
+}
+
+@Article{chap2-27, 
+author =	"J. Feild and E. L. Miller",
+title =  	"Improving Open-Vocabulary Scene Text Recognition",
+journal = 	"In Proceedings of the International Conference on Document Analysis and Recognition",
+year = 		"2013"
+}

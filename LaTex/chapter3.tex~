@@ -13,7 +13,7 @@ second is the global part that captures overall luminance.
 Separation of a scene into global and direct part can be done by illuminating the scene with a high
 frequency binary pattern \cite{chap3-1}. The direct part captures the light that is
 directly reflected by the surface point from the source whereas the global part
-is due to the illumination of the point from all other points of the scene (see Fig. \ref{fig:15}).
+is due to the illumination of the point from all other points of the scene (see Fig \ref{fig:15}).
 The direct and global components of the scene are shown in Fig \ref{fig:direct}.
 %When a scene is lit by a source oflight, the radiance of each point in
 %the scene can be viewed as having two components, namely, direct
@@ -34,23 +34,23 @@ and translucency (E) \cite{chap3-1}
 \end{figure*}
 \begin{figure*}[t]
 \centering
-\subfigure[$l_u=.61$,$l_v=.35$]{
+\subfigure[Scene Image]{
 \includegraphics[scale=.26]{images/r1.eps}
 \label{fig:subfig1}
 }
-\subfigure[Interpolated]{
+\subfigure[Direct Component]{
 \includegraphics[scale=.26]{images/r2.eps}
 \label{fig:subfig2}
 }
-\subfigure[$l_u=-.61$,$l_v=-.35$]{
+\subfigure[Global Component]{
 \includegraphics[scale=.26]{images/r3.eps}
 \label{fig:subfig3}
 }
-\subfigure[Scene][$l_u=.86$,$l_v=0$]{
+\subfigure[Scene Image]{
 \includegraphics[scale=.23]{images/r4.eps}
 \label{fig:subfig1}
 }
-\subfigure[Direct Component][Interpolated]{
+\subfigure[Direct Component]{
 \includegraphics[scale=.23]{images/r5.eps}
 \label{fig:subfig2}
 }
@@ -96,7 +96,7 @@ global images using a set of shifted checkerboard illumination patterns}\label{f
 In our experiments, we used checkerboard pattern that were 10x10 pixels in
 size and was shifted by 5 times (by 3 pixels each time) in each of
 the two dimensions to capture a total of 25 images. The separation
-step is given in Figure \ref{fig:16}.
+step is given in Fig \ref{fig:16}.
 
 % \begin{figure}[t]
 % \centering
@@ -156,15 +156,33 @@ interpolate both specular content as well as shadows.
 % The global component contains the lighting of a surface point from other
 % parts in a scene, and hence captures the overall illumination as well as
 % color variations of a surface with lighting direction.
-
 \begin{figure}[t]
 \centering
 \subfigure{
 \includegraphics[scale=.52]{chap3/res_2/inter.eps}
-\label{fig:subfig1}
 }
-\caption{shadow modeling by interpolation}
+\label{fig:shadowmodel}
+\caption{Shadow modeling by interpolation}
 \end{figure}
+
+\section{Modeling Direct Component}
+
+As noted before, the direct component is affected by the phenomena of
+self-shadowing and specularity, in addition to the lambertian reflectance of the
+surface point. Shadows are the points that receive no direct light from the
+primary source. However, their luminance value is not completely zero. This is
+because they get some light from the neighboring pixels because of
+inter-reflections. However, when the image is decomposed into direct and global
+component, the luminance value of shadow region (due to inter-reflections)
+appear in global part and thus direct part is left with dark prominent shadow
+regions whose value is near to zero (see Fig \ref{fig:global}). These dark shadow regions
+can easily be separated out using thresholding.
+
+A major difficulty in lighting interpolation is the realistic generation of
+shadows. To compute shadow masks for real scenes, our approach first infers
+shadow pixels from the illumination intrinsic image. The intensities in an
+illumination intrinsic image represent magnitudes of incident irradiance, so
+image areas with low values indicate shadowed regions. 
 \begin{center}
 \begin{figure*}[t]
 \centering
@@ -179,28 +197,12 @@ interpolate both specular content as well as shadows.
 \subfigure[]{
 \includegraphics[scale=.139]{image_eps/direct+global/cloth/global_30.eps}
 \label{fig:subfig3} } \caption{Components of a cloth image for a specific
-lighting direction: a) original image, b) direct component, c) global
-component.} \label{fig:global}
+lighting direction: a) Original image, b) Direct component, c) Global
+component.}
+\label{fig:global}
 \end{figure*}
 \end{center}
-\section{Modelling Direct Component}
 
-As noted before, the direct component is affected by the phenomena of
-self-shadowing and specularity, in addition to the lambertian reflectance of the
-surface point. Shadows are the points the receive no direct light from the
-primary source. However, their luminance value is not completely zero. This is
-because they get some light from the neighboring pixels because of
-inter-reflections. However, when the image is decomposed into direct and global
-component, the luminance value of shadow region (due to inter-reflections)
-appear in global part and thus direct part is left with dark prominent shadow
-regions whose value is near to zero (see Fig \ref{fig:global}). These dark shadow regions
-can easily be separated out using thresholding.
-
-A major difficulty in lighting interpolation is the realistic generation of
-shadows. To compute shadow masks for real scenes, our approach first infers
-shadow pixels from the illumination intrinsic image. The intensities in an
-illumination intrinsic image represent magnitudes of incident irradiance, so
-image areas with low values indicate shadowed regions. 
 
 
 %%%%%%%%%%%%%%%%%FIGURE NO 3  shadow by interpolation %%%%%%%%%%%%%%%
@@ -228,12 +230,13 @@ image areas with low values indicate shadowed regions.
 }
 \subfigure[$l_u=.58$,$l_v=0$]{
 \includegraphics[scale=.13]{image_eps/interpolated/theta=54.eps}
-\label{fig:subfig3} }
-
+\label{fig:subfig3}
+}
+\label{fig:interpolate}
 \caption{Shadow interpolation in two directions: a,c) images with horizontally
 varying lighting directions, b) interpolated direct image between the two; d,f)
 images with vertically varying lighting directions, e) interpolated direct image
-between the two.}  \label{fig:intExample}
+between the two.}
 \end{figure*}
 
 
@@ -263,7 +266,8 @@ short-comings, and show how they can be combined to derive a good shadow model.
 \includegraphics[scale=.13]{image_eps/shadow_classify/thresh=110.eps}
 \label{fig:subfig3} } \caption{a) Direct component of an image computed using
 bilinear interpolation, b) after multiplying (a) by the shadow mask, and c)
-after adding specularity.} \label{fig:subfigureExample}
+after adding specularity.}
+\label{fig:mask}
 \end{figure*}
 
 %There are 2 types of interpolation-horizontal and vertical.In horizontal interpolation images at
@@ -292,18 +296,19 @@ values of these pixels change smoothly.
 Modeling this behavior gives good results on all the datasets that we
 considered. However, it is possible that this may not hold for high-frequency
 textures as small shadows might appear and disappear quickly at a point with
-changes in lighting direction. Therefore, a denser the sampling of images will
-always provide a better estimate. The luminance values of the first two types of
+changes in lighting direction. Therefore, a denser sampling of images will
+always provide a better estimate. Fig 3.4 shows shadow
+modeling by interpolation. The luminance values of the first two types of
 pixels are directly calculated by linear interpolation between the values of the
 corresponding pixels in the given two images. One could also attempt higher
 order interpolation techniques, given more images of the same type. In practice,
 linear interpolation works well, as the variations are often very limited for
-the first two types. Given the luminances, $L_1$ and $L_2$ from the
+the first two types. Given the luminance, $L_1$ and $L_2$ from the
 corresponding pixels of images taken from lighting directions $p_1$ and $p_2$,
-the value of the interpolated pixel, $L$, at lighting position $p_0$ is given
+the luminance value of the interpolated pixel($k$), $L$, at lighting position $p_0$ is given
 by:
 \begin{equation}
-L=\frac{\omega_2 L_1 + \omega_1 L_2}{\omega_1 + \omega_2},
+L(k,p_0)=\frac{\omega_2 L_1(k,p_1) + \omega_1 L_2(k,p_2)}{\omega_1 + \omega_2},
 \end{equation}
 where $\omega_i = |D(p_0,p_i)|$; $D(p_a,p_b)$ gives distance between lighting
 directions at $p_a$ and $p_b$.
@@ -321,29 +326,24 @@ approximated by a sigmoid of the form:
 
 
 \begin{equation}
-L = L_{s} + \frac{L_{ns} - L_{s}}{1 + \chi e^{-d}},
+L(k,p_0) = L_{s}(k,p_1) + \frac{L_{ns}(k,p_2) - L_{s}(k,p_1)}{1 + \chi e^{-d}},
 \end{equation}
 where $d = p_0 - p_x$. The slope of the sigmoid function controls the transient
 behavior of pixels from shadow to non-shadow region, controlled by the parameter
 $\chi$.
 
-
-
 This sigmoid function will exhibit different behavior for different pixels. For
 example, the pixels that are at the edge of shadows say in the first image, will
 come out of the shadow quickly, whereas the pixels that are at the center of the
 shadow will continue to remain in shadow region for a longer time as the light
-source is moved from $p_1$ to $p_2$. The parameter $C$ varies slightly depending
+source is moved from $p_1$ to $p_2$. The parameter $\chi$ varies slightly depending
 on the nature of the surface, but can be treated constant for all practical
 purposes, provided the light positions are angular measurements. The only
 unknown in carrying out the interpolation is the position $p_x$ at which the
-transition occurs. One could estimate it in various ways. A quick approximation
-may be obtained by counting the number of pixels around the one under
+transition occurs. 
+A quick approximation
+may be obtained by counting the number of pixels around the pixel under
 consideration that are in shadow and not.
-
-The only
-unknown in carrying out the interpolation is the position $p_x$ at which the
-transition occurs.
 Consider a pixel $k$ that is in shadow at light position $p_1$. Let $\chi_s$ be the
 fraction of neighboring pixels of $k$ that are in shadow in the first image, and
 $\chi_{ns}$ be the fraction of neighboring pixels of $k$ that are not in shadow in
@@ -356,13 +356,11 @@ that $p_x$ is far from $p_1$ and close to $p_2$. We define $p_x$ as:
 \begin{equation}
 p_x = \frac{\chi_{ns} p_1 + \chi_s p_2}{\chi_{ns} + \chi_s}
 \end{equation}
-
-The above sigmoidal interpolation can be extended to two dimensions, given an
-array of image samples with varying lighting positions, and thus one can compute
-the shadow image for any given lighting direction. We refer to this image as the
-shadow mask. Figure 3 shows the input images and the interpolated image at two
-different lighting positions.
-
+%The above sigmoidal interpolation can be extended to two dimensions, given an
+% array of image samples with varying lighting positions, and thus one can compute
+% the shadow image for any given lighting direction. We refer to this image as the
+% shadow mask. Figure 3 shows the input images and the interpolated image at two
+% different lighting positions.
 
 The advantage of interpolation is that the physical structure of the material is
 taken into account while interpolating, leading to realistic estimations of
@@ -371,7 +369,7 @@ of a pixel. However approach is both memory and compute intensive as one need to
 store input images for interpolation, and the computation of each
 pixel of the shadow mask involves searching an increasing neighborhood of
 pixels. An alternate method is to decide whether a given pixels falls in shadow
-or not, independently as a function of just the lighting position. Fig.\ref{fig:figure3} shows 
+or not, independently as a function of just the lighting position. Fig 3.6 shows 
 the input images and the interpolated image at two different lighting positions.
 
 
@@ -413,22 +411,12 @@ we first interpolate the input images to obtain the shadow masks at a larger
 number of intermediate positions. These values are then used to train the
 classifier. The resulting shadow regions estimated by classifier are very close
 to original and more accurate than the images that are directly interpolated
-from the input images shown below in Figure 4 a-c.
+from the input images as shown in Fig \ref{fig:mask}.
 
 %%%%%%%%%%%%%%%%%FIGURE NO 4 Shadow by classification%%%%%%%%%%%%%%%
 
 
 
-
-Once the classifier is trained, the distance of a point classified as shadow
-from the decision boundary can be thought of as the distance from the point of
-transition from light to shadow. We use this distance to decide the darkness of
-a shadow pixel. The pixel which lies in the region of strong shadows will have a
-greater value of absolute distance from the decision boundary than the pixel
-which is in a region of diffused shadow or is at the edge of a shadow (See
-Figure 5).
-
-%%%%%%%%%%%%%%%%%FIGURE NO 5...Binarised Image of shadow%%%%%%%%%%%%%%%
 \begin{figure}[h]
 \centering \subfigure[]{
 \includegraphics[scale=.15]{image_eps/Binary_Image/cloth/45_orig.eps}
@@ -444,8 +432,18 @@ interpolation, d) distance image of pixels from classifier boundary. Blue pixels
 are closest to the hyperplane and include pixels at the edge of a shadow or
 pixels present in the region of diffused shadow. Black color pixels are the
 farthest from the hyperplane and represent region of strong and dense shadow.}
-\label{fig:subfigureExample}
+\label{fig:classify}
 \end{figure}
+Once the classifier is trained, the distance of a point classified as shadow
+from the decision boundary can be thought of as the distance from the point of
+transition from light to shadow. We use this distance to decide the darkness of
+a shadow pixel. The pixel which lies in the region of strong shadows will have a
+greater value of absolute distance from the decision boundary than the pixel
+which is in a region of diffused shadow or is at the edge of a shadow (See
+Fig \ref{fig:classify}).
+
+%%%%%%%%%%%%%%%%%FIGURE NO 5...Binarised Image of shadow%%%%%%%%%%%%%%%
+
 
 We use this binary image to make  a mask where each non-shadow pixel is given a
 value of 1 and shadow pixels are given values between 0 to 1 based on their
@@ -456,11 +454,11 @@ very minimal. Thus using a bilinear function
 \begin{equation}
 L(l_u,l_v) = \alpha l_u + \beta l_v +\gamma,
 \end{equation}
-an interpolated image is generated (Figure 4(a)). This image is then multiplied
-with shadow mask. Biquadratic function (equation 8) can also be used for
+an interpolated image is generated (Fig \ref{fig:mask} (a)). This image is then multiplied
+with shadow mask. Biquadratic function can also be used for
 interpolation. Using either of the function for interpolation leads to the
 smoothening of shadows. Therefore we multiply this image with a mask described
-above to get the shadowed new image (Figure 4b). The value of non-shadow pixels
+above to get the shadowed new image (Fig \ref{fig:mask} (b)). The value of non-shadow pixels
 are not affected but the values of the shadow pixels are attenuated by the
 multiplication with the shadow mask. The classification technique thus enables
 us to render each pixel independently, increasing the speed of rendering and
@@ -530,7 +528,7 @@ function with a single chrominance value to achieve realistic estimation.
 
 We note that the modeling of highlights is tricky as one can observe highlights
 only if one of the original images contain it. Hence the highlights estimated
-are often inaccurate, although realistic (see Figures 9d,e). Figure 4(c) shows
+are often inaccurate, although realistic. Fig \ref{fig:mask} (c) shows
 the final image after multiplying the bilinearly interpolated image with shadow
 mask and adding specularity.
 
@@ -545,9 +543,9 @@ mask and adding specularity.
 \label{fig:subfig3} } \subfigure[]{
 \includegraphics[scale=.25]{image_eps/global/cloth/crop_theta=30_phi=105_parabola.eps}
 \label{fig:subfig4} } \caption[Optional caption for list of figures] {(a)
-Original Global Image (b)Global Image modeled by Gaussian function (c)Global
-Image modeled by biquadratic (d)Global image modeled by Parabola.}
-\label{fig:globalCloth}
+Original Global Image (b) Global Image modeled by Gaussian function (c) Global
+Image modeled by biquadratic (d) Global image modeled by Parabola.}
+\label{fig:globcomp}
 \end{figure}
 
 
@@ -566,9 +564,7 @@ original image and better than the images generated by PTM. From our experiments
 on various surfaces, the global component of illumination tends to be maximal
 when the illumination is perpendicular to the surface, and drops off in a
 symmetric fashion. We experiment with the following function for modeling the
-global component: a)Gaussian b)biquadratic polynomial, and c)paraboloid.
-
-
+global component: a) Gaussian b) biquadratic polynomial, and c) paraboloid.
 
 In Gaussian function we model the luminance as a gaussian function of lighting
 direction:
@@ -604,7 +600,7 @@ $\newline
 
 The above system of equations can be solved using SVD and the coefficients
 $a,b,c,d,e,$ and $k$, can be estimated per pixel. Biquadratic polynomial, also
-used in modeling PTMs \cite{B6}, can be a good choice here because of the
+used in modeling PTMs \cite{C4}, can be a good choice here because of the
 absence of sharply varying features. The function is given by:
 \begin{equation}
 L(l_u,l_v) = al_u^2 + bl_v^2 + cl_ul_v + dl_u + el_v +f
@@ -616,7 +612,7 @@ smoothening but they are computationally efficient with 5 coefficients per pixel
 L(l_u,l_v)= al_u^2 + bl_v^2  + cl_u + dl_v +e
 \end{equation}
 
-Figure[6 a-d]
+Fig \ref{fig:globcomp}
 shows the global component as modeled by each of the above functions. We see
 that the gaussian model provides the most accurate estimation of global
 component although all three models are similar in performance to visual
@@ -643,18 +639,19 @@ storage.
 \label{fig:subfig4} }
 \caption{Comparison of luminance
  at a pixel as modeled by different functions: a) original
-function plot at that pixel b)By Gaussian c)By Biquadratic
-d)By Parabola.}  \label{fig:subfigureExample}
+function plot at that pixel b) By Gaussian c) By Biquadratic
+d) By Parabola.}
+\label{fig:graph}
 \end{figure}
 
 
-The graphs shown in Figure[7a] shows how the luminance of a given pixel varies
-with different lighting directions. Figure [7 (b)-(d)] shows the luminance of
+The graphs shown in Fig \ref{fig:graph}(a) shows how the luminance of a given pixel varies
+with different lighting directions. Fig \ref{fig:graph}(b)-(d) shows the luminance of
 this pixel as a function of lighting direction when modeled using the different
 functions mentioned above. It is clear from the plots that gaussian is more
 accurate than the other two functions especially at the peak value. The mean
 squared error over a sampled set of points from different surfaces is shown for
-comparison in table 1. Experimentally and visually, the Gaussian model best fits
+comparison in table 3.1. Experimentally and visually, the Gaussian model best fits
 the observations.
 
 %\begin{center}
@@ -683,6 +680,7 @@ the observations.
 \includegraphics[scale=.42]{image_eps/boxplot/sponge2.eps}
 \label{fig:subfig2}
 }
+\label{fig:plot}
 \caption{Error comparison between CBM and PTM over
 different surface textures. Red bars indicate outliers. The red line in the box
 is the mean and the blue lines are the 25th and 75th percentile.}
@@ -693,18 +691,19 @@ is the mean and the blue lines are the 25th and 75th percentile.}
 \section{Data Acquisition}
 %\label{sec:2}
 
-The setup required to capture input images include projector and a camera. The
-camera is mounted vertically above a table that holds the surface (See Figure \ref{fig:17}). The scene is
-illuminated using a high frequency checkerboard pattern using the projector. The
-projector is moved to different lighting positions for the purpose of obtaining
-images with different lighting directions. The distance of the projector from
-the scene remains fixed, and only its height and position is changed. This
-enables us to capture images with lighting from a hemispherical set of world
-coordinates. We capture 30 images from different lighting directions. For each
-lighting direction, using component separation technique described in \cite{B4},
-25 images are captured and then we separate the image into its global and direct components. The resultant
-dataset used for modelling contains 60 images per surface, with 2 from each lighting direction.
+% The
+% camera is mounted vertically above a table that holds the surface. The scene is
+% illuminated using a high frequency checkerboard pattern using the projector. The
+% projector is moved to different lighting positions for the purpose of obtaining
+% images with different lighting directions. The distance of the projector from
+% the scene remains fixed, and only its height and position is changed. This
+% enables us to capture images with lighting from a hemispherical set of world
+% coordinates. We capture 30 images from different lighting directions. For each
+% lighting direction, using component separation technique described in \cite{C9},
+% 25 images are captured and then we separate the image into its global and direct components. The resultant
+% dataset used for modeling contains 60 images per surface, with 2 from each lighting direction.
 
+The setup required to capture input images include projector and a camera.
 We collect multiple images of a static object with a static camera under varying
 lighting conditions. The
 camera is mounted vertically above a table that holds the surface. Since the camera is fixed, we avoid the
@@ -716,7 +715,7 @@ The distance of the projector from
 the scene remains fixed, and only its height and position is changed. This
 enables us to capture multiple images with varying light source direction from a hemispherical set of world
 coordinates. We capture images from 30 different lighting directions and for each
-lighting direction, using component separation technique described in \cite{A9},
+lighting direction, using component separation technique described in \cite{chap3-1},
 we separate the image into its global and direct components. We capture 5-6 additional images which are used as 
 benchmark images for comparing results.  
 
@@ -726,16 +725,16 @@ benchmark images for comparing results.
 The component based modeling proposed in this paper has been applied on various
 natural material textures. We present qualitative and quantitative assessment on
 texture images as obtained from our method and that obtained from the PTM over
-different natural material surfaces. Figure 9(a)-(l) shows qualitative results where we compare the
+different natural material surfaces. Figure 3.12(a)-(o) shows qualitative results where we compare the
 ground truth images with images obtained from our technique and with PTMs. The
 texture of sand when modeled using CBM technique, preserves prominent shadow
 regions where as these regions are significantly washed out in PTM images(Figure
-9(a)-(c)) The sponge texture (Fig 9(d)-(f)) shows a very noticeable difference
+3.12(a)-(c)) The sponge texture (Fig 3.12(d)-(f)) shows a very noticeable difference
 between the two techniques.
 
 In the PTM image, there are no sharp shadows, the specularities are washed out
 and surface relief is smoothened to some extent whereas in CBM, structural
-details are preserved making it look more photorealistic. In Figure 9(g)-(l),
+details are preserved making it look more photo realistic. In Figure 3.2(g)-(i),(m)-(o)
 two different granite surfaces are modeled. Once again PTM smoothens sharp
 shadows, while they are preserved in the CBM rendered images.
 
@@ -744,7 +743,7 @@ directions during the capture phase. Generic measures such as PSNR only gives
 the average differences, and are not visually significant. We compute the
 absolute differences between each pixel values and analyze the distribution of
 these values. The differences between the original image and the image rendered
-using CBM and PTM are also plotted as a boxplot (see Figure 8).
+using CBM and PTM are also plotted as a boxplot (see Figure \ref{fig:plot}).
 
 
 %%%%%%%%%%%%%%%%FIGURE NO 8%%%%%%%%%%%%%%%%
@@ -839,7 +838,7 @@ shadow regions are lost. The root mean square error in case of CBM is 3.5 wherea
 \includegraphics[scale=.205]{image_eps/Data_image/granite1/crop_286_PTM.eps}
 \label{fig:subfig3}
 }
-
+\label{fig:results}
 \caption{Comparison of rendering results from Component Based Modeling and PTM
 techniques. CBM images have sharp shadows and specularity and also preserve the
 appearance of surface relief.}
@@ -863,16 +862,17 @@ appearance of surface relief.}
 %\includegraphics[scale=.1]{image/multiLight/sponge2_top.jpg}
 %\label{fig:subfig2}
 %}
-\subfigure[CBM based image ]{
+\subfigure[CBM based output image]{
 \includegraphics[scale=.3]{image_eps/multiLight/sponge2_bottom+top.eps}
 \label{fig:subfig3}
 }
-\subfigure[PTM based Image ]{
+\subfigure[PTM based output Image]{
 \includegraphics[scale=.3]{image_eps/multiLight/sponge2_2PTM_bottom+top.eps}
 \label{fig:subfig2}
 }
-\caption{Multiple simultaneous Light Sources effect. For (a) and (c) light sources are placed at top(10$^{\circ}$) and bottom(180$^{\circ}$) side 
-of the texture. For (c) and (d) they are placed at top(10 $^{\circ}$) and top left side(45$^{\circ}$). }
+\caption{Multiple simultaneous Light Sources effect. For (a) and (b) light sources are placed at top(10$^{\circ}$) 
+and bottom(180$^{\circ}$) side 
+of the texture.}
 \end{figure}
 If outliers are included then rms becomes 4.9 for CBM and shoots upto 10.1 for PTM.
 In case of white granite (Fig 8a-5,6), there is not
@@ -896,7 +896,7 @@ as shadow in the resultant image and the specularities have added up. However, w
 to become more washed out with multiple light sources and rendered image is void of specularities.
 
 But this improvement is achieved at the cost of more coefficients per pixel as compared to 6 coefficients in PTM.
-CBM uses a total of 19 coefficients as compared to \cite{A10} which requires the estimation of parameters- $\alpha$ (a scalar), 
+CBM uses a total of 19 coefficients as compared to \cite{chap2-9} which requires the estimation of parameters- $\alpha$ (a scalar), 
 $\beta$ (3-vector) and $\gamma$ (n-vector). These parameters are estimated per pixel, separately for shadow and specularity
 modeling. Since `n' is generally 40-50, therefore total coefficients are very high as compared to ours.
 

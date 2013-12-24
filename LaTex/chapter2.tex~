@@ -23,24 +23,31 @@ modeling of the complex surface details.
 One of them is image-based rendering technique which is frequently used in computer graphics
 in the form of texture mapping. The images are used to represent the appearance of a complex object.
 It is a technique where images are used in place of complex geometry and material 
-properties. Images are a quick way to achieve photorealism when our primary objective is to get 
+properties. Images are a quick way to achieve photorealism as our primary objective is to get 
 a realistic rendering. This is because they are able to capture 
 complex light interactions such as inter-reflections,
-self-shadowing, and sub-surface scattering present in the real world.
+self-shadowing and sub-surface scattering present in the real world.
 The main disadvantage of using images as rendering source is that the image captures the
 appearance of the object from a single viewpoint and under a fixed lighting condition/direction. 
 Therefore this method fails if the lighting conditions of the synthetic
-environment are different from the lighting conditions of the texture image. 
-To solve this
-problem, 
-people have used techniques like Bump Mapping, Bidirectional
-Reflectance Distribution Function (BRDF) and Polynomial texture maps. 
+environment are different from the lighting conditions of the texture image. This
+is usually the case when we map 2D textures onto 3D models under varying lighting directions. 
+
 %First we will show how 2D and 3D texture differs from each other.
 %Then we will describe the above mentioned techniques. 
 
-\subsection{2D texture VS 3D texture}
-
-In 2D texture modelling, the reflectance and the strutural properties of natural surfaces
+%\subsection{2D texture VS 3D texture}
+\begin{figure*}[t]
+\centering
+\subfigure{
+\includegraphics[scale=.4]{image_eps/ptm/ptm.eps}
+\label{fig:subfig3} } \caption{3D vs 2D texture map:
+The upper part of the images shows the visual appearance of
+a 3D texture map while the bottom part shows the conventional 2D texture map. 
+We can see that the bottom part suffers from unrealistic lighting and shadows.
+} \label{fig:map}
+\end{figure*}
+In 2D texture modeling, the reflectance and the structural properties of natural surfaces
 are not captured. They fail to capture the variations in surfaces for different lighting and
 viewing directions. The texture which is mapped onto a 3D model has
 the lighting direction from which it was captured. So if we want to see how the texture looks from
@@ -49,41 +56,57 @@ lighting direction apart from the direction from which it was captured. In gener
 are not flat and smooth in nature. They show different types of structural variation across their
 surface each having different reflectance properties. These properties causes effects like shadows,
 specularity, sub-surface scattering, inter-reflection etc. Hence 3D texture mapping
-is required for realisting modelling of real objects.
+is required for realistic modeling of real objects.
 It results in realistic rendering
 of natural material surfaces. The characterization of surface reflectance properties is important in
 achieving enhanced realism of the scene. The appearance of a surface in different lighting and viewing direction/
 conditions is affected by its reflectance properties.
 3D textures are a way to model the relation between surface reflectance
-properties and illumination/viewing conditions. Fig \ref{fig:model} shows the
-3D texture mapped onto a 3D teapot model. 
-Bump mapping:
-Bump mapping [Blinn 78] is one proposed solution to this
-problem where the surface normals of underlying geometry are
-allowed to vary per texture element (texel). Introducing variations
-in the surface normals causes the lighting method to render the
-surface as though it had local surface variations instead of just a
-smooth surface. As a result, when the light is moved around the
-object, highlights appear due to the bump map and the surface
-appears to be rough, grooved or similarly modified as desired.
-Bump maps can be either hand modeled or, more typically,
-calculated procedurally. Creating a bump map to be used with real
-world textures from photographs is generally difficult. Methods
-have been developed that attempt to automatically generate bump
-maps from a set of input images under known light directions
-[Rushmeier 97]. These methods have difficulty with generating
-bump maps for objects with large surface variations that cause
-self-shadowing and intra-object interreflections. In addition,
-current bump map rendering techniques do not render shadows
-due to surface variation or brightened regions due to
-interreflections.
+properties and illumination/viewing conditions. 
+Fig \ref{fig:map} shows the difference between a 3D texture map and a 2D texture map.
+To solve this
+problem,
+techniques based on reflectance texture maps have been proposed. 
 
-Another technique is below (brdf and ptm)
 Reflectance texture maps are one of
-the techniques that can be used to compactly represent the 3D textures. These
-maps are generated using image re-lighting techniques in which
-multiple images are captured under different lighting/viewing conditions.
+the techniques that can be used to compactly represent the 3D textures.
+3D textures actually models the relation
+between surface reflectance properties and illumination direction. Hence they can be represented
+by Reflectance Texture Maps. The maps are generated using image re-lighting techniques
+which model the surface reflectance properties of object. These
+maps are created by capturing multiple images under different lighting/viewing conditions.
+%using image re-lighting techniques in which
+%multiple images are captured
+%
 
+Reflectance map required in 3D texture can be modeled by Bidirectional Reflectance Distribution
+Function (BRDF) \cite{chap2-22} technique which defines spectral and spatial reflectance characteristic of a
+surface.
+Bidirectional Reflectance Distribution Function is defined as the ratio of reflected radiance to
+incident irradiance, given the lighting and viewing directions. 
+%The reflectance
+%at each point on a surface is hence a function of four parameters, controlling
+%the above two directions. 
+Various techniques have been developed to compactly
+represent BRDF \cite{chap2-18, chap2-19, chap2-20, chap2-21}
+% \cite{B5,B8,B12,B14,B15}.
+BRDF was extended to Bidirectional Texture Function (BTF) \cite{C2} by 
+allowing BRDF to vary spatially
+across planar texture co-ordinate (u,v).
+
+BTF effectively captures view point dependent phenomenon such as specularity
+along with other physical phenomenon such as shadow, sub-surface scattering,
+inter-reflection, etc. However, the capture of BTF requires careful camera
+calibration and capturing numerous images for sampling. Generating reflectance
+map from BTF is very complex.
+Because of the  high dimensionality of the BTF and high storage requirement,
+Unidirectional Texture Functions (UTF) were introduced in which viewing point is
+not taken into account while modeling the surface reflectance properties. They
+model these properties only in relation to different lighting conditions. As the
+visual appearance of the surface is mostly independent of the viewing direction,
+the model provides a reasonable approximation of the surface with significantly
+lower complexity of the model. Fig \ref{fig:model} shows the 3D texture modeling. 3D textures are mapped 
+onto a 3D teapot model.
 
 \begin{figure}[t]
 \centering
@@ -91,155 +114,171 @@ multiple images are captured under different lighting/viewing conditions.
 \includegraphics[height=4.2in,width=6in]{chap2/texture/res_1.eps}
 }
 \caption
-{(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
-Text extracted}
+{Natural textures mapped onto a 3D model of teapot under varying lighting directions}
 \label{fig:model}
 \end{figure}
+Polynomial Texture Maps \cite{C4}
+belong to the class of UTFs. It is a pixel
+based technique that concisely models the surface reflectance properties using a
+polynomial model for the reflectance, dependent on two angular parameters of the
+lighting direction. 
+It is used to model luminance
+against changing lighting direction and requires
+no modeling of complex geometry. Only a set of images is required of the desired scene to be used as a
+texture which are taken from different known lighting
+direction. PTMs reconstruct the color of the surface/texture under varying
+lighting conditions and models real world phenomenon such as
+self-shadowing, inter-reflection and sub-surface scattering.
+When a surface is rendered with a PTM, it takes on different illumination
+characteristics depending on the direction of the light source. They thus introduce
+enhanced photorealism in the texture mapping process.
+
+PTM model uses a set of input images captured from a fixed camera, where each
+image is illuminated from a specific known lighting direction. It uses a
+biquadratic polynomial function with 6 coefficients per pixel for modeling the
+reflectance. These coefficients are estimated from the set of input images(30 to
+40), where the lighting direction is resolved into two components i.e
+$l_{u}$,$l_{v}$ by projecting it on the image plane. These two components are
+used as variables in the biquadratic function. Once the coefficients are
+estimated fitting the model to the observed values, they are used to render
+images from any given lighting direction.
+The function used in PTMs is:
+
+\begin{equation}
+L(l_u,l_v) = al_u^2 + bl_v^2 + cl_ul_v + dl_u + el_v +f
+\end{equation}
+
+But the PTM technique causes overall smoothening of light which dampens the effect
+of specularity and softens sharp shadows. The effect of point light source is
+reduced and the appearance is always similar to a diffused light source.  
+The current state-of-the art in the field of PTM involves robust
+method for interpolation of shadow and specularity, Drew {\em et al.} 
+\cite{chap2-9}. But they do not model natural material surfaces and
+their interactions with changing light conditions. Moreover
+the number of per pixel parameters are too high for real-time
+rendering
+
+We improve upon the PTM model to overcome the above limitations
+and generate a complete 3D Texture model that can be evaluated at individual
+pixels. We propose an approach to image-based lighting interpolation that is
+based on estimates of geometry and shading from a set of input images. We
+decompose images captured at different lighting conditions into intrinsic image
+components; i.e, the {\em direct} and {\em global} image components. Each of
+these components is then further separated to obtain different physical
+phenomena such as shadows, specularity and luminance. A final image is obtained
+by combining the the individual models together.
+
+% In Bump mapping \cite{chap2-17}, the surface normals of  is one proposed solution to this
+% problem where the surface normals of underlying geometry are
+% allowed to vary per texture element (texel). Introducing variations
+% in the surface normals causes the lighting method to render the
+% surface as though it had local surface variations instead of just a
+% smooth surface. As a result, when the light is moved around the
+% object, highlights appear due to the bump map and the surface
+% appears to be rough, grooved or similarly modified as desired.
+% Bump maps can be either hand modeled or, more typically,
+% calculated procedurally. Creating a bump map to be used with real
+% world textures from photographs is generally difficult. 
+%Methods
+% have been developed that attempt to automatically generate bump
+% maps from a set of input images under known light directions
+% [Rushmeier 97]. These methods have difficulty with generating
+% bump maps for objects with large surface variations that cause
+% self-shadowing and intra-object interreflections. In addition,
+% current bump map rendering techniques do not render shadows
+% due to surface variation or brightened regions due to
+% interreflections.
 
 
-\subsection{Bump Mapping}
 
-Bump mapping, normal mapping, and other related techniques have been developed to extend texture mapping to
-reproduce such light and view dependent dynamic effects. As with texture mapping, these methods store spatially
-variant information for rendering. However, instead of storing a texture image that already contains some existing
-illumination effects as in typical texture mapping, these methods store parameters that allow a computational 
-lighting model to be varied spatially. Since these methods are often used with simple synthetic reflectance models
-such as Phong lighting they achieve dynamic illumination at the expense of photorealism.
-Bump maps and other similar methods typically use a map that has been generated by an artist or a procedural
-method, rather than one captured from real world objects. Creating a bump map from photographs of real objects
-is difficult, and is generally not done for games or other realistic renderings. Research techniques have been
-developed to calculate bump maps automatically from multiple images of an object under known light directions 
-[Rushmeier 97]. Unfortunately these methods typically have difficulty generating bump maps from objects that 
-contain self-shadowing and intra-object interreflections. Even if methods could be derived that could generate
-bump maps in the presence of such illumination effects, the resulting renderings would not recreate them properly
-due to the limitations of these rendering techniques.
-
-Bidirectional Reflectance Distribution Function, which defines the
-spectral and reflectance characteristics of a surface can be used to create
-reflectance texture maps. It is defined as the ratio of reflected radiance to
-incident irradiance, given the lighting and viewing directions. The reflectance
-at each point on a surface is hence a function of four parameters, controlling
-the above two directions. Various techniques have been developed to compactly
-represent BRDF. It was extended to Bidirectional
-Texture Function by allowing BRDF to vary spatially across planar
-texture co-ordinate (u,v).
-
-.3D texture actually models the relation
-between surface reflectance properties and illumination direction. They are represented
-by Reflectance Texture Maps.These maps are generated using image re-lighting techniques
-which model the surface reflectance properties of object.
-
+% \subsection{Bump Mapping}
+% 
+% Bump mapping, normal mapping, and other related techniques have been developed to extend texture mapping to
+% reproduce such light and view dependent dynamic effects. As with texture mapping, these methods store spatially
+% variant information for rendering. However, instead of storing a texture image that already contains some existing
+% illumination effects as in typical texture mapping, these methods store parameters that allow a computational 
+% lighting model to be varied spatially. Since these methods are often used with simple synthetic reflectance models
+% such as Phong lighting they achieve dynamic illumination at the expense of photorealism.
+% Bump maps and other similar methods typically use a map that has been generated by an artist or a procedural
+% method, rather than one captured from real world objects. Creating a bump map from photographs of real objects
+% is difficult, and is generally not done for games or other realistic renderings. Research techniques have been
+% developed to calculate bump maps automatically from multiple images of an object under known light directions 
+% [Rushmeier 97]. Unfortunately these methods typically have difficulty generating bump maps from objects that 
+% contain self-shadowing and intra-object interreflections. Even if methods could be derived that could generate
+% bump maps in the presence of such illumination effects, the resulting renderings would not recreate them properly
+% due to the limitations of these rendering techniques.
 %2D texture modelling fails to capture the surface variation and reflectance properties under
 %varying lighting and viewing direction.They appear good only when viewed from similar lighting
 %direction in which they were captured.2D textures appear flat and smooth but reflectance properties
 %of real world objects are characterised by inter-reflections,shadows,specularity and sub-surface
 %scattering. 2D texture fails to provide the information required for rendering other than the original
 %illumination condition. Figure 1 illustrates how  the same texture behaves differently under different lighting conditions.
-
 %It is clear from thefigure that 2D texture which has only the color information alone is not sufficient for a realisitic
 % rendering of real world texture
 %and therefore 3D texture is needed.
-
-Reflectance map required in 3D texture can be modelled by Bidirectional Reflectance Distribution
-Function \cite{B1} technique which defines spectral and spatial reflectance characteristic of a
-surface.BRDF is the ratio of reflected radiance to incident irradiance.Various techniques have been
-developed to compactly represent BRDF \cite{B5,B8,B12,B14,B15}.
-
-BRDF was extended to Bidirectional Texture Function \cite{B2} by allowing BRDF to vary spatially
-across planar texture co-ordinate (u,v)
-
-(uncomment)
-\begin{math}
-$\[BTF=(\theta_{v},\phi_{v},\theta_{e},\phi_{e},u,v)\]$
-\end{math}
-
-
-BTF effectively captures view point dependent phenomenon such as specularity
-along with other physical phenomenon such as shadow, sub-surface scattering,
-inter-reflection, etc. However, the capture of BTF requires careful camera
-calibration and capturing numerous images for sampling. Generating reflectance
-map from BTF is very complex. View dependent appearances can also be modeled
-using Light field maps. They offer a more compact representation and
-can be used for a real time rendering of surface light fields.
-
-Because of the  high dimensionality of the BTF and high storage requirement,
-Unidirectional Texture Functions (UTF) were introduced in which viewing point is
-not taken into account while modeling the surface reflectance properties. They
-model these properties only in relation to different lighting conditions. As the
-visual appearance of the surface is mostly independent of the viewing direction,
-the model provides a reasonable approximation of the surface with significantly
-lower complexity of the model.
-
-Polynomial Texture Maps belong to the class of UTFs. It is a pixel
-based technique that concisely models the surface reflectance properties using a
-polynomial model for the reflectance, dependent on two angular parameters of the
-lighting direction. PTMs reconstruct the color of the surface under varying
-lighting conditions and models real world phenomenon such as
-self-shadowing,inter-reflection and sub-surface scattering. They thus introduce
-enhanced photorealism in the texture mapping process.
-
-\subsection{Image Based Rendering}
-
-
-
-
-
-Image-based methods yield photorealistic renderings that are based on
-data from simple acquisition methods (photographs). 
-
-Light-Dependent Texture Mapping and Beyond
-As we've described, the conventional texture mapping representation of a single RGB triple per texel is 
-insufficient to represent a surface where the appearance may change as a function of light direction, view 
-direction, or some other parameter. Clearly a higher-dimensional representation is needed per texel to allow the
-object to be rendered differently as the desired rendering parameters are changed. View-dependent texture
-mapping [Debevec 96] extends texture mapping to allow the appearance of each texel to change as a function of
-the viewer's position. The technique was intended for reproducing real objects with only approximate geometry
-but multiple images. As originally presented, view-dependent texture mapping stores multiple images captured 
-from different viewpoints and projects them onto the desired geometry. The multiple projected textures are
-combined based on weights calculated from the source viewpoints and output viewpoint. This technique can
-greatly increase the amount of texture storage that is required, possibly multiplying it by the number of source
-images if a simple representation is used. More compact representations are possible, however the viewdependent 
-reflectance per texel may be difficult to represent as it can be a very non-linear function. This is
-because view-dependent effects can change rapidly due to occlusions and other interactions while illumination
-effects tend to have less high-frequency transitions.
-
-The Bidirectional Texture Function (BTF) [Dana 99] represents a four dimensional function across the texture.
-The BTF is a function of view direction and incident light direction, and is represented as a database of images.
-Finally, capturing a large number of different view
-and light directions while maintaining accurate calibration and registration is difficult and time consuming.
-By eliminating the two dimensions representing view direction from the BTF the resulting data represents a light
-dependent texture map (also known as a reflectance map). This reduced dimensionality dataset is much smaller,
-and very simple to acquire as a single fixed view direction is sufficient. Objects with view dependent effects, such as specular materials, are
-difficult to capture even with view-dependent image-based rendering due to the high-frequency nature of mirror
-like reflections.  The 
-polynomial texture maps (PTM) is one light-dependent method with a compact and efficient polynomial function 
-at every pixel which is evaluated based on the given incident light direction.
+%  
+% (uncomment)
+% \begin{math}
+% $\[BTF=(\theta_{v},\phi_{v},\theta_{e},\phi_{e},u,v)\]$
+% \end{math}
 
 
 
 
 
 
-\subsection{BRDF}
+%\subsection{Image Based Rendering}
 
-Reflectance texture maps are compact model for representing 3d textures.They model the spatial
-variation in surface luminance as a function of viewing and illumination direction.
-The bidirectional reflectance function \cite{C3} characterizes the color of a surface as a function
-of incident light and view directions.
 
-The BRDF is the ratio of the reflected intensity in the exitant direction to the incident
-energy per unit area along the incident direction.
-\begin{center}
-\begin{figure*}[t]
-\centering
-\subfigure[]{
-\includegraphics[scale=.4]{image_eps/ptm/ptm.eps}
-\label{fig:subfig3} } \caption{PTM vs Conventional Texture Map: The upper portions of the images shows the visual appearance of
-a PTM while the bottom half shows the conventional Texture map. Note how the former appears realistic while
-the later suffers from unrealistic lighting and shadows.
-} \label{fig:subfigureExample}
-\end{figure*}
-\end{center}
+
+
+
+% Image-based methods yield photorealistic renderings that are based on
+% data from simple acquisition methods (photographs). 
+% 
+% Light-Dependent Texture Mapping and Beyond
+% As we've described, the conventional texture mapping representation of a single RGB triple per texel is 
+% insufficient to represent a surface where the appearance may change as a function of light direction, view 
+% direction, or some other parameter. Clearly a higher-dimensional representation is needed per texel to allow the
+% object to be rendered differently as the desired rendering parameters are changed. View-dependent texture
+% mapping [Debevec 96] extends texture mapping to allow the appearance of each texel to change as a function of
+% the viewer's position. The technique was intended for reproducing real objects with only approximate geometry
+% but multiple images. As originally presented, view-dependent texture mapping stores multiple images captured 
+% from different viewpoints and projects them onto the desired geometry. The multiple projected textures are
+% combined based on weights calculated from the source viewpoints and output viewpoint. This technique can
+% greatly increase the amount of texture storage that is required, possibly multiplying it by the number of source
+% images if a simple representation is used. More compact representations are possible, however the viewdependent 
+% reflectance per texel may be difficult to represent as it can be a very non-linear function. This is
+% because view-dependent effects can change rapidly due to occlusions and other interactions while illumination
+% effects tend to have less high-frequency transitions.
+% 
+% The Bidirectional Texture Function (BTF) [Dana 99] represents a four dimensional function across the texture.
+% The BTF is a function of view direction and incident light direction, and is represented as a database of images.
+% Finally, capturing a large number of different view
+% and light directions while maintaining accurate calibration and registration is difficult and time consuming.
+% By eliminating the two dimensions representing view direction from the BTF the resulting data represents a light
+% dependent texture map (also known as a reflectance map). This reduced dimensionality dataset is much smaller,
+% and very simple to acquire as a single fixed view direction is sufficient. Objects with view dependent effects, such as specular materials, are
+% difficult to capture even with view-dependent image-based rendering due to the high-frequency nature of mirror
+% like reflections.  The 
+% polynomial texture maps (PTM) is one light-dependent method with a compact and efficient polynomial function 
+% at every pixel which is evaluated based on the given incident light direction.
+
+
+
+
+
+
+%\subsection{BRDF}
+
+%Reflectance texture maps are compact model for representing 3d textures.They model the spatial
+%variation in surface luminance as a function of viewing and illumination direction.
+%The bidirectional reflectance function \cite{C3} characterizes the color of a surface as a function
+%of incident light and view directions.
+
+%The BRDF is the ratio of the reflected intensity in the exitant direction to the incident
+%energy per unit area along the incident direction.
+
 % The reflectance function of a scene point captures the appearance of that
 % point as a function of lighting direction. We present an approach to printing
 % the reflectance functions of an object or scene so that its appearance is
@@ -333,66 +372,8 @@ the later suffers from unrealistic lighting and shadows.
 % data that is input to our system, whether captured or simulated.
 
 
-\subsection{Polynomial Texture Maping}
+%\subsection{Polynomial Texture Maping}
 
-Polynomial Texture Maps is a pixel based technique used to model luminiance
-against changing lighting direction. 
-It is an image-based technique that requires
-no modeling of complex geometry. Only a set of images is required of the desired object to be used as a
-texture which are taken from different known lighting
-direction. 
-PTMs reconstruct the color of a surface/texture under varying lighting
-conditions. When a surface is rendered with a PTM, it takes on different illumination
-characteristics depending on the direction of the light source.
-
-
-PTM model uses a set of input images captured from a fixed camera, where each
-image is illuminated from a specific known lighting direction. It uses a
-biquadratic polynomial function with 6 coefficients per pixel for modeling the
-reflectance. These coefficients are estimated from the set of input images(30 to
-40), where the lighting direction is resolved into two components i.e
-$l_{u}$,$l_{v}$ by projecting it on the image plane. These two components are
-used as variables in the biquadratic function. Once the coefficients are
-estimated fitting the model to the observed values, they are used to render
-images from any given lighting direction.
-The function used in PTMs is:
-
-\begin{equation}
-L(l_u,l_v) = al_u^2 + bl_v^2 + cl_ul_v + dl_u + el_v +f
-\end{equation}
-
-change this:
-Polynomial Texture Mapping enables greatly improved realism
-over conventional methods. Traditional texture mapping is used to
-give the impression of geometric detail in a model using an image.
-For example, a photograph of a brick wall may be used as a
-texture map on a planar surface to avoid modeling the complex
-surface detail of the brick. However, if the lighting in the
-synthetic environment where the texture map is used is different
-from the lighting the texture map was captured under, the
-resulting rendering will appear incorrect and unrealistic. Worse
-yet, when the texture is blended with the calculated lighting of a
-geometric surface, the resulting rendering will look very flat and
-smooth to the viewer.
-
-
-But the PTM technique causes overall smoothening of light which dampens the effect
-of specularity and softens sharp shadows. The effect of point light source is
-reduced and the appearance is always similar to a diffused light source. Towards
-this end, Drew {\em et al.} \cite{chap2-9} proposed modeling of shadows and
-highlights in addition the the basic matt texture. The goal of this approach is
-specifically to interpolate between two given images, and not a 3D texture model
-of the surface.
-
-We improve upon the PTM model to overcome the above limitations
-and generate a complete 3D Texture model that can be evaluated at individual
-pixels. We propose an approach to image-based lighting interpolation that is
-based on estimates of geometry and shading from a set of input images. We
-decompose images captured at different lighting conditions into intrinsic image
-components; i.e, the {\em direct} and {\em global} image components. Each of
-these components is then further separated to obtain different physical
-phenomena such as shadows, specularity and luminance. A final image is obtained
-by combining the the individual models together.
 
 % To be written.
 % PTM Representation
@@ -528,26 +509,26 @@ the size of the available digital image content is increasing rapidly.
 The textual information present in images is very useful and needs to be extracted.
 Therefore there is a growing demand to analyze, process and retrieve information
 from multimedia content in an efficient way.
-Some of the natural scene text images are shown in Fig \ref{}.
+Some of the natural scene text images are shown in Fig \ref{fig:scene}.
 
 \begin{figure}[t]
 \centering
-\subfigure[]{
+\subfigure{
 \includegraphics[height=4.3in,width=5.5in]{chap4/res_7/scene_images.eps}
 }
 \caption
-{(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
-Text extracted}
+{Some natural scenes containing text}
+\label{fig:scene}
 \end{figure}
 
 \begin{figure}[t]
 \centering
-\subfigure[]{
+\subfigure{
 \includegraphics[height=4.3in,width=5.5in]{chap4/res_7/text_pipe.eps}
 }
 \caption
-{(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
-Text extracted}
+{An end-to-end text recognition model}
+\label{fig:textmodel}
 \end{figure}
 
 Recognizing text in scene images is a challenging task.
@@ -564,7 +545,7 @@ consists of three primary components:
 
 \begin{itemize}
  \item \textbf{Text detection:} Is there any text and where is it in the image? Locate it.
-\item \textbf{Text Segementation:} How to handle all the variations in background to extract 
+\item \textbf{Text Segmentation:} How to handle all the variations in background to extract 
 foreground text as properly as possible.
 \item \textbf{Text recognition:} What is the meaning of the word images?
 \end{itemize}
@@ -575,9 +556,9 @@ The next step i.e text segmentation
 job is to extract the text properly so that it is better recognized afterwards. 
 The extracted text goes to OCR for recognition.
 Finally we identify the actual word meanings and
-lines of the text. The recognized text is used in various applications. 
-An example of the end-to-end recognition task is presented
-in Fig \ref{}
+lines of the text. The recognized text is then used in various applications. 
+An example of the end-to-end text recognition model is presented
+in Fig \ref{fig:textmodel}
 
 
 \begin{figure}[t]
@@ -586,8 +567,8 @@ in Fig \ref{}
 \includegraphics[height=4in,width=6in]{chap2/text_detect/results1.eps}
 }
 \caption
-{(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
-Text extracted}
+{Text detected in Scene Images}
+\label{fig:detect}
 \end{figure}
 
 
@@ -598,8 +579,8 @@ Text extracted}
 \includegraphics[height=3.6in,width=3in]{chap2/text_recog/res2.eps}
 }
 \caption
-{(a) Image containing Text over another Text (b) Foreground Text (c) Background Text (d)
-Text extracted}
+{Text recognized in Scene Images}
+\label{fig:recog}
 \end{figure}
 
 
@@ -612,103 +593,107 @@ There are methods which focus on general text localization problem.
 It can be categorized into
 two groups - (a) methods based on a sliding window and (b) methods based
 on grouping of regions. 
-Methods in the first group \cite{chap2-1, chap2-2, chap2-3}[4, 18, 15]
+
+Methods in the first group \cite{chap2-1, chap2-2, chap2-3}
+%[4, 18, 15]
 use a texture-based approach for text detection. A window is moved over the whole image and the position of text is
 estimated on the basis of local image features. 
-These methods are also robust to noise.
+These methods are robust to noise.
 But the computational complexity of these methods
-is high because we need to search with many rectangles of different sizes and
+is high because we need to search the text in image with many rectangles of different sizes and
 aspect ratios. Also if the text is slanted or
 perspectively distorted, then the sliding window methods do not produce
 accurate text segmentation results.
-
-Chen et al \cite{chap2-1}[4] uses AdaBoost classifier having intensity variance features, histogram features,
+Chen {\em et al.} \cite{chap2-1}
+%[4]
+uses AdaBoost classifier having intensity variance features, histogram features,
 mean intensity features, derivative features and edge linking features. 
-Then they use a variant of Niblack's adaptive binarization algorithm for segmentation. 
+They use a variant of Niblack's adaptive binarization algorithm for segmentation. 
 The method is
 computationally expensive. It also
-requires manual segmentation of many subwindows for training purposes and it seems
+requires manual segmentation of many sub-windows for training purposes and it seems
 to over estimate the area of text in the image.
-The above method was improved by Pan et. al \cite{chap2-2}[34] by adding a combination 
-multi scale local binary battern and histogram of gradient
+The above method was improved by Pan {\em et al.} \cite{chap2-2}
+%[34]
+by adding a combination 
+multi scale local binary pattern and histogram of gradient
 features in the text detection stage. A Markov Random Field
 (MRF) is used to group segmented characters into words. The method claims better localization
 performance but it still suffers from high computational complexity.
-Recently, Lee et al. \cite{chap2-3} further improved the approach by adding
-more computationally expensive features which slightly improved text localization performance
-but it takes longer time for processing.
-Lienhart et al \cite{chap2-4} uses a complex-valued multilayer feed-forward network 
+Recently, Lee {\em et al.} \cite{chap2-3} further improved the approach by adding
+more computationally expensive features which slightly improved the text localization performance
+but it took longer time for processing.
+Lienhart {\em et al.} \cite{chap2-4} uses a complex-valued multilayer feed-forward network 
 which is trained to detect text at a fixed scale and position.
-Coates et al \cite{chap2-5} used unsupervised machine learning techniques
+Coates {\em et al.} \cite{chap2-5} used unsupervised machine learning techniques
 for character detection and recognition. A 32x32 pixel window is
 shifted over the entire image in multiple scales and each patch is classified using a
 linear SVM classifier as text or non-text. A variant of K-means method is used 
 to generate features during training which are then used by the classifier.
 However, the method does not provide end-to-end text recognition.
 
-Recently published methods are based on the second category i.e region grouping \cite{chap2-7, chap2-8, }.
-[35, 10, 26, 47, 45, 25]. 
+Recently published methods are based on the second category i.e region grouping 
+\cite{chap2-7, chap2-8, chap2-10, chap2-11, chap2-12}.
+%[35, 10, 26, 47, 45, 25]. 
 In these methods, certain local features are computed for each pixel in the image and
 then pixels with similar feature values are grouped together using connected
-component analysis to form characters. The methods can be scale-invariant and
-they inherently provide character segmentation, which can be then used in an
-OCR stage. The biggest drawback is a sensitivity to noisy and low-resolution
-images, because they require low variance of local features in sufficient num-
-ber of pixels.
-Ohya et al [32] \cite{chap2-6} was the first method which was based on character localization. 
-In their method, a local adaptive thresholding in grey-
-scale images is used to detect candidate regions and regions with sufficient
-contrast are selected as characters. Li et al. [16] apply thresholding in a
-quantized color space and they group individual characters into text blocks
-by simple alignment rules. Both methods assume that characters are upright
-without any rotation, that the contrast is high and that background is uni-
-form, which may be sufficient for signs or licence plates, but not for general
+component analysis to form characters. 
+But these methods are sensitive to noisy and low-resolution
+images.
+Ohya {\em et al.} \cite{chap2-6} was the first method which was based on character localization. 
+%[32]
+In this method, they apply a local adaptive thresholding on grayscale 
+images to detect candidate regions. The regions which have sufficient
+contrast are termed as characters. Li {\em et al.} [16] \cite{chap2-13} apply thresholding in a
+quantized color space. Then they group individual characters into text blocks
+by some simple alignment rules. Both of the above methods assume that the 
+background is uniform and characters are upright i.e
+without any rotation. But this is not the case for general
 text localization.
-Kim et al. [13] combine three independent detection channels (color con-
-tinuity, edge detection and color variance) to find candidate regions. Can-
-didate regions are grouped into blocks by size and position constraints and
-each block is then divided into overlapping 16x16 pixel subblocks, which are
-verified by a trained SVM classifier [7] using wavelet transform to generate
-features. If a ratio of subblocks marked as text is higher than a predefined
-threshold, the block is marked as text. The method is not scale-invariant be-
-cause of the constant size of subblocks used for classification and the precision
-is relatively bad because many small text-like patches are detected.
-Takahashi and Nakajima [41] use a graph scheme, where vertices rep-
-resent characters and edges represent a predecessor-successor relation in a
-block of text. Candidate regions are found using Canny edge detector in the
-CIELUV color space [5] and regions that pass a set of heuristic constraints
-are considered vertices of the graph. Edges are created between neighboring
-vertices and each edge is assigned a weight based on spatial distance, shape
-and area similarity. Finally, a minimum spanning tree (MST) algorithm is
-applied and edges with distance or angle over a predefined threshold are re-
-moved. The method cannot handle illumination variations in foreground or
-background and optimal edge weight estimation remains an open question.
-Pan et al. [35, 36] create a text confidence map (see Figure 2) on a grey-
-scale image pyramid using a calibrated Waldboost [40] classifier with His-
-togram Of Gradient (HOG) features. Candidate regions are detected inde-
-pendently on a grey-scale image using Niblack's binarization algorithm [31]
-and a Conditional Random Field (CRF) [14] is employed to label regions as
-text or non-text, considering the text condence as one of the unary features.
-Then, a simple gradient graph energy minimization approach is applied to
-form block of texts. The method is computationally expensive (because of
-the image pyramid and the CRF inference) and its claimed localization per-
-formance is questionable because a standard dataset was used [22], but with
-a proprietary evaluation metric.
-An image operator Stroke Width Transform (SWT) was introduced by
-Epshtein et al. [10]. The SWT method finds edges using Canny detector [3]
-and then estimates stroke width for each pixel in the image (see Figure 3).
-Connected component algorithm is then applied to form pixels with similar
-stroke width into character candidates, which are merged into text blocks
-using several heuristic rules. The biggest limitation of the method is its de-
-pendency on successful edge detection which is likely to fail on blurred or
-low-contrast images. The method was further improved by Yao et al. [45]
-where the heuristic rules for character candidate detection and text block
-formation are replaced by trained classifiers with rotationally-invariant fea-
-tures.
-
-
-
-
+Kim {\em et al.}\cite{chap2-14} combine three independent detection channels i.e edge detection, 
+color continuity and color variance
+%[13]
+to find regions of possible text. These
+regions are grouped into blocks by size and position. Each
+block is divided into overlapping 16x16 pixel sub-blocks, which are
+verified by a trained SVM classifier using wavelet transform to generate
+features. The block is marked as text if the ratio of sub-blocks marked as text is higher than a pre-defined
+threshold. The method is not scale-invariant as
+the size of sub-blocks is constant.
+%Takahashi and Nakajima [41] use a graph scheme, where vertices rep-
+%resent characters and edges represent a predecessor-successor relation in a
+%block of text. Candidate regions are found using Canny edge detector in the
+%CIELUV color space [5] and regions that pass a set of heuristic constraints
+%are considered vertices of the graph. Edges are created between neighboring
+%vertices and each edge is assigned a weight based on spatial distance, shape
+%and area similarity. Finally, a minimum spanning tree (MST) algorithm is
+%applied and edges with distance or angle over a predefined threshold are re-
+%moved. The method cannot handle illumination variations in foreground or
+%background and optimal edge weight estimation remains an open question.
+Pan {\em et al.} \cite{chap2-7} 
+%[35, 36]
+uses a Waldboost classifier with histogram of gradient
+as features. They create a text confidence map on a grayscale image pyramid.
+Possible text regions are detected independently on a grayscale image using 
+Niblack's binarization algorithm. A Conditional Random Field (CRF) is used
+to label regions as
+text or non-text.
+To form block of texts, a simple gradient graph energy minimization approach is applied. 
+Epshtein {\em et al.} \cite{chap2-11}
+%[10]
+introduced an image operator: Stroke Width Transform (SWT). The SWT 
+method uses Canny edge detector to find edges
+and estimates stroke width for each pixel in the image.
+A Connected component algorithm is then applied to form pixels with similar
+stroke width into character candidates. These are merged into text blocks
+using several heuristic rules. This method depends on the success of edge detection
+which normally fails on noisy, blurred and low-contrast images.
+Yao {\em et al.}\cite{chap2-8}
+%[45]
+further improved this method. They replaced the
+heuristic rules for character candidate detection and text block
+formation by  trained classifiers with rotationally invariant features.
+Fig \ref{fig:detect} shows text detected in scene images.
 %The methods differ in their
 %approach to individual character detection, which could be based on edge
 %detection, character energy calculation or extremal region detection. While
@@ -717,23 +702,34 @@ tures.
 %or graph optimization methods and only unary and pairwise constraints are
 %used.
 
+The methods listed above are focused only on text localization.
+They estimate the location of the text but do not provide the contents meaning.
+Mishra {\em et al.} \cite{chap2-12} proposed an effective method to recognize scene text. 
+Their model combines bottom-up cues from
+character detections and top-down cues from lexica.
+Neumann and Matas \cite{chap2-10} proposed an end-to-end method for scene text localization and recognition.
+They used hypotheses-verification
+framework for processing multiple text line. They use 
+synthetic fonts to train the algorithm thus eliminating the need for time consuming
+acquisition and labeling of real-world training data. They also use
+Maximally Stable Extremal Regions (MSER) which
+are robust to geometric and lighting conditions.
+A real time text localization and recognition was proposed by Neumann and Matas \cite{chap2-15}. 
+This is achieved by posing the character detection problem as an efficient sequential selection 
+from the set of Extremal Regions (ERs). This ER detector is robust to illumination, blur,
+color and texture variation and also handles low-contrast text.
+Neumann and Matas \cite{chap2-16} presented an unconstrained end-to-end text localization and recognition method.
+The method introduces a novel
+approach for character detection and recognition which
+combines the advantages of sliding-window and connected
+component methods. Fig \ref{fig:recog} shows text recognized in scene images.
 
-All the methods listed above are focused solely on text localization, i.e.
-they estimate position of the text, but do not provide its content. Our
-method (first presented in [26]) was the first one to show end-to-end text
-localization and recognition and only a few other methods that perform both
-text localization and recognition have been published since. The method of
-Wang et al. [42] nds individual characters as visual words using the sliding-
-window approach and then uses a lexicon to group characters into words.
-The method is able to cope with noisy data, but its generality is limited as
-a lexicon of words (which contains at most 500 words in their experiments)
-has to be supplied for each individual image.
-
-2.1.1 Methods based on connected components analysis
-
-
-
-
+% The method of
+% Wang et al. [42] nds individual characters as visual words using the sliding-
+% window approach and then uses a lexicon to group characters into words.
+% The method is able to cope with noisy data, but its generality is limited as
+% a lexicon of words (which contains at most 500 words in their experiments)
+% has to be supplied for each individual image.
 
 % Detecting and reading text in scene images (also known
 % as scene text localization and recognition or photo OCR)
@@ -832,13 +828,133 @@ has to be supplied for each individual image.
 % competition results [8, 7, 14].
 % 
 \subsection{Text Segmentation}
-% 
+
+
+\begin{figure*}[t]
+\centering
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res1/orig.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res1/kit.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res1/nib.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res1/otsu.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res1/sau.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res2/orig.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res2/kit.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res2/nib.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res2/otsu.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res2/sau.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res3/orig.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res3/kit.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res3/nib.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res3/otsu.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res3/sau.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res4/orig.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res4/kit.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res4/nib.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res4/otsu.eps}
+}
+\subfigure{
+\includegraphics[height=.5in,width=1.1in]{chap4/threshold/res4/sau.eps}
+}
+\caption
+{A comparison of scene text segmentation results.
+From left to right (a) Text Image (b) kittler (c) Niblack (d) Otsu (e) Sauvola}
+\label{fig:good}
+\end{figure*}
+The aim of text segmentation is to 
+split an image into regions of foreground text and background.
+If the text is extracted properly it can be better recognized afterwards.
+OCR is able to recognize text if the input image is well formated and binarized.
+Therefore we want to extract clean binary text images from complex backgrounds.
+
+Thresholding is the basic method used for segmentation.
+\cite{chap2-23} does a survey of thresholding based methods. Fig \ref{fig:good}
+shows thresholding based binarization results. 
+Recently, several methods for natural scene text binarization have been proposed.
+Wakahara {\em et al.} \cite{chap2-24} proposes a technique which is composed of three parts:
+They first generate tentative binarized images 
+via dichotomization of k clusters obtained by k-means clustering in the HSI color space.
+Then with the help of support vector machine (SVM), they determine
+determine the degree of ``character-likeness'' of
+each tentatively binarized image. Finally the binarized image having maximal degree
+of ``character-likeness'' is selected as optimal binarization result.
+To segment text information from camera-based images Thillou {\em et al.}
+\cite{chap2-25} develops an automatic color thresholding method 
+based on wavelet denoising and color clustering with K-means. 
+Zhou {\em et al.} \cite{chap2-26} proposed a new text segmentation method based
+on inverse rendering (decomposition of an input image into basic
+rendering elements). The method uses iterative optimization to
+solve the rendering parameters like material properties (for example diffuse/specular reflectance)
+, blur kernel size and light source.
+Field {\em et al.} \cite{chap2-27} describes
+a novel technique for text segmentation that models smooth
+color changes across image. They use bilateral regression technique for segmentation of
+text from complex background.
+Milyaev {\em et al.} \cite{chap4-4} proposed a new binarization method that works well for text in
+natural scene images. The method embeds local binarization into
+a global optimization framework. No information about the position and size of the text in an
+image is required. It can also be used for text localization and for
+recognition of the cropped text.
+Mishra {\em et al}~\cite{A16} has formulated the problem of binarization of text as an MRF optimization problem. 
+The method shows superior performance over traditional binarization methods on many images and we use it as the
+basis for our comparisons.
+
+\section{Summary}
+Polynomial Texture Mapping enables greatly improved realism
+over conventional methods. Traditional texture mapping is used to
+give the impression of geometric detail in a model using an image.
+For example, a photograph of a brick wall may be used as a
+texture map on a planar surface to avoid modeling the complex
+surface detail of the brick. However, if the lighting in the
+synthetic environment where the texture map is used is different
+from the lighting the texture map was captured under, the
+resulting rendering will appear incorrect and unrealistic. Worse
+yet, when the texture is blended with the calculated lighting of a
+geometric surface, the resulting rendering will look very flat and
+smooth to the viewer.
+% However, their method is sensitive to the initial auto seeding process.
 % When the background is uneven as a result of poor or non-uniform lighting conditions, the image will not be 
 % segmented correctly by a fixed gray-level threshold. These complex background vary dramatically depending on
 % lighting, specularities, reflections and shadows.
 %  The above methods applied directly to such images
 % give poor results and cannot be used in OCR (Optical Character Recognition) systems. 
-% 
+
 % About OCR:
 % Nowadays 
 % OCR is considered a solved problem when a clean binarized and well formatted input image, with text in
@@ -850,8 +966,7 @@ has to be supplied for each individual image.
 % colour-image document analysis, complex layouts and text segmentation in born-digital images are 
 % examples of harder problems still unsolved and really hot topics for the Document Image Analysis community
 % 
-% Several methods for text binarization in natural images have
-% been proposed more recently. For instance, Zhu et al. [7] suggested using the ordered 
+
 % statistics ﬁlter for estimating thresholds in the non-linear Nilblack decomposition. Howe [12]
 % proposed to use the Laplacian of the image intensity for
 % scanned document binarization within a Markov Random Field
@@ -868,6 +983,4 @@ has to be supplied for each individual image.
 % a multiresolutional way since natural scene images have large
 % character size variations and strong background clutter.
 % 
-% Mishra {\em et al}~\cite{A16} has recently formulated the problem of binarization as an MRF optimization problem. 
-% The method shows superior performance over traditional binarization methods on many images, and we use it as the
-% basis for our comparisons. However, their method is sensitive to the initial auto seeding process.
+
